@@ -20,6 +20,7 @@ public class Register {
      * Create a new ArrayList that stores all of our added newspapers in a list
      */
     public Register () {
+        addNewspapersToList();
         this.newspaperList = new ArrayList<Newspaper>();
     }
 
@@ -57,6 +58,17 @@ public class Register {
             }
         }
         return newspaperTitle;
+    }
+
+    private void addNewspapersToList() {
+        Newspaper VG = new Newspaper("VG", "Emil Nilsen", "21.03.18", 40, "kr");
+        Newspaper VG2 = new Newspaper("VG", "Emil Nilsen", "12.04.18", 40, "kr");
+        Newspaper Aftenposten = new Newspaper("Aftenposten", "Rune Berg", "18.03.17", 60, "kr");
+        Newspaper NRK = new Newspaper("NRK", "Trygve Woldseth", "04.04.98", 100, "kr");
+        addNewspaper(VG);
+        addNewspaper(VG2);
+        addNewspaper(Aftenposten);
+        addNewspaper(NRK);
     }
 
 }

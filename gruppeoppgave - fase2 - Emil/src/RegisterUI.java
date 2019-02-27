@@ -4,7 +4,4 @@ public class RegisterUI {
 
     }
 
-    public void test() {
-        System.out.println("this is a test");
-    }
 }
