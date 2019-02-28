@@ -14,8 +14,8 @@ public class BookStokRegister {
     private ArrayList<Book> booksInStok;
     private DataSaver saver;
 
-    BookStokRegister(ArrayList<Book> booksInStok) {
-        this.saver = new DataSaver("inventory.json");
+    BookStokRegister(String savepath) {
+        this.saver = new DataSaver(savepath);
 
         //this.booksInStok = new ArrayList<Book>();
         this.booksInStok = this.loadStock();
@@ -51,15 +51,18 @@ public class BookStokRegister {
      * @param fullTitleKey the title to the book to remove
      */
     public void removeBooksByTitle(String fullTitleKey){
-        ArrayList<Integer> indexToRemove = new ArrayList<Integer>();
+        ArrayList<Integer> indexToRemove = new ArrayList<>();
         booksInStok.forEach(b -> {
-            if (b.getFullTitle().equals(fullTitleKey)){
+
+            if (b.getFullTitle().contains(fullTitleKey)){
                 indexToRemove.add(booksInStok.indexOf(b));
-            };
+            }
         });
         // reverse the list to avoid wrong indexing
         Collections.reverse(indexToRemove);
-        indexToRemove.forEach(i -> booksInStok.remove(i));
+
+        indexToRemove.forEach(i -> this.booksInStok.remove(booksInStok.get(i)));
+
 
         this.saveStock(this.booksInStok);
     }
@@ -105,8 +108,7 @@ public class BookStokRegister {
      * @return a iterator for all books
      */
     public Iterator<Book> getBookIterator(){
-        Iterator stokIterator = this.booksInStok.iterator();
-        return stokIterator;
+        return this.booksInStok.iterator();
     }
 
 }

@@ -1,4 +1,4 @@
-package com.company;
+package no.ntnu.trygvew;
 
 import no.ntnu.trygvew.ApplicationUI;
 

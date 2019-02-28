@@ -9,18 +9,19 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
 /**
  * A data saver to save and load Arraylists to Json
  */
 public class DataSaver {
-    private String filePath;
+    private File saveFile;
 
     DataSaver(String filePath){
-        this.filePath = "inventory.json";
+        this.saveFile = new File(filePath);
     }
 
     /**
-     * Saves a arraylist of books to a json file
+     * Saves a arraylist of books to a json file, cheks if file exsists if not creates one
      * @param saveList the arraylist to save
      */
     public void saveToJson(ArrayList<Book> saveList){
@@ -44,10 +45,13 @@ public class DataSaver {
 
 
         String saveStr = jsonSaveArr.toString(3);
-        //System.out.print(saveStr);
+
 
         try {
-            FileWriter filewriter = new FileWriter(this.filePath);
+            if (!this.saveFile.exists()){
+                this.saveFile.createNewFile();
+            }
+            FileWriter filewriter = new FileWriter(this.saveFile);
             BufferedWriter writer = new BufferedWriter(filewriter);
             writer.write(saveStr);
             writer.close();
@@ -60,20 +64,16 @@ public class DataSaver {
      */
     public ArrayList<Book> loadJson(){
 
-        Stream<String> lines = null;
-        String JsonObjStr = null;
+        Stream<String> lines;
+        String JsonObjStr;
 
         ArrayList<Book> returnArray = new ArrayList<>();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(this.filePath));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(this.saveFile));
             lines = bufferedReader.lines();
             JsonObjStr = lines.collect(Collectors.joining());
             bufferedReader.close();
-        }
-        catch (FileNotFoundException e) {System.out.println("error fnf -" + e);}
-        catch (IOException e) {System.out.println("error IO -" + e);}
 
-        try {
             JSONArray jsonArr = new JSONArray(JsonObjStr);
 
             for (int n = 0; n < jsonArr.length(); n++) {
@@ -91,9 +91,12 @@ public class DataSaver {
 
                 Book newBook = new Book(title, publisher, edition,  author, publicationDate, stok, price);
                 returnArray.add(newBook);
-            };
-        } catch (JSONException e) {
-            System.out.print("Json Problem" + e);
+            }
+        }
+        catch (FileNotFoundException e) {/*System.out.println("error fnf -" + e);*/}
+        catch (IOException e) {/*System.out.println("error IO -" + e);*/}
+        catch (JSONException e) {
+            //System.out.print("Json Problem" + e);
         }
         return returnArray;
     }

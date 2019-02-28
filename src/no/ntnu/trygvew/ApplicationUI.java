@@ -124,7 +124,7 @@ public class ApplicationUI
      */
     private void init()
     {
-        this.booRegister = new BookStokRegister(new ArrayList<Book>());
+        this.booRegister = new BookStokRegister("Data/inventory.json");
     }
 
     /**
