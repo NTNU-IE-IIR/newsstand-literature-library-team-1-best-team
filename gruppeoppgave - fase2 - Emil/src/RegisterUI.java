@@ -28,7 +28,7 @@ public class RegisterUI {
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for using our register. Have a good day!");
+        System.out.println("Thank you for using our store. Have a good day!");
     }
 
     private void printWelcome() {
@@ -49,7 +49,26 @@ public class RegisterUI {
         if (commandWord.equals("help")) {
             printHelp();
         }
+        else if (commandWord.equals("exit")) {
+            wantToExit = exit(command);
+        }
+        else if (commandWord.equals("newspapers")) {
+            printNewspaperList();
+        }
+        else if (commandWord.equals("search")) {
+            printNewspaperByTitle(command);
+        }
         return wantToExit;
+    }
+
+    private boolean exit(Command command) {
+        if (command.hasSecondWord()) {
+            System.out.println("Exit what?");
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     private void printHelp() {
@@ -67,8 +86,24 @@ public class RegisterUI {
 
     }
 
+    public void printNewspaperByTitle(Command command) {
+        if (!command.hasSecondWord()) {
+            //if there is no second word, we dont know what to search for
+            System.out.println("After 'search' type in the newspaper you want to search for");
+        }
+
+
+        String searchWord = command.getSecondWord();
+        if (newspaperRegister.findNewspaperByTitle(searchWord) == null) {
+            System.out.println("The newspaper you searched for is not in our store...");
+        }
+        else {
+            System.out.println(newspaperRegister.findNewspaperByTitle(searchWord));
+        }
+    }
+
     /**
-     * Where we run our program from
+     * Where we run our store from
      */
     public static void main(String[] args) {
         RegisterUI registerUI = new RegisterUI();
