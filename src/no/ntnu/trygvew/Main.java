@@ -6,7 +6,7 @@ import no.ntnu.trygvew.ApplicationUI;
  * The Main-class of the application. This class only holds the main()-method
  * to start the application.
  *
- * @author Trygve Woldseths
+ * @author Trygve Woldseth
  * @version 1.0
  */
 public class Main

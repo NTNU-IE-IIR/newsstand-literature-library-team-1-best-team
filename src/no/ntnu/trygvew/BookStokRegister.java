@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-
 /**
  * A stock register to keep trak of different Books in the register
  * the class provides method for adding, removing and sertching trogh the elements element from the registra.
- * TODO add sorting methods
+ *
+ * @author Trygve Woldseth
+ * @version 1.0
  */
+
+
 public class BookStokRegister {
     private ArrayList<Book> booksInStok;
     private DataSaver saver;
@@ -86,21 +89,6 @@ public class BookStokRegister {
 
         this.saveStock(this.booksInStok);
 
-    }
-
-    /**
-     * Returns the book objects in inventory whos titles contain the filter
-     * @param filter the filter to chose the values from
-     * @return a arraylist with the filtered result
-     */
-    public ArrayList<Book> getBooksFilteredByTitle(String filter) {
-        ArrayList<Book> filteredStok = new ArrayList<>();
-        this.booksInStok.forEach(b -> {
-            if (b.getFullTitle().contains(filter)) {
-                filteredStok.add(b);
-            }
-        });
-        return filteredStok;
     }
 
     /**

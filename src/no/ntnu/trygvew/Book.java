@@ -1,13 +1,14 @@
 package no.ntnu.trygvew;
 
-
 /**
  * Represens a book whom contains information about a book category for a register
  * The Object contains information like title snd publisher and contains sales informatin
  * like number in stock and unit price
  *
- *
+ * @author Trygve Woldseth
+ * @version 1.0
  */
+
 public class Book {
     private String title;
     private String publisher;
@@ -124,6 +125,15 @@ public class Book {
      */
     public boolean isInSeries(){
         return isInSeries;
+    }
+
+    /**
+     * A string that contains all the class parameters, used to validate objects
+     * @return sting containing all the class parameters
+     */
+    @Override
+    public String toString(){
+        return this.getClass().getName() + this.title + this.publisher + this.numberInStok + this.price + this.autor + this.edition + this.publicationDate + this.isInSeries;
     }
 
 

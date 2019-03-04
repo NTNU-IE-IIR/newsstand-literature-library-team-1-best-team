@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
 /**
  * A data saver to save and load Arraylists to Json
+ *
+ * @author Trygve Woldseth
+ * @version 1.0
  */
+
 public class DataSaver {
     private File saveFile;
 
@@ -51,6 +54,7 @@ public class DataSaver {
             if (!this.saveFile.exists()){
                 this.saveFile.createNewFile();
             }
+
             FileWriter filewriter = new FileWriter(this.saveFile);
             BufferedWriter writer = new BufferedWriter(filewriter);
             writer.write(saveStr);
@@ -93,11 +97,12 @@ public class DataSaver {
                 returnArray.add(newBook);
             }
         }
-        catch (FileNotFoundException e) {/*System.out.println("error fnf -" + e);*/}
+        catch (JSONException e) {System.out.print("Json Problem" + e);}
+        // suppress exception because the file wil be crated on save
         catch (IOException e) {/*System.out.println("error IO -" + e);*/}
-        catch (JSONException e) {
-            //System.out.print("Json Problem" + e);
-        }
+
+
+
         return returnArray;
     }
 }

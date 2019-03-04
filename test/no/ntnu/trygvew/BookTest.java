@@ -6,6 +6,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ *
+ *
+ * @author Trygve Woldseth
+ * @version 1.0
+ */
+
 public class BookTest {
 
     private Book b;

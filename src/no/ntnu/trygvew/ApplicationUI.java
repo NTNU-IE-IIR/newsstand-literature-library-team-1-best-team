@@ -9,7 +9,7 @@ import java.util.*;
  * Responsible for all user interaction, like displaying the menu
  * and receiving input from the user.
  * 
- * @author asty
+ * @author Trygve Woldseth
  * @version 1.0
  *
  *
@@ -17,6 +17,8 @@ import java.util.*;
  * Todo: mere presis switchcase
  *
  */
+
+
 public class ApplicationUI
 {
     BookStokRegister booRegister;

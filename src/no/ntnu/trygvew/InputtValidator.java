@@ -6,7 +6,11 @@ import java.text.ParseException;
 
 /**
  * Class to validate inputt strings
+ *
+ * @author Trygve Woldseth
+ * @version 1.0
  */
+
 public class InputtValidator {
 
 

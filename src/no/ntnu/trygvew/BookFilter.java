@@ -4,10 +4,14 @@ package no.ntnu.trygvew;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
 /**
  * A filter to filter Books in an ArrayList
+ *
+ * @author Trygve Woldseth
+ * @version 1.0
  */
+
+
 public class BookFilter {
 
     /**
