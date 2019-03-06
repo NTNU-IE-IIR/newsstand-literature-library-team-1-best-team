@@ -1,7 +1,5 @@
 package no.ntnu.trygvew;
 
-import no.ntnu.trygvew.ApplicationUI;
-
 /**
  * The Main-class of the application. This class only holds the main()-method
  * to start the application.

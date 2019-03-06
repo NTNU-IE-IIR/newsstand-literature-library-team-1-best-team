@@ -1,5 +1,10 @@
 package no.ntnu.trygvew;
 
+import no.ntnu.trygvew.messingAround.User;
+import no.ntnu.trygvew.messingAround.UserLoggin;
+import no.ntnu.trygvew.messingAround.encryption.Util;
+
+import java.io.Console;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -21,7 +26,8 @@ import java.util.*;
 
 public class ApplicationUI
 {
-    BookStokRegister booRegister;
+    private BookStokRegister booRegister;
+    private UserLoggin userLoggin;
 
 
     // The menu tha will be displayed. Please edit/alter the menu
@@ -127,7 +133,31 @@ public class ApplicationUI
     private void init()
     {
         this.booRegister = new BookStokRegister("Data/inventory.json");
+        this.userLoggin = new UserLoggin();
     }
+    /*
+    private boolean tryLoggInn(){
+        boolean isValidLoggin = false;
+        int tries = 0;
+        try {
+            Console console = System.console();
+            if (console != null) {
+                String userName = console.readLine("User name: ");
+
+                while (!isValidLoggin || tries >)
+                    // read password into the char array
+                    char[] password = console.readPassword("Password: ");
+
+                isValidLoggin
+                // prints
+                System.out.println("Password is: "+ new String(pwd));
+                System.out.println("Password hash is: "+ Util.getHash(new String(pwd), "aaaaakkkkkeeeee"));
+            }
+            //char[] a = console.readPassword("test: ");
+            //System.out.println("\n" + a.toString() + "\n");
+        } catch (Exception e){e.printStackTrace();}
+    }
+    */
 
     /**
      * Displays the items
