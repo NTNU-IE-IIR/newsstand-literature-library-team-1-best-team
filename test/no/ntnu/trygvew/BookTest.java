@@ -24,7 +24,6 @@ public class BookTest {
 
     @Test
     public void getTitle() {
-
         assertEquals("tit", b.getTitle());
     }
 

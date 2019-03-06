@@ -34,5 +34,23 @@
       "Publisher": "hasefs",
       "Edition": 23,
       "Stock": 3
+   },
+   {
+      "PublicationDate": "11111111",
+      "Price": 3,
+      "Title": "abc",
+      "Author": "dfkjhsadflkj",
+      "Publisher": "33aaef",
+      "Edition": 2,
+      "Stock": 334
+   },
+   {
+      "PublicationDate": "11111111",
+      "Price": 33,
+      "Title": "saefawe",
+      "Author": "avr",
+      "Publisher": "asds",
+      "Edition": 33,
+      "Stock": 22
    }
 ]

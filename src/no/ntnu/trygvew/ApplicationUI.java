@@ -5,6 +5,7 @@ import no.ntnu.trygvew.messingAround.UserLoggin;
 import no.ntnu.trygvew.messingAround.encryption.Util;
 
 import java.io.Console;
+import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -28,16 +29,29 @@ public class ApplicationUI
 {
     private BookStokRegister booRegister;
     private UserLoggin userLoggin;
+    private User currentUser = null;
 
 
     // The menu tha will be displayed. Please edit/alter the menu
     // to fit your application (i.e. replace "prodct" with "litterature"
     // etc.
-    private String[] menuItems = {
-        "1. List all products",
-        "2. Add new product",
-        "3. Find a product by name",
+    private String[] baseMenuItems = {
+            "List all products",
+            "Add new product",
+            "Find a product by name",
     };
+
+    private String[] notLoggedInnMenuItems = {
+            "Log inn",
+            "Sign up",
+    };
+
+    private String[] loggedInnMenuItems = {
+            "Purhchase item",
+            "logg out",
+    };
+
+
 
     /**
      * Creates an instance of the ApplicationUI User interface.
@@ -61,22 +75,39 @@ public class ApplicationUI
         {
             try 
             {
-                int menuSelection = this.showMenu();
-                switch (menuSelection) 
+                // rely not a good way of doing thid
+                String menuSelection = this.showMenu();
+                switch (menuSelection)
                 {
-                    case 1:
+                    case "List all products":
                         this.listAllProducts();
                         break;
 
-                    case 2:
+                    case "Add new product":
                         this.addNewProduct();
                         break;
 
-                    case 3:
+                    case "Find a product by name":
                         this.findProductByName();
                         break;
 
-                    case 4:
+                    case "Log inn":
+                        this.tryUserLogin();
+                        break;
+
+                    case "Sign up":
+                        this.addNewUser();
+                        break;
+
+                    case "Purhchase item":
+                        System.out.println("not implemented");
+                        break;
+
+                    case "logg out":
+                        System.out.println("not implemented");
+                        break;
+
+                    case "Exit":
                         System.out.println("\nThank you for using Application v0.1. Bye!\n");
                         quit = true;
                         break;
@@ -86,7 +117,7 @@ public class ApplicationUI
             } 
             catch (InputMismatchException ime) 
             {
-                System.out.println("\nERROR: Please provide a number between 1 and " + this.menuItems.length + "..\n");
+                System.out.println("\nERROR: not a valid number ..\n");
             }
         }        
         
@@ -101,18 +132,39 @@ public class ApplicationUI
      * @return the menu number (between 1 and max menu item number) provided by the user.
      * @throws InputMismatchException if user enters an invalid number/menu choice
      */
-    private int showMenu() throws InputMismatchException 
+    private String showMenu() throws InputMismatchException
     {
         System.out.println("\n\n\n\n**** Application v0.1 ****\n");
-        // Display the menu
-        for ( String menuItem : menuItems )
-        {
-            System.out.println(menuItem);
+        boolean isUserLoggedInn = !(currentUser == null);
+        if (!isUserLoggedInn){
+            System.out.println("STATUS: " + "\u001B[31m"+ "Not Logged Inn" +"\u001B[0m");
+        } else{
+            System.out.println("STATUS: " + "\u001B[32m"+ "Logged Inn" +"\u001B[0m");
         }
-        int maxMenuItemNumber = menuItems.length + 1;
+
+        ArrayList<String> menuItems = new ArrayList<>();
+        // adds the base menu items
+        menuItems.addAll(Arrays.asList(this.baseMenuItems));
+
+        if (!isUserLoggedInn){
+            menuItems.addAll(Arrays.asList(this.notLoggedInnMenuItems));
+        } else {
+            menuItems.addAll(Arrays.asList(this.loggedInnMenuItems));
+        }
+
+        menuItems.add("Exit");
+
+        // Display the menu
+        for ( String item : menuItems )
+        {
+            System.out.println((menuItems.indexOf(item) + 1) + ". " + item);
+        }
+
+        int maxMenuItemNumber = menuItems.size();
         // Add the "Exit"-choice to the menu
-        System.out.println(maxMenuItemNumber + ". Exit\n");
         System.out.println("Please choose menu item (1-" + maxMenuItemNumber + "): ");
+
+
         // Read input from user
         Scanner reader = new Scanner(System.in);
         int menuSelection = reader.nextInt();
@@ -120,7 +172,7 @@ public class ApplicationUI
         {
             throw new InputMismatchException();
         }
-        return menuSelection;
+        return menuItems.get(menuSelection - 1);
     }
     
     // ------ The methods below this line are "helper"-methods, used from the menu ----
@@ -135,29 +187,153 @@ public class ApplicationUI
         this.booRegister = new BookStokRegister("Data/inventory.json");
         this.userLoggin = new UserLoggin();
     }
-    /*
-    private boolean tryLoggInn(){
-        boolean isValidLoggin = false;
+
+
+    /**
+     * Allows the user to try to logg inn with username and password and returns the user if valid loggin
+     * @return a User object if sucsessful loggin, none if invallid login
+     */
+    private void tryUserLogin(){
+        boolean isValidLogin = false;
+
+        String inpUserName = null;
+        String inpPassword = null;
+
         int tries = 0;
         try {
             Console console = System.console();
             if (console != null) {
-                String userName = console.readLine("User name: ");
+                // TODO: decide if the user shold get a cople of tries befor beeing booted back to the menu
+                /*
+                while (!isValidLogin || tries > 3){
+                    inpPassword = new String(console.readPassword("Password: "));
 
-                while (!isValidLoggin || tries >)
-                    // read password into the char array
-                    char[] password = console.readPassword("Password: ");
+                    if (this.userLoggin.isValidLoggin(userName, inpPassword)){
+                        isValidLogin = true;
+                    } else {
+                        System.out.println("Wrong username or password try again");
+                    }
 
-                isValidLoggin
-                // prints
-                System.out.println("Password is: "+ new String(pwd));
-                System.out.println("Password hash is: "+ Util.getHash(new String(pwd), "aaaaakkkkkeeeee"));
+                    if (tries > 2){
+                        System.out.println("inva");
+                    }
+                }
+                */
+                inpUserName = console.readLine("User name: ");
+                inpPassword = new String(console.readPassword("Password: "));
+                if (this.userLoggin.isValidLoggin(inpUserName, inpPassword)){
+                    isValidLogin = true;
+                    System.out.println("Welcom " + inpUserName);
+                } else {
+                    System.out.println("Wrong username or password");
+                }
+
             }
-            //char[] a = console.readPassword("test: ");
-            //System.out.println("\n" + a.toString() + "\n");
         } catch (Exception e){e.printStackTrace();}
+
+        if (isValidLogin){
+            this.currentUser = this.userLoggin.loadUser(inpUserName, inpPassword);
+        }
     }
-    */
+
+    private void addNewUser(){
+        Console console = System.console();
+        Scanner sc = new Scanner(System.in);
+
+        boolean validInput;
+        String firstName = null;
+        String lastName = null;
+
+        String userName = null;
+        String userPassword = null;
+
+        float userFunds = 0;
+        System.out.println("#######  NEW USER  #######");
+
+
+
+
+        validInput = false;
+        while (!validInput){
+            System.out.print("input first name: ");
+            String inpFn = sc.nextLine();
+            if(inpFn.length() > 0) {
+                validInput = true;
+                firstName = inpFn;
+            } else {
+                System.out.println("No inputt provided");
+            }
+        }
+
+        validInput = false;
+        while (!validInput){
+            System.out.print("input last name: ");
+            String inpLn = sc.nextLine();
+            if(inpLn.length() > 0) {
+                validInput = true;
+                lastName = inpLn;
+            } else {
+                System.out.println("No inputt provided");
+            }
+        }
+
+        validInput = false;
+        while (!validInput){
+            System.out.print("input username: ");
+            String inpUn = sc.nextLine();
+            if(inpUn.length() > 0) {
+                if (this.userLoggin.isValidUsername(inpUn)){
+                    validInput = true;
+                    userName = inpUn;
+                } else {
+                    System.out.println("Username alredy in use");
+                }
+
+            } else {
+                System.out.println("No inputt provided");
+            }
+        }
+
+        validInput = false;
+        while (!validInput){
+            System.out.print("input user funds: ");
+            String inpUf = sc.nextLine();
+            try {
+                userFunds = Float.parseFloat(inpUf);
+                validInput = true;
+            } catch (NumberFormatException e) {
+                System.out.println("input is not a number (float)");
+            }
+        }
+
+
+        validInput = false;
+        while (!validInput){
+            try {
+                if (console != null) {
+                    String pw1 = new String(console.readPassword("Password: "));
+                    String pw2 = new String(console.readPassword("repeat Password: "));
+
+                    if (pw1.equals(pw2)) {
+                        System.out.println(pw1.getBytes());
+                        System.out.println(pw1);
+                        System.out.println(Base64.getEncoder().withoutPadding().encodeToString(pw1.getBytes()).getBytes());
+                        System.out.println(Base64.getEncoder().withoutPadding().encodeToString(pw1.getBytes()));
+                        userPassword = pw1;
+                        validInput = true;
+                    } else{
+                        System.out.println("passwords do not match");
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        this.currentUser = this.userLoggin.createUser(userName,userPassword, firstName, lastName, userFunds);
+    }
+
+
 
     /**
      * Displays the items

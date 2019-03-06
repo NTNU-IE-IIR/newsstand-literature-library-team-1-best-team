@@ -9,7 +9,7 @@ import java.util.Iterator;
 import static org.junit.Assert.*;
 
 /**
- *
+ * mere spesifisert trening
  *
  * @author Trygve Woldseth
  * @version 1.0
@@ -54,7 +54,7 @@ public class BookFilterTest {
     }
 
     @Test
-    public void filterBookByPublisher() {
+    public void filterBookyBPublisher() {
         Iterator<Book> itr = testList.iterator();
         String filter = "hhh";
 

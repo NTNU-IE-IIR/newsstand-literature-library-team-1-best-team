@@ -11,9 +11,12 @@ import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.jar.JarEntry;
 
 /**
  * TODO: lag fungsjona for og endre brukernavn passord osv
@@ -85,14 +88,39 @@ public class UserLoggin {
      * reloads the saved data in to memory and
      * decypts and makes the user class for the user with the given Username-password combo
      * @param username
-     * @param pasword
+     * @param password
      * @return
      */
-    public User loadUser(String username, String pasword){
-        String encryptionKey = Util.getHash(pasword, "", 1, 128);
+    public User loadUser(String username, String password){
+        String userId = this.userNames.get(username);
+        String encryptionKeyKey = Util.getHash(password, ".", 1, 128);
+
+        String[] keyStr = this.encryptionKeys.get(userId).split(":");
+        String encNonce = keyStr[0];
+        String encryptedEncKey = keyStr[1];
+
+        String encKey = AES.decrypt(encryptionKeyKey, encNonce, encryptedEncKey);
+
+        String[] userDataStr = this.userData.get(userId).split(":");
+        String dataNonce = keyStr[0];
+        String encryptedData = keyStr[1];
+
+        String userData = AES.decrypt(encKey, dataNonce, encryptedData);
 
 
-        return null;
+
+        JSONObject userDataobj = new JSONObject(userData);
+
+        String firstName = userDataobj.getString("firstName");
+        String lastName = userDataobj.getString("lastName");
+        float userFunds = userDataobj.getFloat("userFunds");
+        String[] orderIdStringAr = userDataobj.getString("orders").split(":");
+        ArrayList<String> userOrders = new ArrayList<>(Arrays.asList(orderIdStringAr));
+
+
+        User newUser = new User(userId, username, firstName, lastName, userFunds, userOrders, encKey);
+
+        return newUser;
     }
 
     /**
@@ -102,14 +130,30 @@ public class UserLoggin {
     public void saveUser(User user){
         JSONObject saveObj = new JSONObject();
 
+        String userName = user.getUsername();
+        String userId = this.userNames.get(userName);
+        String encryptionKey = user.getEncryptionKey();
 
+        saveObj.put("firstName", user.getFirstName());
+        saveObj.put("lastName", user.getLastName());
+        saveObj.put("userFunds", user.getUserFunds());
 
+        ArrayList<String> userOrders = user.getOrders();
+        String orderSaveStr = "";
+        for (String o: userOrders){
+            orderSaveStr += (o + ":");
+        }
+        // removes the last ;
+        orderSaveStr = orderSaveStr.substring(0, -1);
+        saveObj.put("orderIDs", orderSaveStr);
 
-        this.userData = this.loadStringHashmap(this.userDataFP);
+        String nonce = Util.getNonce(16);
+        String saveStr = AES.encrypt(encryptionKey, nonce, saveObj.toString());
 
-
-
+        this.userData.put(userId, nonce + ":" + saveStr);
+        this.saveStringHashMap(this.userDataFP,this.userData);
     }
+
 
     public boolean isValidLoggin(String username, String pasword){
         Boolean isValid = false;
@@ -142,12 +186,12 @@ public class UserLoggin {
 
     public User createUser(String userName, String password, String firstName, String lastName, float userFunds){
         // defines a uniqe identefier
-        String id = Util.getNonce(128);
+        String id = Util.getNonce(16);
 
         // encrypts the encryprion key using a single pas hash of the password
-        String encKey = Util.getNonce(128);
-        String encKeyNonce = Util.getNonce(128);
-        String encryptedKey = AES.encrypt(Util.getHash(password, "", 1, 128),encKeyNonce, encKey);
+        String encKey = Util.getNonce(16);
+        String encKeyNonce = Util.getNonce(16);
+        String encryptedKey = AES.encrypt(Util.getHash(password, ".", 1, 128),encKeyNonce, encKey);
 
         String salt = Util.getNonce(256);
         String passwordHash = Util.getHash(password, salt, 500000, 128);
@@ -156,8 +200,11 @@ public class UserLoggin {
         this.userNames.put(userName, id);
         this.hashTable.put(id, salt + ":" + passwordHash);
         this.encryptionKeys.put(id, encKeyNonce + ":" + encryptedKey);
+        this.saveStringHashMap(this.userNameFP, this.userNames);
+        this.saveStringHashMap(this.hashListFP, this.hashTable);
+        this.saveStringHashMap(this.keyListFP, this.encryptionKeys);
 
-        User newUser = new User(id, userName, firstName, lastName, userFunds, new ArrayList<Order>(), encKey);
+        User newUser = new User(id, userName, firstName, lastName, userFunds, new ArrayList<String>(), encKey);
 
         return newUser;
     }

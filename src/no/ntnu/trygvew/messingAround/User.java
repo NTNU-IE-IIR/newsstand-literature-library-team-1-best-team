@@ -20,11 +20,11 @@ public class User {
     private String lastName;
     private float userFunds;
 
-    private ArrayList<Order> orders;
+    private ArrayList<String> orders;
 
     private String encryptionKey;
 
-    User(String UUID, String username, String firstName, String lastName, float userFunds, ArrayList<Order> orders, String encryptionKey) {
+    User(String UUID, String username, String firstName, String lastName, float userFunds, ArrayList<String> orders, String encryptionKey) {
         this.UUID = UUID;
         this.username = username;
         this.firstName = firstName;
@@ -54,7 +54,7 @@ public class User {
         return userFunds;
     }
 
-    public ArrayList<Order> getOrders() {
+    public ArrayList<String> getOrders() {
         return orders;
     }
 

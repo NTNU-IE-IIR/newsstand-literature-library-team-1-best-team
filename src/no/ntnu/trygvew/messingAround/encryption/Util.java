@@ -17,9 +17,9 @@ public class Util {
         SecureRandom random = new SecureRandom();
         byte bytes[] = new byte[NumberOfBytes];
         random.nextBytes(bytes);
-        Base64.Encoder encoder = Base64.getUrlEncoder().withoutPadding();
-        String otpStr = encoder.encodeToString(bytes);
-        return otpStr;
+
+        String s = new String(bytes);
+        return s;
     }
 
 
@@ -38,7 +38,9 @@ public class Util {
 
             SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
             byte[] hash = factory.generateSecret(spec).getEncoded();
-            return new String(hash);
+            String s = new String(hash); //Base64.getUrlEncoder().withoutPadding().encodeToString(hash);
+            //System.out.println(s.getBytes());
+            return s;
         } catch (Exception e) {
             e.printStackTrace();
         }
