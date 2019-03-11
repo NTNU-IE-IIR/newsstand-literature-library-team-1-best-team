@@ -36,6 +36,35 @@ public class InputtValidator {
         }
         return dateIsValid;
     }
+
+    public static boolean isValidStingInp(String s){
+        if (s.length() > 0){
+            return  true;
+        } else {
+            System.out.println("No Inputt Provided");
+            return false;
+        }
+    }
+
+    public static boolean isValidFloatInp(String f){
+        try {
+            Float.valueOf(f);
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println("input is not a number (float)");
+            return false;
+        }
+    }
+
+    public static boolean isValidIntInp(String i){
+        try {
+            Integer.valueOf(i);
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println("input is not a number (int)");
+            return false;
+        }
+    }
 }
 
 

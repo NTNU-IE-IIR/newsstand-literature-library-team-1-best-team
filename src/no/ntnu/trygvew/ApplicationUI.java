@@ -1,12 +1,12 @@
 package no.ntnu.trygvew;
 
+import no.ntnu.trygvew.litratureTypes.Literature;
+import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
+import no.ntnu.trygvew.messingAround.Order;
 import no.ntnu.trygvew.messingAround.User;
 import no.ntnu.trygvew.messingAround.UserLoggin;
-import no.ntnu.trygvew.messingAround.encryption.Util;
 
 import java.io.Console;
-import java.lang.reflect.Array;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -19,8 +19,9 @@ import java.util.*;
  * @version 1.0
  *
  *
- *
- * Todo: mere presis switchcase
+ * Todo:
+ * Todo: Admin bruker?? som kan legg til lesestoff og andre admin brukera
+ * Todo: Se om du skal ta og fjern balance fra brukeran siden det bare blir en litt sån halves imp
  *
  */
 
@@ -28,6 +29,7 @@ import java.util.*;
 public class ApplicationUI
 {
     private BookStokRegister booRegister;
+    private HashMap<String, Order> transactions;
     private UserLoggin userLoggin;
     private User currentUser = null;
 
@@ -104,7 +106,7 @@ public class ApplicationUI
                         break;
 
                     case "logg out":
-                        System.out.println("not implemented");
+                        this.logOut();
                         break;
 
                     case "Exit":
@@ -139,7 +141,7 @@ public class ApplicationUI
         if (!isUserLoggedInn){
             System.out.println("STATUS: " + "\u001B[31m"+ "Not Logged Inn" +"\u001B[0m");
         } else{
-            System.out.println("STATUS: " + "\u001B[32m"+ "Logged Inn" +"\u001B[0m");
+            System.out.println("STATUS: " + "\u001B[32m"+ "Logged Inn" +"\u001B[0m"+ " As " + this.currentUser.getUsername());
         }
 
         ArrayList<String> menuItems = new ArrayList<>();
@@ -236,6 +238,17 @@ public class ApplicationUI
         }
     }
 
+    /**
+     * Saves the current user data and loggs out the current user
+     */
+    private void logOut(){
+        this.userLoggin.saveUser(this.currentUser);
+        this.currentUser = null;
+    }
+
+    /**
+     * Adds a new user
+     */
     private void addNewUser(){
         Console console = System.console();
         Scanner sc = new Scanner(System.in);
@@ -315,10 +328,6 @@ public class ApplicationUI
                     String pw2 = new String(console.readPassword("repeat Password: "));
 
                     if (pw1.equals(pw2)) {
-                        System.out.println(pw1.getBytes());
-                        System.out.println(pw1);
-                        System.out.println(Base64.getEncoder().withoutPadding().encodeToString(pw1.getBytes()).getBytes());
-                        System.out.println(Base64.getEncoder().withoutPadding().encodeToString(pw1.getBytes()));
                         userPassword = pw1;
                         validInput = true;
                     } else{
@@ -337,29 +346,26 @@ public class ApplicationUI
 
     /**
      * Displays the items
-     * @param displayItr
+     * @param displayList the list to display
      */
-    private void displayItems(Iterator<Book> displayItr){
+    private void displayItems(ArrayList<StandaloneLiterature> displayList){
 
-        ArrayList<Book> cash = new ArrayList<>();
 
-        displayItr.forEachRemaining(b -> cash.add(b));
-
-        if (cash.size() > 0){
-            System.out.println("\n\nDisplaying :" + cash.size() + " items\n\n");
+        if (displayList.size() > 0){
+            System.out.println("\n\nDisplaying :" + displayList.size() + " items\n\n");
             String[] bookInfoHeaders = {"Title", "Edition", "Author", "PublicationDate", "Publisher", "Price", "Stock"};
             for (String hed: bookInfoHeaders){System.out.print(String.format("|  %-17s", hed));}
 
-            cash.forEach(b -> {
+            displayList.forEach(b -> {
                 System.out.println();
 
                 System.out.print(String.format("|  %-17s", b.getTitle()));
                 System.out.print(String.format("|  %-17s", b.getEdition()));
-                System.out.print(String.format("|  %-17s", b.getAutor()));
+                System.out.print(String.format("|  %-17s", b.getAuthor()));
                 System.out.print(String.format("|  %-17s", b.getPublicationDate()));
                 System.out.print(String.format("|  %-17s", b.getPublisher()));
                 System.out.print(String.format("|  %-17s", b.getPrice()));
-                System.out.print(String.format("|  %-17s", b.getNumberInStok()));
+                System.out.print(String.format("|  %-17s", b.getNumberInStock()));
             });
 
         } else {
@@ -374,8 +380,7 @@ public class ApplicationUI
      */
     private void listAllProducts()
     {
-        Iterator<Book> bookIterator =  this.booRegister.getBookIterator();
-        this.displayItems(bookIterator);
+        this.displayItems(this.booRegister.getStock());
     }
 
     
@@ -406,16 +411,12 @@ public class ApplicationUI
 
 
 
+
         validInput = false;
         while (!validInput){
             System.out.print("input Title: ");
-            String inpTitle = sc.nextLine();
-            if (inpTitle.length() > 0){
-                validInput = true;
-                title = inpTitle;
-            } else{
-                System.out.println("No Inputt Provided");
-            }
+            title = sc.nextLine();
+            validInput = InputtValidator.isValidStingInp(title);
         }
 
 
@@ -423,25 +424,22 @@ public class ApplicationUI
         while (!validInput){
             System.out.print("input Edition: ");
             String inpEdition = sc.nextLine();
-            try {
-                edition = Integer.parseInt(inpEdition);
-                validInput = true;
-            } catch (NumberFormatException e) {
-                System.out.println("input is not a number (int)");
-            }
+
         }
 
 
         validInput = false;
         while (!validInput){
             System.out.print("input Author: ");
-            String inpAuthor = sc.nextLine();
-            if(inpAuthor.length() > 0) {
-                validInput = true;
-                author = inpAuthor;
-            } else {
-                System.out.println("No inputt provided");
-            }
+            author = sc.nextLine();
+            validInput = InputtValidator.isValidStingInp(author);
+        }
+
+        validInput = false;
+        while (!validInput){
+            System.out.print("input Publisher: ");
+            publisher = sc.nextLine();
+            validInput = InputtValidator.isValidStingInp(publisher);
         }
 
         validInput = false;
@@ -449,9 +447,8 @@ public class ApplicationUI
             System.out.print("input PublicationDate YYYY-MM-DD: ");
             String inpPublicationDate = sc.nextLine();
             // removes the - if the user inputs them.
-            if (inpPublicationDate.contains("-")){
-                inpPublicationDate =inpPublicationDate.replaceAll("-", "");
-            }
+            inpPublicationDate = inpPublicationDate.replaceAll("-", "");
+
             if (InputtValidator.isValidDate(inpPublicationDate)) {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
                 try {
@@ -461,7 +458,7 @@ public class ApplicationUI
                     } else {
                         System.out.println("Date has not passsed");
                     }
-                } catch (ParseException e) {/* dup di dup di dup vil aldri skje */}
+                } catch (Exception e) {}
             } else {
                 System.out.println("not a valid date");
             }
@@ -469,26 +466,12 @@ public class ApplicationUI
 
 
         validInput = false;
-        while (!validInput){
-            System.out.print("input Publisher: ");
-            String inpPublisher = sc.nextLine();
-            if (inpPublisher.length() > 0) {
-                validInput = true;
-                publisher = inpPublisher;
-            } else {
-                System.out.println("no inputt detected");
-            }
-        }
-
-        validInput = false;
         while (!validInput) {
             System.out.print("input Price: ");
             String inpPrice = sc.nextLine();
-            try {
-                price = Float.parseFloat(inpPrice);
-                validInput = true;
-            } catch (NumberFormatException e) {
-                System.out.println("input is not a number (float)");
+            validInput = InputtValidator.isValidFloatInp(inpPrice);
+            if (validInput){
+                price = Float.valueOf(inpPrice);
             }
         }
 
@@ -497,17 +480,15 @@ public class ApplicationUI
         while (!validInput) {
             System.out.print("input Stock: ");
             String inpStock = sc.nextLine();
-            try {
-                stok = Integer.parseInt(inpStock);
-                validInput = true;
-            } catch (NumberFormatException e) {
-                System.out.println("input is not a number (int)");
+            validInput = InputtValidator.isValidIntInp(inpStock);
+            if (validInput){
+                stok = Integer.valueOf(inpStock);
             }
         }
 
 
-        Book newBook = new Book(title, publisher, edition,  author, publicationDate, stok, price);
-        this.booRegister.addBook(newBook);
+        Literature newBook = new StandaloneLiterature(title, publisher, "Standalone", stok, price, edition,  author, publicationDate);
+        this.booRegister.addLiterature(newBook);
     }
 
     /**
@@ -521,7 +502,7 @@ public class ApplicationUI
      */
     private void findProductByName()
     {
-        Iterator<Book> bookIterator =  this.booRegister.getBookIterator();
+        ArrayList<StandaloneLiterature> bookStock =  this.booRegister.getStock();
         Scanner sc = new Scanner(System.in);
 
 
@@ -536,18 +517,18 @@ public class ApplicationUI
         if (inpTitle.contains("t")){
             System.out.print("search for title: ");
             String filter = sc.nextLine();
-            Iterator<Book> it = BookFilter.filterBookByTitle(filter, bookIterator);
-            this.displayItems(it);
+            ArrayList<StandaloneLiterature> ar = BookFilter.filterBookByTitle(filter, bookStock);
+            this.displayItems(ar);
         } else if (inpTitle.contains("a")){
             System.out.print("search for author: ");
             String filter = sc.nextLine();
-            Iterator<Book> it = BookFilter.filterBookByAuthor(filter, bookIterator);
-            this.displayItems(it);
+            ArrayList<StandaloneLiterature> ar = BookFilter.filterBookByAuthor(filter, bookStock);
+            this.displayItems(ar);
         } else if (inpTitle.contains("p")){
             System.out.print("search for publisher: ");
             String filter = sc.nextLine();
-            Iterator<Book> it = BookFilter.filterBookByPublisher(filter, bookIterator);
-            this.displayItems(it);
+            ArrayList<StandaloneLiterature> ar = BookFilter.filterBookByPublisher(filter, bookStock);
+            this.displayItems(ar);
         }
     }
     

@@ -1,5 +1,9 @@
 package no.ntnu.trygvew;
 
+import no.ntnu.trygvew.FileIO.DataSaver;
+import no.ntnu.trygvew.FileIO.LiteratureSaver;
+import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
+import no.ntnu.trygvew.litratureTypes.Literature;
 import no.ntnu.trygvew.messingAround.Order;
 import no.ntnu.trygvew.messingAround.User;
 import org.json.JSONArray;
@@ -11,8 +15,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.stream.Stream;
 
 /**
  * A stock register to keep trak of different Books in the register
@@ -24,56 +26,30 @@ import java.util.stream.Stream;
 
 
 public class BookStokRegister {
-    private ArrayList<Book> booksInStok;
+    private ArrayList<Literature> literatureInStock;
     private HashMap<String, Order> orderList;
     private String saveFilePath;
 
-    BookStokRegister(String savepath) {
-        this.saveFilePath = savepath;
+    BookStokRegister(String savePath) {
+        this.saveFilePath = savePath;
 
-        //this.booksInStok = new ArrayList<Book>();
-        this.booksInStok = this.loadStock();
+        this.literatureInStock = this.loadStock();
     }
 
     /**
      * loads the saved Arraylist
-     * @return the loaded arraylist
+     * @return the loaded arraylist an empty arraylist if non are found
      */
-    private ArrayList<Book> loadStock(){
+    private ArrayList<Literature> loadStock(){
 
-        ArrayList<Book> returnArray = new ArrayList<>();
+        ArrayList<Literature> returnArray = null;
         try {
-            String JsonObjStr = DataSaver.loadString(this.saveFilePath);
-
-
-            JSONArray jsonArr = new JSONArray(JsonObjStr);
-
-            for (int n = 0; n < jsonArr.length(); n++) {
-
-
-                JSONObject JsonObject = jsonArr.getJSONObject(n);
-
-                String title = JsonObject.getString("Title");
-                int edition = JsonObject.getInt("Edition");
-                String author = JsonObject.getString("Author");
-                String publicationDate = JsonObject.getString("PublicationDate");
-                String publisher = JsonObject.getString("Publisher");
-                float price = JsonObject.getFloat("Price");
-                int stock = JsonObject.getInt("Stock");
-
-                Book newBook = new Book(title, publisher, edition,  author, publicationDate, stock, price);
-                returnArray.add(newBook);
-            }
+            returnArray = LiteratureSaver.loadLiteratureStock(this.saveFilePath);
+        } catch (Exception e) {
+            returnArray = new ArrayList<Literature>();
         }
-        catch (JSONException e) {System.out.print("Json Problem" + e);}
-        // suppress exception because the file wil be crated on save
-        catch (IOException e) {/*System.out.println("error IO -" + e);*/}
-
-
 
         return returnArray;
-
-
     }
 
 
@@ -81,34 +57,13 @@ public class BookStokRegister {
      * saves an
      * @param arrToSave
      */
-    private void saveStock(ArrayList<Book> arrToSave){
-
-        JSONArray jsonSaveArr = new JSONArray();
-
-        for (Book b : arrToSave){
-            JSONObject saveObj = new JSONObject();
-
-            saveObj.put("Title", b.getTitle());
-            saveObj.put("Edition", b.getEdition());
-            saveObj.put("Author", b.getAutor());
-            saveObj.put("PublicationDate", b.getPublicationDate());
-            saveObj.put("Publisher", b.getPublisher());
-            saveObj.put("Price", b.getPrice());
-            saveObj.put("Stock", b.getNumberInStok());
-
-            jsonSaveArr.put(saveObj);
-        }
-
-
-        String saveStr = jsonSaveArr.toString(3);
-
-
+    private void saveStock(ArrayList<Literature> arrToSave){
         try {
             File f = new File(this.saveFilePath);
             if (!f.exists()){
                 f.createNewFile();
             }
-            DataSaver.saveString(saveStr, this.saveFilePath);
+            LiteratureSaver.saveLiteratureStock(this.literatureInStock, this.saveFilePath);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -118,54 +73,54 @@ public class BookStokRegister {
     }
 
     /**
-     * adds a new book to the book stok register
-     * @param newBook the book to add to the register
+     * adds a new Literature to the book stok register
+     * @param newLiterature the Literature to add to the register
      */
-    public void addBook(Book newBook){
-        this.booksInStok.add(newBook);
+    public void addLiterature(Literature newLiterature){
+        this.literatureInStock.add(newLiterature);
 
-        this.saveStock(this.booksInStok);
+        this.saveStock(this.literatureInStock);
     }
 
     /**
      * removes books whom contain the sting key
      * @param fullTitleKey the title to the book to remove
      */
-    public void removeBooksByTitle(String fullTitleKey){
+    public void removeLiteratureByTitle(String fullTitleKey){
         ArrayList<Integer> indexToRemove = new ArrayList<>();
-        booksInStok.forEach(b -> {
+        literatureInStock.forEach(b -> {
 
-            if (b.getFullTitle().contains(fullTitleKey)){
-                indexToRemove.add(booksInStok.indexOf(b));
+            if (b.getTitle().contains(fullTitleKey)){
+                indexToRemove.add(literatureInStock.indexOf(b));
             }
         });
         // reverse the list to avoid wrong indexing
         Collections.reverse(indexToRemove);
 
-        indexToRemove.forEach(i -> this.booksInStok.remove(booksInStok.get(i)));
+        indexToRemove.forEach(i -> this.literatureInStock.remove(literatureInStock.get(i)));
 
 
-        this.saveStock(this.booksInStok);
+        this.saveStock(this.literatureInStock);
     }
 
     /**
      * Removes all instanses of the given objet in the register
-     * @param bookToRemove the objet to remove
+     * @param litratureToRemove the objet to remove
      */
-    public void removeBook(Book bookToRemove){
-        boolean containBook = this.booksInStok.contains(bookToRemove);
+    public void removeLiterature(Literature litratureToRemove){
+        boolean containBook = this.literatureInStock.contains(litratureToRemove);
         if (containBook){
             ArrayList<Integer> indexToRemove= new ArrayList<>();
-            this.booksInStok.forEach(b -> {
-                if (b.equals(bookToRemove)){
-                    indexToRemove.add(booksInStok.indexOf(b));
+            this.literatureInStock.forEach(l -> {
+                if (l.equals(litratureToRemove)){
+                    indexToRemove.add(literatureInStock.indexOf(l));
                 }
             });
             Collections.reverse(indexToRemove);
-            indexToRemove.forEach(i -> booksInStok.remove(i));
+            indexToRemove.forEach(i -> literatureInStock.remove(i));
         }
 
-        this.saveStock(this.booksInStok);
+        this.saveStock(this.literatureInStock);
 
     }
 
@@ -173,11 +128,11 @@ public class BookStokRegister {
      * returns an iterator for all books
      * @return a iterator for all books
      */
-    public Iterator<Book> getBookIterator(){
-        return this.booksInStok.iterator();
+    public ArrayList<StandaloneLiterature> getStock(){
+        return (ArrayList<StandaloneLiterature>) this.literatureInStock.clone();
     }
 
-    public void makePurchase(Book b, User u){
+    public void makePurchase(StandaloneLiterature b, User u){
         // TODO: 04.03.19
     }
 

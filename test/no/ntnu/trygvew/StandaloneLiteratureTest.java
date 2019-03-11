@@ -1,6 +1,7 @@
 package no.ntnu.trygvew;
 
 
+import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,13 +14,14 @@ import static org.junit.Assert.*;
  * @version 1.0
  */
 
-public class BookTest {
+/*
+public class StandaloneLiteratureTest {
 
-    private Book b;
+    private StandaloneLiterature b;
 
     @Before
     public void setUp() {
-        b = new Book("tit", "pub", 3, "aut", "1999-09-06", 2, 12);
+        b = new StandaloneLiterature("tit", "pub", 3, "aut", "1999-09-06", 2, 12);
     }
 
     @Test
@@ -34,7 +36,7 @@ public class BookTest {
 
     @Test
     public void getAutor() {
-        assertEquals("aut", b.getAutor());
+        assertEquals("aut", b.getAuthor());
     }
 
     @Test
@@ -68,3 +70,4 @@ public class BookTest {
         assertEquals(false, b.isInSeries());
     }
 }
+*/

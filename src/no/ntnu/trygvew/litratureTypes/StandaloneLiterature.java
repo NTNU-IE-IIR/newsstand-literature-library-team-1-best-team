@@ -1,7 +1,7 @@
-package no.ntnu.trygvew;
+package no.ntnu.trygvew.litratureTypes;
 
 /**
- * Represens a book whom contains information about a book category for a register
+ * Represens a StandaloneLiterature whom contains information about a book category for a register
  * The Object contains information like title snd publisher and contains sales informatin
  * like number in stock and unit price
  *
@@ -9,15 +9,13 @@ package no.ntnu.trygvew;
  * @version 1.0
  */
 
-public class Book {
+public class StandaloneLiterature extends Literature {
     private String title;
     private String publisher;
     private String autor;
     private int edition;
     private  String publicationDate;
 
-    private int numberInStok;
-    private float price;
     private boolean isInSeries;
 
 
@@ -27,17 +25,15 @@ public class Book {
      *
      * @param title - the title of the book
      * @param publisher - the book publisher
-     * @param numberInStok - number of units in stok
+     * @param numberInStock - number of units in stok
      * @param price - the price of the book
      * @param autor - the autor of the book
      * @param edition - teh edition of the book
      */
-    Book(String title, String publisher, int edition,  String autor, String publicationDate, int numberInStok, float price){
-        this.title = title;
-        this.publisher = publisher;
+    public StandaloneLiterature(String title, String publisher, String literatureType, int numberInStock,float price, int edition, String autor, String publicationDate){
+        super(title, publisher, literatureType, numberInStock, price);
 
-        this.numberInStok = numberInStok;
-        this.price = price;
+
 
         this.autor = autor;
         this.edition = edition;
@@ -46,27 +42,14 @@ public class Book {
 
     }
 
-    /**
-     * Returns the title from book
-     * @return book title
-     */
-    public String getTitle() {
-        return title;
-    }
 
-    /**
-     * Returns the publisher from book
-     * @return book publisher
-     */
-    public String getPublisher() {
-        return publisher;
-    }
+
 
     /**
      * Returns the autor from book
      * @return book autor
      */
-    public String getAutor() {
+    public String getAuthor() {
         return autor;
     }
 
@@ -79,21 +62,6 @@ public class Book {
     }
 
 
-    /**
-     * Returns the number of books in stock
-     * @return number of books in stock
-     */
-    public int getNumberInStok() {
-        return numberInStok;
-    }
-
-    /**
-     * Returns the book price
-     * @return book price
-     */
-    public float getPrice() {
-        return price;
-    }
 
     /**
      * returns the publication date of the book
@@ -130,11 +98,12 @@ public class Book {
     /**
      * A string that contains all the class parameters, used to validate objects
      * @return sting containing all the class parameters
-     */
+
     @Override
     public String toString(){
         return this.getClass().getName() + this.title + this.publisher + this.numberInStok + this.price + this.autor + this.edition + this.publicationDate + this.isInSeries;
     }
+     */
 
 
 

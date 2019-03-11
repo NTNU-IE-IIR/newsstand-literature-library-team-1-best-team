@@ -1,22 +1,17 @@
 package no.ntnu.trygvew.messingAround;
 
-import no.ntnu.trygvew.DataSaver;
+import no.ntnu.trygvew.FileIO.DataSaver;
 import no.ntnu.trygvew.messingAround.encryption.AES;
 import no.ntnu.trygvew.messingAround.encryption.Util;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.xml.stream.FactoryConfigurationError;
-import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.jar.JarEntry;
 
 /**
  * TODO: lag fungsjona for og endre brukernavn passord osv
@@ -101,9 +96,12 @@ public class UserLoggin {
 
         String encKey = AES.decrypt(encryptionKeyKey, encNonce, encryptedEncKey);
 
+
+
         String[] userDataStr = this.userData.get(userId).split(":");
-        String dataNonce = keyStr[0];
-        String encryptedData = keyStr[1];
+        String dataNonce = userDataStr[0];
+        String encryptedData = userDataStr[1];
+
 
         String userData = AES.decrypt(encKey, dataNonce, encryptedData);
 
@@ -114,7 +112,7 @@ public class UserLoggin {
         String firstName = userDataobj.getString("firstName");
         String lastName = userDataobj.getString("lastName");
         float userFunds = userDataobj.getFloat("userFunds");
-        String[] orderIdStringAr = userDataobj.getString("orders").split(":");
+        String[] orderIdStringAr = userDataobj.getString("orderIDs").split(":");
         ArrayList<String> userOrders = new ArrayList<>(Arrays.asList(orderIdStringAr));
 
 
@@ -144,11 +142,15 @@ public class UserLoggin {
             orderSaveStr += (o + ":");
         }
         // removes the last ;
-        orderSaveStr = orderSaveStr.substring(0, -1);
+        if (orderSaveStr.length() > 2){
+            orderSaveStr = orderSaveStr.substring(0, -1);
+        }
+
         saveObj.put("orderIDs", orderSaveStr);
 
         String nonce = Util.getNonce(16);
-        String saveStr = AES.encrypt(encryptionKey, nonce, saveObj.toString());
+
+        String saveStr = AES.encrypt(encryptionKey, nonce, saveObj.toString(2));
 
         this.userData.put(userId, nonce + ":" + saveStr);
         this.saveStringHashMap(this.userDataFP,this.userData);
@@ -165,6 +167,9 @@ public class UserLoggin {
 
             // TODO: sjekke om hvordan du skal lagre itr og bitSize mulig æ skal bar appende det på stringen som salt
             String paswordHash = Util.getHash(pasword, idSalt, 500000, 128);
+            if (idHash.equals(paswordHash)){
+                isValid = true;
+            }
         } catch (NullPointerException e){
             // scold not happen
             System.out.println("Invalid username");
@@ -197,6 +202,7 @@ public class UserLoggin {
         String passwordHash = Util.getHash(password, salt, 500000, 128);
 
 
+
         this.userNames.put(userName, id);
         this.hashTable.put(id, salt + ":" + passwordHash);
         this.encryptionKeys.put(id, encKeyNonce + ":" + encryptedKey);
@@ -205,7 +211,7 @@ public class UserLoggin {
         this.saveStringHashMap(this.keyListFP, this.encryptionKeys);
 
         User newUser = new User(id, userName, firstName, lastName, userFunds, new ArrayList<String>(), encKey);
-
+        this.saveUser(newUser);
         return newUser;
     }
 }

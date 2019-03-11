@@ -18,8 +18,8 @@ public class Util {
         byte bytes[] = new byte[NumberOfBytes];
         random.nextBytes(bytes);
 
-        String s = new String(bytes);
-        return s;
+        Base64.Encoder encoder = Base64.getUrlEncoder().withoutPadding();
+        return encoder.encodeToString(bytes);
     }
 
 
@@ -38,9 +38,9 @@ public class Util {
 
             SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
             byte[] hash = factory.generateSecret(spec).getEncoded();
-            String s = new String(hash); //Base64.getUrlEncoder().withoutPadding().encodeToString(hash);
-            //System.out.println(s.getBytes());
-            return s;
+
+            Base64.Encoder encoder = Base64.getUrlEncoder().withoutPadding();
+            return encoder.encodeToString(hash);
         } catch (Exception e) {
             e.printStackTrace();
         }
