@@ -8,35 +8,33 @@ package no.ntnu.trygvew.messingAround;
  * @version 1.0
  */
 
-public class Order {
+public class Transaction {
 
-    private String orderID;
-    private String costumerUUID;
+    private String transactionID;
+    private String costumerID;
     private String fullBookTitle;
     private float salePrice;
     private String timeStamp; // uts
 
-    public Order(String costumerUUID, String fullBookTitle, String timeStamp, float salePrice) {
-        this.costumerUUID = costumerUUID;
+    public Transaction(String transactionID, String costumerID, String fullBookTitle, String timeStamp, float salePrice) {
+        this.transactionID = transactionID;
+        this.costumerID = costumerID;
         this.fullBookTitle = fullBookTitle;
         this.salePrice = salePrice;
         this.timeStamp = timeStamp;
     }
 
-    public String getOrderUUID() {
-        return orderID;
-    }
 
-    public String getOrderID() {
-        return orderID;
+    public String getTransactionID() {
+        return transactionID;
     }
 
     public String getTimeStamp() {
         return timeStamp;
     }
 
-    public String getCostumerUUID() {
-        return costumerUUID;
+    public String getCostumerID() {
+        return costumerID;
     }
 
     public String getFullBookTitle() {

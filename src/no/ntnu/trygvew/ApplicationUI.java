@@ -1,8 +1,9 @@
 package no.ntnu.trygvew;
 
 import no.ntnu.trygvew.litratureTypes.Literature;
+import no.ntnu.trygvew.litratureTypes.SerializedLiterature;
 import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
-import no.ntnu.trygvew.messingAround.Order;
+import no.ntnu.trygvew.messingAround.Transaction;
 import no.ntnu.trygvew.messingAround.User;
 import no.ntnu.trygvew.messingAround.UserLoggin;
 
@@ -28,8 +29,8 @@ import java.util.*;
 
 public class ApplicationUI
 {
-    private BookStokRegister booRegister;
-    private HashMap<String, Order> transactions;
+    private LiteratureStockRegister booRegister;
+    private HashMap<String, Transaction> transactions;
     private UserLoggin userLoggin;
     private User currentUser = null;
 
@@ -90,7 +91,7 @@ public class ApplicationUI
                         break;
 
                     case "Find a product by name":
-                        this.findProductByName();
+                        this.filterLiteratureStock();
                         break;
 
                     case "Log inn":
@@ -186,7 +187,7 @@ public class ApplicationUI
      */
     private void init()
     {
-        this.booRegister = new BookStokRegister("Data/inventory.json");
+        this.booRegister = new LiteratureStockRegister("Data/inventory.json");
         this.userLoggin = new UserLoggin();
     }
 
@@ -266,30 +267,37 @@ public class ApplicationUI
 
 
 
+
         validInput = false;
         while (!validInput){
             System.out.print("input first name: ");
-            String inpFn = sc.nextLine();
-            if(inpFn.length() > 0) {
-                validInput = true;
-                firstName = inpFn;
-            } else {
-                System.out.println("No inputt provided");
-            }
+            firstName = sc.nextLine();
+            validInput = InputtValidator.isValidStingInp(firstName);
         }
+
 
         validInput = false;
         while (!validInput){
             System.out.print("input last name: ");
-            String inpLn = sc.nextLine();
-            if(inpLn.length() > 0) {
-                validInput = true;
-                lastName = inpLn;
-            } else {
-                System.out.println("No inputt provided");
-            }
+            lastName = sc.nextLine();
+            validInput = InputtValidator.isValidStingInp(lastName);
         }
 
+        validInput = false;
+        while (!validInput){
+            System.out.print("input username: ");
+            lastName = sc.nextLine();
+            if (this.userLoggin.isValidUsername(lastName) && InputtValidator.isValidStingInp(lastName)){
+                validInput = true;
+            } else if (InputtValidator.isValidStingInp(lastName)){
+                System.out.println("Username alredy in use");
+            }
+
+        }
+
+        /*
+
+        fjern hvis den over virke
         validInput = false;
         while (!validInput){
             System.out.print("input username: ");
@@ -301,21 +309,19 @@ public class ApplicationUI
                 } else {
                     System.out.println("Username alredy in use");
                 }
-
             } else {
                 System.out.println("No inputt provided");
             }
         }
+        */
 
         validInput = false;
-        while (!validInput){
+        while (!validInput) {
             System.out.print("input user funds: ");
-            String inpUf = sc.nextLine();
-            try {
-                userFunds = Float.parseFloat(inpUf);
-                validInput = true;
-            } catch (NumberFormatException e) {
-                System.out.println("input is not a number (float)");
+            String inpFunds = sc.nextLine();
+            validInput = InputtValidator.isValidFloatInp(inpFunds);
+            if (validInput){
+                userFunds = Float.valueOf(inpFunds);
             }
         }
 
@@ -348,28 +354,62 @@ public class ApplicationUI
      * Displays the items
      * @param displayList the list to display
      */
-    private void displayItems(ArrayList<StandaloneLiterature> displayList){
+    private void displayItems(ArrayList<Literature> displayList){
+
+        ArrayList<StandaloneLiterature> standalone = new ArrayList<>();
+        ArrayList<SerializedLiterature> serialized = new ArrayList<>();
+
+        displayList.forEach(l ->{
+            if (l.getLiteratureType().equals("Serialized")){
+                serialized.add((SerializedLiterature) l);
+            } else if (l.getLiteratureType().equals("Standalone")){
+                standalone.add((StandaloneLiterature) l);
+            }
+        });
 
 
-        if (displayList.size() > 0){
-            System.out.println("\n\nDisplaying :" + displayList.size() + " items\n\n");
-            String[] bookInfoHeaders = {"Title", "Edition", "Author", "PublicationDate", "Publisher", "Price", "Stock"};
-            for (String hed: bookInfoHeaders){System.out.print(String.format("|  %-17s", hed));}
+        if (standalone.size() > 0){
+            System.out.println("\n\nStandalone Litrature");
+            System.out.println("#########################################################################");
+            System.out.println("Displaying :" + displayList.size() + " items\n");
+            String[] standaloneInfoHeaders = {"Title", "Publisher", "Edition", "Author", "PublicationDate", "Price", "Stock"};
+            for (String hed: standaloneInfoHeaders){System.out.print(String.format("|  %-17s", hed));}
 
-            displayList.forEach(b -> {
+            standalone.forEach(b -> {
                 System.out.println();
 
                 System.out.print(String.format("|  %-17s", b.getTitle()));
+                System.out.print(String.format("|  %-17s", b.getPublisher()));
                 System.out.print(String.format("|  %-17s", b.getEdition()));
                 System.out.print(String.format("|  %-17s", b.getAuthor()));
                 System.out.print(String.format("|  %-17s", b.getPublicationDate()));
-                System.out.print(String.format("|  %-17s", b.getPublisher()));
                 System.out.print(String.format("|  %-17s", b.getPrice()));
                 System.out.print(String.format("|  %-17s", b.getNumberInStock()));
             });
-
         } else {
-            System.out.println("\n\n No items found \n\n");
+            System.out.print("\n No Standalone Litrature \n");
+        }
+
+        if (serialized.size() > 0){
+            System.out.println("\n\nSerialized Litrature");
+            System.out.println("#########################################################################");
+            System.out.println("Displaying :" + displayList.size() + " items\n");
+            String[] serializedInfoHeaders = {"Title", "publisher", "yearly dist", "type", "genre", "Price", "Stock"};
+            for (String hed: serializedInfoHeaders){System.out.print(String.format("|  %-17s", hed));}
+
+            serialized.forEach(b -> {
+                System.out.println();
+
+                System.out.print(String.format("|  %-17s", b.getTitle()));
+                System.out.print(String.format("|  %-17s", b.getPublisher()));
+                System.out.print(String.format("|  %-17s", b.getYearlyDistributions()));
+                System.out.print(String.format("|  %-17s", b.getSerializedType()));
+                System.out.print(String.format("|  %-17s", b.getGenre()));
+                System.out.print(String.format("|  %-17s", b.getPrice()));
+                System.out.print(String.format("|  %-17s", b.getNumberInStock()));
+            });
+        } else {
+            System.out.print("\n No Serialized Litrature \n");
         }
 
 
@@ -398,97 +438,158 @@ public class ApplicationUI
     {
         Scanner sc = new Scanner(System.in);
 
+        boolean validInput;
+        String typeToAdd = null;
 
         String title = null;
-        int edition = 0;
-        String author = null;
-        String publicationDate = null;
         String publisher = null;
         float price = 0;
-        int stok = 0;
-
-        boolean validInput;
+        int stock = 0;
 
 
 
+        System.out.println("To add Standalone Litrature - t");
+        System.out.println("To add Serialized Litrature - e");
 
-        validInput = false;
-        while (!validInput){
-            System.out.print("input Title: ");
-            title = sc.nextLine();
-            validInput = InputtValidator.isValidStingInp(title);
+        try {
+            typeToAdd = sc.nextLine();
+            assert typeToAdd.length() > 0;
+            validInput = typeToAdd.equals("t") || typeToAdd.equals("e");
+        } catch (Exception e){
+            validInput = false;
         }
 
+        if (validInput) {
 
-        validInput = false;
-        while (!validInput){
-            System.out.print("input Edition: ");
-            String inpEdition = sc.nextLine();
+            validInput = false;
+            while (!validInput) {
+                System.out.print("input Title: ");
+                title = sc.nextLine();
+                validInput = InputtValidator.isValidStingInp(title);
+            }
 
-        }
+            validInput = false;
+            while (!validInput) {
+                System.out.print("input Publisher: ");
+                publisher = sc.nextLine();
+                validInput = InputtValidator.isValidStingInp(publisher);
+            }
+
+            validInput = false;
+            while (!validInput) {
+                System.out.print("input Price: ");
+                String inpPrice = sc.nextLine();
+                validInput = InputtValidator.isValidFloatInp(inpPrice);
+                if (validInput) {
+                    price = Float.valueOf(inpPrice);
+                }
+            }
 
 
-        validInput = false;
-        while (!validInput){
-            System.out.print("input Author: ");
-            author = sc.nextLine();
-            validInput = InputtValidator.isValidStingInp(author);
-        }
+            validInput = false;
+            while (!validInput) {
+                System.out.print("input Stock: ");
+                String inpStock = sc.nextLine();
+                validInput = InputtValidator.isValidIntInp(inpStock);
+                if (validInput) {
+                    stock = Integer.valueOf(inpStock);
+                }
+            }
 
-        validInput = false;
-        while (!validInput){
-            System.out.print("input Publisher: ");
-            publisher = sc.nextLine();
-            validInput = InputtValidator.isValidStingInp(publisher);
-        }
+            switch (typeToAdd) {
+                case "t":
+                    // standalone
+                    int edition = 0;
+                    String author = null;
+                    String publicationDate = null;
 
-        validInput = false;
-        while (!validInput){
-            System.out.print("input PublicationDate YYYY-MM-DD: ");
-            String inpPublicationDate = sc.nextLine();
-            // removes the - if the user inputs them.
-            inpPublicationDate = inpPublicationDate.replaceAll("-", "");
 
-            if (InputtValidator.isValidDate(inpPublicationDate)) {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-                try {
-                    if (dateFormat.parse(inpPublicationDate).before(new Date())){
-                        validInput = true;
-                        publicationDate = inpPublicationDate;
-                    } else {
-                        System.out.println("Date has not passsed");
+                    validInput = false;
+                    while (!validInput) {
+                        System.out.print("input Edition: ");
+                        String inpEdition = sc.nextLine();
+                        validInput = InputtValidator.isValidIntInp(inpEdition);
+                        if (validInput) {
+                            edition = Integer.valueOf(inpEdition);
+                        }
                     }
-                } catch (Exception e) {}
-            } else {
-                System.out.println("not a valid date");
+
+                    validInput = false;
+                    while (!validInput) {
+                        System.out.print("input Author: ");
+                        author = sc.nextLine();
+                        validInput = InputtValidator.isValidStingInp(author);
+                    }
+
+
+                    validInput = false;
+                    while (!validInput) {
+                        System.out.print("input PublicationDate YYYY-MM-DD: ");
+                        String inpPublicationDate = sc.nextLine();
+                        // removes the - if the user inputs them.
+                        inpPublicationDate = inpPublicationDate.replaceAll("-", "");
+
+                        if (InputtValidator.isValidDate(inpPublicationDate)) {
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+                            try {
+                                if (dateFormat.parse(inpPublicationDate).before(new Date())) {
+                                    validInput = true;
+                                    publicationDate = inpPublicationDate;
+                                } else {
+                                    System.out.println("Date has not passsed");
+                                }
+                            } catch (Exception e) {
+                            }
+                        } else {
+                            System.out.println("not a valid date");
+                        }
+                    }
+
+                    Literature standalone = new StandaloneLiterature(
+                            title, publisher, "Standalone", stock, price, edition,  author, publicationDate);
+                    this.booRegister.addLiterature(standalone);
+                    break;
+                case "e":
+                    int yearlyDist = 0;
+                    String serializedType = null;
+                    String genere = null;
+
+
+                    validInput = false;
+                    while (!validInput) {
+                        System.out.print("num Yearly distrebutions: ");
+                        String inpNumY = sc.nextLine();
+                        validInput = InputtValidator.isValidIntInp(inpNumY);
+                        if (validInput) {
+                            yearlyDist = Integer.valueOf(inpNumY);
+                        }
+                    }
+
+                    validInput = false;
+                    while (!validInput) {
+                        System.out.print("input type of magazine: ");
+                        serializedType = sc.nextLine();
+                        validInput = InputtValidator.isValidStingInp(serializedType);
+                    }
+
+                    validInput = false;
+                    while (!validInput) {
+                        System.out.print("input genere: ");
+                        genere = sc.nextLine();
+                        validInput = InputtValidator.isValidStingInp(genere);
+                    }
+
+                    Literature serialized = new SerializedLiterature(
+                            title, publisher, "Serialized", stock, price, yearlyDist, serializedType, genere);
+                    this.booRegister.addLiterature(serialized);
+                    break;
+
             }
+        } else{
+            System.out.println("invallid Inputt");
         }
 
 
-        validInput = false;
-        while (!validInput) {
-            System.out.print("input Price: ");
-            String inpPrice = sc.nextLine();
-            validInput = InputtValidator.isValidFloatInp(inpPrice);
-            if (validInput){
-                price = Float.valueOf(inpPrice);
-            }
-        }
-
-        System.out.print("input Stock: ");
-        validInput = false;
-        while (!validInput) {
-            System.out.print("input Stock: ");
-            String inpStock = sc.nextLine();
-            validInput = InputtValidator.isValidIntInp(inpStock);
-            if (validInput){
-                stok = Integer.valueOf(inpStock);
-            }
-        }
-
-
-        Literature newBook = new StandaloneLiterature(title, publisher, "Standalone", stok, price, edition,  author, publicationDate);
-        this.booRegister.addLiterature(newBook);
     }
 
     /**
@@ -500,14 +601,14 @@ public class ApplicationUI
      * Then, upon return from the register, you need
      * to print the details of the found item.
      */
-    private void findProductByName()
+    private void filterLiteratureStock()
     {
-        ArrayList<StandaloneLiterature> bookStock =  this.booRegister.getStock();
+        ArrayList<Literature> bookStock =  this.booRegister.getStock();
         Scanner sc = new Scanner(System.in);
 
 
         System.out.println("For title - t");
-        System.out.println("For author - a");
+        //System.out.println("For author - a");
         System.out.println("For publisher - p");
         System.out.print("chose search type: ");
 
@@ -517,17 +618,17 @@ public class ApplicationUI
         if (inpTitle.contains("t")){
             System.out.print("search for title: ");
             String filter = sc.nextLine();
-            ArrayList<StandaloneLiterature> ar = BookFilter.filterBookByTitle(filter, bookStock);
+            ArrayList<Literature> ar = BookFilter.filterLiteratureByTitle(filter, bookStock);
             this.displayItems(ar);
-        } else if (inpTitle.contains("a")){
+        } /*else if (inpTitle.contains("a")){
             System.out.print("search for author: ");
             String filter = sc.nextLine();
             ArrayList<StandaloneLiterature> ar = BookFilter.filterBookByAuthor(filter, bookStock);
             this.displayItems(ar);
-        } else if (inpTitle.contains("p")){
+        }*/ else if (inpTitle.contains("p")){
             System.out.print("search for publisher: ");
             String filter = sc.nextLine();
-            ArrayList<StandaloneLiterature> ar = BookFilter.filterBookByPublisher(filter, bookStock);
+            ArrayList<Literature> ar = BookFilter.filterLiteratureByPublisher(filter, bookStock);
             this.displayItems(ar);
         }
     }

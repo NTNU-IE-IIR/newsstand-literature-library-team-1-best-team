@@ -1,17 +1,12 @@
 package no.ntnu.trygvew;
 
-import no.ntnu.trygvew.FileIO.DataSaver;
 import no.ntnu.trygvew.FileIO.LiteratureSaver;
 import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
 import no.ntnu.trygvew.litratureTypes.Literature;
-import no.ntnu.trygvew.messingAround.Order;
+import no.ntnu.trygvew.messingAround.Transaction;
 import no.ntnu.trygvew.messingAround.User;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -25,12 +20,12 @@ import java.util.HashMap;
  */
 
 
-public class BookStokRegister {
+public class LiteratureStockRegister {
     private ArrayList<Literature> literatureInStock;
-    private HashMap<String, Order> orderList;
+    private HashMap<String, Transaction> orderList;
     private String saveFilePath;
 
-    BookStokRegister(String savePath) {
+    LiteratureStockRegister(String savePath) {
         this.saveFilePath = savePath;
 
         this.literatureInStock = this.loadStock();
@@ -73,7 +68,7 @@ public class BookStokRegister {
     }
 
     /**
-     * adds a new Literature to the book stok register
+     * adds a new Literature to the Literature stock register
      * @param newLiterature the Literature to add to the register
      */
     public void addLiterature(Literature newLiterature){
@@ -105,14 +100,14 @@ public class BookStokRegister {
 
     /**
      * Removes all instanses of the given objet in the register
-     * @param litratureToRemove the objet to remove
+     * @param literatureToRemove the objet to remove
      */
-    public void removeLiterature(Literature litratureToRemove){
-        boolean containBook = this.literatureInStock.contains(litratureToRemove);
+    public void removeLiterature(Literature literatureToRemove){
+        boolean containBook = this.literatureInStock.contains(literatureToRemove);
         if (containBook){
             ArrayList<Integer> indexToRemove= new ArrayList<>();
             this.literatureInStock.forEach(l -> {
-                if (l.equals(litratureToRemove)){
+                if (l.equals(literatureToRemove)){
                     indexToRemove.add(literatureInStock.indexOf(l));
                 }
             });
@@ -128,8 +123,8 @@ public class BookStokRegister {
      * returns an iterator for all books
      * @return a iterator for all books
      */
-    public ArrayList<StandaloneLiterature> getStock(){
-        return (ArrayList<StandaloneLiterature>) this.literatureInStock.clone();
+    public ArrayList<Literature> getStock(){
+        return (ArrayList<Literature>) this.literatureInStock.clone();
     }
 
     public void makePurchase(StandaloneLiterature b, User u){

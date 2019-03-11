@@ -1,5 +1,7 @@
 package no.ntnu.trygvew;
 
+import no.ntnu.trygvew.litratureTypes.Literature;
+import no.ntnu.trygvew.litratureTypes.SerializedLiterature;
 import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,15 +20,16 @@ import static org.junit.Assert.*;
 /*
 public class BookFilterTest {
 
-    private ArrayList<StandaloneLiterature> testList = new ArrayList();
+    private ArrayList<Literature> testList = new ArrayList();
 
 
     @Before
     public void setUp() throws Exception {
-        StandaloneLiterature a = new StandaloneLiterature("aaa", "hhh", 3, "ttt", "1999-09-06", 2, 12);
-        StandaloneLiterature b = new StandaloneLiterature("aaa", "ill", 3, "hhh", "1999-09-06", 2, 12);
-        StandaloneLiterature c = new StandaloneLiterature("bbb", "lme", 3, "lri", "1999-09-06", 2, 12);
-        StandaloneLiterature d = new StandaloneLiterature("bbc", "ppp", 3, "irl", "1999-09-06", 2, 12);
+        Literature a = new StandaloneLiterature("aaa", "hhh", "Standalone", 3, 4, 3, "dd", "1999-09-06");
+        Literature b = new StandaloneLiterature("eee", "ill", "Standalone",3, 5, 2, "ss", "1999-09-06");
+        Literature c = new StandaloneLiterature("aaa", "nnn", "Standalone", 3, 4, 3, "dd", "1999-09-06");
+        Literature d = new StandaloneLiterature("lll", "ppp", "Standalone",3, 5, 2, "ss", "1999-09-06");
+
 
         testList.add(a);
         testList.add(b);

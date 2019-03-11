@@ -18,13 +18,13 @@ import static org.junit.Assert.*;
 
 /*
 public class BookStokRegisterTest {
-    private BookStokRegister bsr;
+    private LiteratureStockRegister bsr;
     private String fp;
 
     @Before
     public void setUp() throws Exception {
         this.fp = "test/registerTest.json";
-        bsr = new BookStokRegister(this.fp);
+        bsr = new LiteratureStockRegister(this.fp);
         StandaloneLiterature a = new StandaloneLiterature("tit", "pub", 3, "aut", "1999-09-06", 2, 12);
         StandaloneLiterature b = new StandaloneLiterature("tit1", "pub1", 3, "aut1", "1999-09-06", 2, 12);
         StandaloneLiterature c = new StandaloneLiterature("tit2", "pub2", 3, "aut2", "1999-09-06", 2, 12);

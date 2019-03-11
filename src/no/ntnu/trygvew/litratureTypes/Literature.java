@@ -11,7 +11,7 @@ public class Literature {
 
     /**
      *
-     * @param title the title of the book
+     * @param title the title of the Literature
      * @param publisher the book publisher
      * @param literatureType The type of litrature
      * @param numberInStock number of units in stok
