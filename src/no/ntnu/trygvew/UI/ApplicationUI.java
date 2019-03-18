@@ -1,5 +1,8 @@
-package no.ntnu.trygvew;
+package no.ntnu.trygvew.UI;
 
+import no.ntnu.trygvew.BookFilter;
+import no.ntnu.trygvew.InputtValidator;
+import no.ntnu.trygvew.LiteratureStockRegister;
 import no.ntnu.trygvew.litratureTypes.Literature;
 import no.ntnu.trygvew.litratureTypes.SerializedLiterature;
 import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
@@ -20,8 +23,6 @@ import java.util.*;
  * @version 1.0
  *
  *
- * Todo:
- * Todo: Admin bruker?? som kan legg til lesestoff og andre admin brukera
  * Todo: Se om du skal ta og fjern balance fra brukeran siden det bare blir en litt sån halves imp
  *
  */

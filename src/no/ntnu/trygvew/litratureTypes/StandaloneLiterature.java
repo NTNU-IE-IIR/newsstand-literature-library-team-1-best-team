@@ -10,9 +10,7 @@ package no.ntnu.trygvew.litratureTypes;
  */
 
 public class StandaloneLiterature extends Literature {
-    private String title;
-    private String publisher;
-    private String autor;
+    private String author;
     private int edition;
     private  String publicationDate;
 
@@ -23,19 +21,20 @@ public class StandaloneLiterature extends Literature {
      * Constructs book object with the parameters given
      *
      *
-     * @param title - the title of the book
-     * @param publisher - the book publisher
-     * @param numberInStock - number of units in stok
-     * @param price - the price of the book
-     * @param autor - the autor of the book
-     * @param edition - teh edition of the book
+     * @param title             the title of the book
+     * @param publisher         the book publisher
+     * @param numberInStock     number of units in stok
+     * @param price             the price of the book
+     * @param author             the author of the book
+     * @param edition           teh edition of the book
+     * @param publicationDate   the date of this books publishing
      */
-    public StandaloneLiterature(String title, String publisher, String literatureType, int numberInStock,float price, int edition, String autor, String publicationDate){
-        super(title, publisher, literatureType, numberInStock, price);
+    public StandaloneLiterature(String title, String publisher, int numberInStock, float price, int edition, String author, String publicationDate){
+        super(title, publisher, "Standalone", numberInStock, price);
 
 
 
-        this.autor = autor;
+        this.author = author;
         this.edition = edition;
         this.publicationDate = publicationDate;
         this.isInSeries = false;
@@ -46,11 +45,11 @@ public class StandaloneLiterature extends Literature {
 
 
     /**
-     * Returns the autor from book
-     * @return book autor
+     * Returns the author from book
+     * @return book author
      */
     public String getAuthor() {
-        return autor;
+        return author;
     }
 
     /**
@@ -95,15 +94,6 @@ public class StandaloneLiterature extends Literature {
         return isInSeries;
     }
 
-    /**
-     * A string that contains all the class parameters, used to validate objects
-     * @return sting containing all the class parameters
-
-    @Override
-    public String toString(){
-        return this.getClass().getName() + this.title + this.publisher + this.numberInStok + this.price + this.autor + this.edition + this.publicationDate + this.isInSeries;
-    }
-     */
 
 
 

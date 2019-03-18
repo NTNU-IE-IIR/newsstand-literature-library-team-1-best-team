@@ -1,8 +1,6 @@
 package no.ntnu.trygvew.FileIO;
 
-import no.ntnu.trygvew.litratureTypes.Literature;
-import no.ntnu.trygvew.litratureTypes.SerializedLiterature;
-import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
+import no.ntnu.trygvew.litratureTypes.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,29 +29,41 @@ public class LiteratureSaver {
             saveObj.put("Price", literature.getPrice());
             saveObj.put("Stock", literature.getNumberInStock());
 
+            if (literature instanceof SerializedLiterature) {
+                String serializedType = null;
+                if (literature instanceof Paper) {serializedType = "Paper";};
+                if (literature instanceof Magazine) {serializedType = "Magazine";};
+                SerializedLiterature serialized = (SerializedLiterature) literature;
 
-            switch (literature.getLiteratureType()){
-                case "Serialized":
+                saveObj.put("YearlyDistributions", serialized.getYearlyDistributions());
+                saveObj.put("SerializedType", serializedType);
+                saveObj.put("Genre", serialized.getGenre());
 
-                    SerializedLiterature serialized = (SerializedLiterature) literature;
+                jsonSaveArr.put(saveObj);
+            } else if (literature instanceof Book) {
+                StandaloneLiterature standalone = (StandaloneLiterature) literature;
 
-                    saveObj.put("YearlyDistributions", serialized.getYearlyDistributions());
-                    saveObj.put("SerializedType", serialized.getSerializedType());
-                    saveObj.put("Genre", serialized.getGenre());
+                saveObj.put("Edition", standalone.getEdition());
+                saveObj.put("Author", standalone.getAuthor());
+                saveObj.put("PublicationDate", standalone.getPublicationDate());
 
-                    jsonSaveArr.put(saveObj);
-                    break;
+                jsonSaveArr.put(saveObj);
+            } else if (literature instanceof BookSeries) {
+                BookSeries series = (BookSeries) literature;
 
-                case "Standalone":
-                    StandaloneLiterature standalone = (StandaloneLiterature) literature;
+                saveObj.put("SeriesAuthor", series.getSeriesAuthor());
+                ArrayList<Book> seriesBooks = series.getBooksInSeries();
+                String seriesSaveStr = "";
+                if (seriesBooks.size()> 0) {
+                    String finalSeriesSaveStr = seriesSaveStr;
+                    seriesBooks.forEach(book -> finalSeriesSaveStr.concat("%@%" + book.getFullTitle()));
+                    seriesSaveStr = finalSeriesSaveStr.substring(3); // cuts of the start new title mark
+                }
+                saveObj.put("BooksInSeriesFullTiles", seriesSaveStr);
 
-                    saveObj.put("Edition", standalone.getEdition());
-                    saveObj.put("Author", standalone.getAuthor());
-                    saveObj.put("PublicationDate", standalone.getPublicationDate());
-
-                    jsonSaveArr.put(saveObj);
-                    break;
+                jsonSaveArr.put(saveObj);
             }
+
         });
 
         String saveStr = jsonSaveArr.toString(3);
@@ -66,6 +76,7 @@ public class LiteratureSaver {
     public static ArrayList<Literature> loadLiteratureStock(String fp) throws IOException{
 
         ArrayList<Literature> returnArray = new ArrayList<>();
+        ArrayList<Literature> bookSeries = new ArrayList<>();
         try {
             String JsonObjStr = DataSaver.loadString(fp);
             JSONArray jsonArr = new JSONArray(JsonObjStr);
@@ -83,10 +94,19 @@ public class LiteratureSaver {
                     case "Serialized":
 
                         int yearlyDist = loadObj.getInt("YearlyDistributions");
-                        String serializedType = loadObj.getString("SerializedType");
                         String genere = loadObj.getString("Genre");
+                        String serializedType = loadObj.getString("SerializedType");
+                        SerializedLiterature newLit = null;
+
+                        if (serializedType.equals("Paper")){
+                            newLit = new Paper(title, publisher, stock, price, yearlyDist, genere);
+
+                        } else if (serializedType.equals("Magazine")){
+                            newLit = new Magazine(title, publisher, stock, price, yearlyDist, genere);
+                        }
+
                         Literature serialized = new SerializedLiterature(
-                                title, publisher, type, stock, price, yearlyDist, serializedType, genere);
+                                title, publisher, stock, price, yearlyDist, genere);
                         returnArray.add(serialized);
                         break;
 
@@ -97,9 +117,15 @@ public class LiteratureSaver {
                         String publicationDate = loadObj.getString("PublicationDate");
 
                         Literature standalone = new StandaloneLiterature(
-                                title, publisher, type, stock, price, edition,  author, publicationDate);
+                                title, publisher, stock, price, edition,  author, publicationDate);
                         returnArray.add(standalone);
                         break;
+                    case "BookSeries":
+                        String seriesAuthor = loadObj.getString("SeriesAuthor");
+                        String[] seriesStrList = loadObj.getString("BooksInSeriesFullTiles").split("%@%");
+
+                        BookSeries newSeries = new BookSeries(title, publisher, stock, price, seriesAuthor)
+                        bookSeries.add(L)
                 }
             });
         }

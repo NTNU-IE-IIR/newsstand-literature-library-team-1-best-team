@@ -25,7 +25,7 @@ public class LiteratureStockRegister {
     private HashMap<String, Transaction> orderList;
     private String saveFilePath;
 
-    LiteratureStockRegister(String savePath) {
+    public LiteratureStockRegister(String savePath) {
         this.saveFilePath = savePath;
 
         this.literatureInStock = this.loadStock();

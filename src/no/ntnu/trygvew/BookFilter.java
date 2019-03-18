@@ -28,7 +28,7 @@ public class BookFilter {
 
         return arrayList.stream()
                 .parallel() // the overhed probably results in a net loss
-                .filter(s -> filter.apply(s))
+                .filter(filter::apply)
                 .collect(Collectors.toCollection(ArrayList::new));
 
     }
