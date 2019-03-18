@@ -75,7 +75,7 @@ public class StandaloneLiterature extends Literature {
      * @return book title and edition
      */
     public String getFullTitle() {
-        return this.title + " " + this.edition + ".ed";
+        return this.getTitle() + " " + this.edition + ".ed";
     }
 
     /**

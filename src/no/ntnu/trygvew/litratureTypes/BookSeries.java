@@ -1,11 +1,16 @@
 package no.ntnu.trygvew.litratureTypes;
 
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class BookSeries extends Literature {
 
     private String seriesAuthor;
+    private java.util.List<String> seriesTitleList;
     private ArrayList<Book> booksInSeries;
 
     /**
@@ -19,6 +24,7 @@ public class BookSeries extends Literature {
         super(title, publisher, "BookSeries", numberInStock, price);
         this.booksInSeries = booksInSeries;
         this.seriesAuthor = seriesAuthor;
+        this.seriesTitleList = booksInSeries.stream().map(Book::getFullTitle).collect(Collectors.toList());
     }
 
     /**
@@ -27,10 +33,11 @@ public class BookSeries extends Literature {
      * @param numberInStock  number of units in stok
      * @param price          the price of the book
      */
-    public BookSeries(String title, String publisher, int numberInStock, float price,String seriesAuthor) {
+    public BookSeries(String title, String publisher, int numberInStock, float price,String seriesAuthor, java.util.List<String> seriesTitleList) {
         super(title, publisher, "BookSeries", numberInStock, price);
         this.booksInSeries = new ArrayList<Book>();
         this.seriesAuthor = seriesAuthor;
+        this.seriesTitleList = seriesTitleList;
     }
 
     public String getSeriesAuthor(){
@@ -46,7 +53,7 @@ public class BookSeries extends Literature {
         return booksInSeries.stream().map(StandaloneLiterature::getPublicationDate).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public void linkSeriesBooks(ArrayList<Book> bookList, ArrayList<String> seriesTitleList){
+    public void linkSeriesBooks(ArrayList<Book> bookList){
         bookList.forEach(b -> {
             if (seriesTitleList.contains(b.getFullTitle())){
                 booksInSeries.add(b);

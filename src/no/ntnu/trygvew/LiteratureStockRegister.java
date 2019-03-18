@@ -42,6 +42,8 @@ public class LiteratureStockRegister {
             returnArray = LiteratureSaver.loadLiteratureStock(this.saveFilePath);
         } catch (Exception e) {
             returnArray = new ArrayList<Literature>();
+            System.out.println("load error");
+            e.printStackTrace();
         }
 
         return returnArray;
@@ -124,7 +126,7 @@ public class LiteratureStockRegister {
      * @return a iterator for all books
      */
     public ArrayList<Literature> getStock(){
-        return (ArrayList<Literature>) this.literatureInStock.clone();
+        return this.literatureInStock;
     }
 
     public void makePurchase(StandaloneLiterature b, User u){

@@ -1,8 +1,6 @@
 package no.ntnu.trygvew.FileIO;
 
-import no.ntnu.trygvew.litratureTypes.Literature;
-import no.ntnu.trygvew.litratureTypes.SerializedLiterature;
-import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
+import no.ntnu.trygvew.litratureTypes.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,10 +19,10 @@ public class LiteratureSaverTest {
     public void setUp() throws Exception {
         this.fp = "test/storageTest.json";
 
-        Literature a = new StandaloneLiterature("aaa", "hhh", "Standalone", 3, 4, 3, "dd", "1999-09-06");
-        Literature b = new StandaloneLiterature("aaa", "ill", "Standalone",3, 5, 2, "ss", "1999-09-06");
-        Literature c = new SerializedLiterature("bbb", "lme", "Serialized",3, 8, 5, "ee", "h");
-        Literature d = new SerializedLiterature("bbc", "ppp", "Serialized",3, 2, 6, "gg", "g");
+        Literature a = new Book("aaa", "hhh",  3, 4, 3, "dd", "1999-09-06");
+        Literature b = new Book("aaa", "ill", 3, 5, 2, "ss", "1999-09-06");
+        Literature c = new Paper("bbb", "lme", 3, 8, 5, "ee");
+        Literature d = new Magazine("bbc", "ppp", 3, 2, 6, "gg");
 
         testList.add(a);
         testList.add(b);
@@ -44,7 +42,7 @@ public class LiteratureSaverTest {
 
 
         loadedList.forEach(b-> {
-            System.out.println(b.getLiteratureType());
+            System.out.println(b.getClass());
             final Boolean[] containsTarget = {false};
 
             this.testList.forEach(l -> {

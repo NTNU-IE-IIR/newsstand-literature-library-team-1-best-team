@@ -3,9 +3,7 @@ package no.ntnu.trygvew.UI;
 import no.ntnu.trygvew.BookFilter;
 import no.ntnu.trygvew.InputtValidator;
 import no.ntnu.trygvew.LiteratureStockRegister;
-import no.ntnu.trygvew.litratureTypes.Literature;
-import no.ntnu.trygvew.litratureTypes.SerializedLiterature;
-import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
+import no.ntnu.trygvew.litratureTypes.*;
 import no.ntnu.trygvew.messingAround.Transaction;
 import no.ntnu.trygvew.messingAround.User;
 import no.ntnu.trygvew.messingAround.UserLoggin;
@@ -39,20 +37,28 @@ public class ApplicationUI
     // The menu tha will be displayed. Please edit/alter the menu
     // to fit your application (i.e. replace "prodct" with "litterature"
     // etc.
-    private String[] baseMenuItems = {
-            "List all products",
+    private final String[] baseMenuItems = {
+            "view products",
             "Add new product",
             "Find a product by name",
     };
 
-    private String[] notLoggedInnMenuItems = {
+    private final String[] notLoggedInnMenuItems = {
             "Log inn",
             "Sign up",
     };
 
-    private String[] loggedInnMenuItems = {
+    private final String[] loggedInnMenuItems = {
             "Purhchase item",
             "logg out",
+    };
+
+    private final String[] searchMenuItems = {
+            "Show Books",
+            "Show Book Series",
+            "Show Papers",
+            "Show Magazines",
+            "Back"
     };
 
 
@@ -73,18 +79,22 @@ public class ApplicationUI
     {
         this.init();
 
+
         boolean quit = false;
+        String UiState = "";
 
         while (!quit) 
         {
             try 
             {
                 // rely not a good way of doing thid
-                String menuSelection = this.showMenu();
+                String menuSelection = this.showMenu(UiState);
+                UiState = "";
                 switch (menuSelection)
                 {
-                    case "List all products":
-                        this.listAllProducts();
+                    case "view products":
+                        this.displayLitrature(this.booRegister.getStock());
+                        UiState = "Search";
                         break;
 
                     case "Add new product":
@@ -109,6 +119,25 @@ public class ApplicationUI
 
                     case "logg out":
                         this.logOut();
+                        break;
+
+                    case "Show Books":
+                        this.displayBooks(this.booRegister.getStock());
+                        break;
+
+                    case "Show Book Series":
+                        System.out.println("not imp");
+                        break;
+
+                    case "Show Papers":
+                        this.displayPaper(this.booRegister.getStock());
+                        break;
+
+                    case "Show Magazines":
+                        this.displayMagazine(this.booRegister.getStock());
+                        break;
+
+                    case "Back":
                         break;
 
                     case "Exit":
@@ -136,7 +165,7 @@ public class ApplicationUI
      * @return the menu number (between 1 and max menu item number) provided by the user.
      * @throws InputMismatchException if user enters an invalid number/menu choice
      */
-    private String showMenu() throws InputMismatchException
+    private String showMenu(String UiState) throws InputMismatchException
     {
         System.out.println("\n\n\n\n**** Application v0.1 ****\n");
         boolean isUserLoggedInn = !(currentUser == null);
@@ -147,13 +176,20 @@ public class ApplicationUI
         }
 
         ArrayList<String> menuItems = new ArrayList<>();
-        // adds the base menu items
-        menuItems.addAll(Arrays.asList(this.baseMenuItems));
 
-        if (!isUserLoggedInn){
-            menuItems.addAll(Arrays.asList(this.notLoggedInnMenuItems));
-        } else {
-            menuItems.addAll(Arrays.asList(this.loggedInnMenuItems));
+        switch (UiState){
+            case "Search":
+                menuItems.addAll(Arrays.asList(this.searchMenuItems));
+                break;
+            default:
+                // adds the base menu items
+                menuItems.addAll(Arrays.asList(this.baseMenuItems));
+
+                if (!isUserLoggedInn){
+                    menuItems.addAll(Arrays.asList(this.notLoggedInnMenuItems));
+                } else {
+                    menuItems.addAll(Arrays.asList(this.loggedInnMenuItems));
+                }
         }
 
         menuItems.add("Exit");
@@ -349,80 +385,25 @@ public class ApplicationUI
         this.currentUser = this.userLoggin.createUser(userName,userPassword, firstName, lastName, userFunds);
     }
 
-
-
-    /**
-     * Displays the items
-     * @param displayList the list to display
-     */
-    private void displayItems(ArrayList<Literature> displayList){
-
-        ArrayList<StandaloneLiterature> standalone = new ArrayList<>();
-        ArrayList<SerializedLiterature> serialized = new ArrayList<>();
-
-        displayList.forEach(l ->{
-            if (l.getLiteratureType().equals("Serialized")){
-                serialized.add((SerializedLiterature) l);
-            } else if (l.getLiteratureType().equals("Standalone")){
-                standalone.add((StandaloneLiterature) l);
-            }
-        });
-
-
-        if (standalone.size() > 0){
-            System.out.println("\n\nStandalone Litrature");
-            System.out.println("#########################################################################");
-            System.out.println("Displaying :" + displayList.size() + " items\n");
-            String[] standaloneInfoHeaders = {"Title", "Publisher", "Edition", "Author", "PublicationDate", "Price", "Stock"};
-            for (String hed: standaloneInfoHeaders){System.out.print(String.format("|  %-17s", hed));}
-
-            standalone.forEach(b -> {
-                System.out.println();
-
-                System.out.print(String.format("|  %-17s", b.getTitle()));
-                System.out.print(String.format("|  %-17s", b.getPublisher()));
-                System.out.print(String.format("|  %-17s", b.getEdition()));
-                System.out.print(String.format("|  %-17s", b.getAuthor()));
-                System.out.print(String.format("|  %-17s", b.getPublicationDate()));
-                System.out.print(String.format("|  %-17s", b.getPrice()));
-                System.out.print(String.format("|  %-17s", b.getNumberInStock()));
-            });
-        } else {
-            System.out.print("\n No Standalone Litrature \n");
-        }
-
-        if (serialized.size() > 0){
-            System.out.println("\n\nSerialized Litrature");
-            System.out.println("#########################################################################");
-            System.out.println("Displaying :" + displayList.size() + " items\n");
-            String[] serializedInfoHeaders = {"Title", "publisher", "yearly dist", "type", "genre", "Price", "Stock"};
-            for (String hed: serializedInfoHeaders){System.out.print(String.format("|  %-17s", hed));}
-
-            serialized.forEach(b -> {
-                System.out.println();
-
-                System.out.print(String.format("|  %-17s", b.getTitle()));
-                System.out.print(String.format("|  %-17s", b.getPublisher()));
-                System.out.print(String.format("|  %-17s", b.getYearlyDistributions()));
-                System.out.print(String.format("|  %-17s", b.getSerializedType()));
-                System.out.print(String.format("|  %-17s", b.getGenre()));
-                System.out.print(String.format("|  %-17s", b.getPrice()));
-                System.out.print(String.format("|  %-17s", b.getNumberInStock()));
-            });
-        } else {
-            System.out.print("\n No Serialized Litrature \n");
-        }
-
+    private void  displayLitrature(ArrayList<Literature> displayList){
+        DisplayLitrature.displayLiterature(displayList);
 
     }
 
-    /**
-     * Lists all the products/literature in the register
-     */
-    private void listAllProducts()
-    {
-        this.displayItems(this.booRegister.getStock());
+    private void  displayBooks(ArrayList<Literature> displayList){
+        DisplayLitrature.displayBook(displayList);
     }
+
+    private void  displayPaper(ArrayList<Literature> displayList){
+        DisplayLitrature.displayPaper(displayList);
+    }
+
+    private void  displayMagazine(ArrayList<Literature> displayList){
+        DisplayLitrature.displayMagazine(displayList);
+    }
+
+
+
 
     
     /**
@@ -449,13 +430,16 @@ public class ApplicationUI
 
 
 
-        System.out.println("To add Standalone Litrature - t");
-        System.out.println("To add Serialized Litrature - e");
+        System.out.println("To add Book - b");
+        System.out.println("To add Book series - bs");
+        System.out.println("To add Magazine - m");
+        System.out.println("To add Paper - p");
+
 
         try {
             typeToAdd = sc.nextLine();
             assert typeToAdd.length() > 0;
-            validInput = typeToAdd.equals("t") || typeToAdd.equals("e");
+            validInput = typeToAdd.equals("b") || typeToAdd.equals("bs")|| typeToAdd.equals("m")|| typeToAdd.equals("p");
         } catch (Exception e){
             validInput = false;
         }
@@ -497,8 +481,15 @@ public class ApplicationUI
                 }
             }
 
+            String inp_type = typeToAdd;
+            if (typeToAdd.equals("m") || typeToAdd.equals("p")){
+                typeToAdd = "sr";
+            }
+
+
+
             switch (typeToAdd) {
-                case "t":
+                case "b": // book
                     // standalone
                     int edition = 0;
                     String author = null;
@@ -546,11 +537,61 @@ public class ApplicationUI
                         }
                     }
 
-                    Literature standalone = new StandaloneLiterature(
-                            title, publisher, "Standalone", stock, price, edition,  author, publicationDate);
+                    Literature standalone = new Book(
+                            title, publisher, stock, price, edition,  author, publicationDate);
                     this.booRegister.addLiterature(standalone);
                     break;
-                case "e":
+                case "bs": // book series
+                    // standalone
+
+
+                    validInput = false;
+                    while (!validInput) {
+                        System.out.print("input Edition: ");
+                        String inpEdition = sc.nextLine();
+                        validInput = InputtValidator.isValidIntInp(inpEdition);
+                        if (validInput) {
+                            edition = Integer.valueOf(inpEdition);
+                        }
+                    }
+
+                    validInput = false;
+                    while (!validInput) {
+                        System.out.print("input Author: ");
+                        author = sc.nextLine();
+                        validInput = InputtValidator.isValidStingInp(author);
+                    }
+
+
+                    validInput = false;
+                    while (!validInput) {
+                        System.out.print("input PublicationDate YYYY-MM-DD: ");
+                        String inpPublicationDate = sc.nextLine();
+                        // removes the - if the user inputs them.
+                        inpPublicationDate = inpPublicationDate.replaceAll("-", "");
+
+                        if (InputtValidator.isValidDate(inpPublicationDate)) {
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+                            try {
+                                if (dateFormat.parse(inpPublicationDate).before(new Date())) {
+                                    validInput = true;
+                                    publicationDate = inpPublicationDate;
+                                } else {
+                                    System.out.println("Date has not passsed");
+                                }
+                            } catch (Exception e) {
+                            }
+                        } else {
+                            System.out.println("not a valid date");
+                        }
+                    }
+                    /**
+                    Literature bookSeries = new BookSeries(
+                            title, publisher, "Standalone", stock, price,);
+                    this.booRegister.addLiterature(bookSeries);
+                     **/
+                    break;
+                case "sr": // serialized
                     int yearlyDist = 0;
                     String serializedType = null;
                     String genere = null;
@@ -566,12 +607,6 @@ public class ApplicationUI
                         }
                     }
 
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("input type of magazine: ");
-                        serializedType = sc.nextLine();
-                        validInput = InputtValidator.isValidStingInp(serializedType);
-                    }
 
                     validInput = false;
                     while (!validInput) {
@@ -580,8 +615,16 @@ public class ApplicationUI
                         validInput = InputtValidator.isValidStingInp(genere);
                     }
 
-                    Literature serialized = new SerializedLiterature(
-                            title, publisher, "Serialized", stock, price, yearlyDist, serializedType, genere);
+
+                    Literature serialized = null;
+                    if (inp_type.equals("m")){
+                        serialized = new Magazine(
+                                title, publisher,  stock, price, yearlyDist, genere);
+                    } else if (inp_type.equals("p")){
+                        serialized = new Paper(
+                                title, publisher, stock, price, yearlyDist, genere);
+                    }
+
                     this.booRegister.addLiterature(serialized);
                     break;
 
@@ -620,7 +663,7 @@ public class ApplicationUI
             System.out.print("search for title: ");
             String filter = sc.nextLine();
             ArrayList<Literature> ar = BookFilter.filterLiteratureByTitle(filter, bookStock);
-            this.displayItems(ar);
+            this.displayLitrature(ar);
         } /*else if (inpTitle.contains("a")){
             System.out.print("search for author: ");
             String filter = sc.nextLine();
@@ -630,7 +673,7 @@ public class ApplicationUI
             System.out.print("search for publisher: ");
             String filter = sc.nextLine();
             ArrayList<Literature> ar = BookFilter.filterLiteratureByPublisher(filter, bookStock);
-            this.displayItems(ar);
+            this.displayLitrature(ar);
         }
     }
     
