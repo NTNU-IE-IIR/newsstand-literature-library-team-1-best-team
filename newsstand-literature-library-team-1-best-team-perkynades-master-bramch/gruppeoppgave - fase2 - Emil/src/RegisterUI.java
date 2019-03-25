@@ -19,10 +19,10 @@
 public class RegisterUI {
 
     private Parser parser;
-    private Register newspaperRegister;
+    private Register literatureRegister;
 
     public RegisterUI() {
-        newspaperRegister = new Register();
+        literatureRegister = new Register();
         parser = new Parser();
     }
 
@@ -49,7 +49,7 @@ public class RegisterUI {
      */
     private void printWelcome() {
         System.out.println("Welcome!");
-        System.out.println("This is my new super awesome newspaper store!");
+        System.out.println("This is my new super awesome literature store!");
         System.out.println("if you need help type 'help'");
         System.out.println();
     }
@@ -74,7 +74,7 @@ public class RegisterUI {
         else if (commandWord.equals("exit")) {
             wantToExit = exit(command);
         }
-        else if (commandWord.equals("newspapers")) {
+        else if (commandWord.equals("literature")) {
             printNewspaperList();
         }
         else if (commandWord.equals("search")) {
@@ -106,12 +106,12 @@ public class RegisterUI {
     }
 
     /**
-     * Prints out a full list of all the newspapers in our list of Newspapers with
-     * all the information about our newspapers.
+     * Prints out a full list of all the literature's in our list of literature with
+     * all the information about our literature's.
      */
     public void printNewspaperList() {
 
-        System.out.println(newspaperRegister.getNewspaperListAsString());
+        System.out.println(literatureRegister.getLiteratureListAsString());
 
     }
 
@@ -128,17 +128,17 @@ public class RegisterUI {
     public void printNewspaperByTitle(Command command) {
         if (!command.hasSecondWord()) {
             //if there is no second word, we dont know what to search for
-            System.out.println("After 'search' type in the newspaper you want to search for");
+            System.out.println("After 'search' type in the literature you want to search for");
         }
 
         String searchWord = command.getSecondWord();
-        if (newspaperRegister.findNewspaperByTitle(searchWord) == null) {
-            System.out.println("The newspaper you searched for is not in our store...");
+        if (literatureRegister.findLiteratureByTitle(searchWord) == null) {
+            System.out.println("The literature you searched for is not in our store...");
         }
         else {
-            Newspaper newspaper = newspaperRegister.findNewspaperByTitle(searchWord);
-            System.out.println(newspaper.getTitle() + ", " + newspaper.getPublisher() + ", " + newspaper.getPublishedDate() + ", " +
-                               newspaper.getPrice() + newspaper.getCurrency() + "\n");
+            Literature literature = literatureRegister.findLiteratureByTitle(searchWord);
+            System.out.println(literature.getTitle() + ", " + literature.getPublisher() + ", " + literature.getPublishedDate() + ", " +
+                               literature.getPrice() + literature.getCurrency() + "\n");
         }
     }
 

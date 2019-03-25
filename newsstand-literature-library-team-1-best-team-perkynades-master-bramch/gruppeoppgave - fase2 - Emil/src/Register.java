@@ -4,71 +4,88 @@ import java.util.ArrayList;
  * Register keeps a list of all the newspapers that are in stock, which
  * is printed into the terminal.
  * From this register you can:
- *  Add a newspaper
- *  Remove a newspaper
+ *  Add a literature
+ *  Remove a literature
  *  Get a list of all the newspapers
- *  Search newspapers by title
+ *  Search literature by title
  *
  * @author Emil Elton Nilsen.
  * @version 1.0 (30.01.2019)
  */
 public class Register {
 
-    private ArrayList<Newspaper> newspaperList;
+    private ArrayList<Literature> literatureList;
 
     /**
      * Create a new ArrayList that stores all of our added newspapers in a list
      */
     public Register () {
-        this.newspaperList = new ArrayList<Newspaper>();
-        addNewspapersToList();
+        this.literatureList = new ArrayList<Literature>();
+        addLiteratureToList();
     }
 
     /**
-     * Add a created newspaper for the Newspaper class to our
-     * list of newspapers.
+     * Add a created literature for the literature class to our
+     * list of literature.
      *
-     * @param newspaper A newspaper object created from the Newspaper class
+     * @param literature A literature object created from the literature class
      */
-    public void addNewspaper(Newspaper newspaper) {
-        this.newspaperList.add(newspaper);
+    public void addLiterature(Literature literature) {
+        this.literatureList.add(literature);
     }
 
-    public String getNewspaperListAsString() {
+    public String getLiteratureListAsString() {
 
-        String newspaperListed = "";
-        for (Newspaper newspaper : newspaperList) {
-            newspaperListed += newspaper.getTitle() + ", " + newspaper.getPublisher() + ", " + newspaper.getPublishedDate() + ", " +
-                               newspaper.getPrice() + newspaper.getCurrency() + "\n";
+        String literatureListed = "";
+        for (Literature literature : literatureList) {
+            literatureListed += literature.getTitle() + ", " + literature.getPublisher() + ", " + literature.getPublishedDate() + ", " +
+                               literature.getPrice() + literature.getCurrency() + "\n";
         }
-        return newspaperListed;
+        return literatureListed;
     }
 
     /**
-     * Search the newspaper list for a newspaper with the name given.
+     * Search the literature list for a literature with the name given.
      *
-     * Return the newspaper if found. If not found null is returned
+     * Return the literature if found. If not found null is returned
      */
-    public Newspaper findNewspaperByTitle(String title) {
-        Newspaper newspaperTitle = null;
-        for (Newspaper newspaper : newspaperList) {
-            if (newspaper.getTitle().equals(title)) {
-                newspaperTitle = newspaper;
+
+    public Literature findLiteratureByTitle(String title) {
+        Literature foundLiterature = null;
+        for (Literature literature : literatureList) {
+            if (literature.getTitle().equals(title)) {
+                foundLiterature = literature;
             }
         }
-        return newspaperTitle;
+        return foundLiterature;
     }
 
-    public void addNewspapersToList() {
-        Newspaper VG = new Newspaper("VG", "Emil Nilsen", "21.03.18", 40, "kr");
-        Newspaper VG2 = new Newspaper("VG", "Emil Nilsen", "12.04.18", 40, "kr");
-        Newspaper Aftenposten = new Newspaper("Aftenposten", "Rune Berg", "18.03.17", 60, "kr");
-        Newspaper NRK = new Newspaper("NRK", "Trygve Woldseth", "04.04.98", 100, "kr");
+    public void addLiteratureToList() {
+        Literature VG = new Newspaper("VG", "Emil Nilsen", "21.03.18", 40, "kr");
+        Literature VG2 = new Newspaper("VG", "Emil Nilsen", "12.04.18", 40, "kr");
+        Literature Aftenposten = new Newspaper("Aftenposten", "Rune Berg", "18.03.17", 60, "kr");
+        Literature NRK = new Newspaper("NRK", "Trygve Woldseth", "04.04.98", 100, "kr");
 
-        addNewspaper(VG);
-        addNewspaper(VG2);
-        addNewspaper(Aftenposten);
-        addNewspaper(NRK);
+        Literature Vi_menn = new Magazine("Vi menn", "Egmont publishing", "25.03.19", 200, "kr");
+        Literature KK = new Magazine("KK", "Kvinner", "25.03.19", 2000, "kr");
+        Literature Donald_duck = new Magazine("Donald duck", "Disney", "25.03.19", 100, "kr");
+        Literature Hjemmet = new Magazine("Hjemmet", "Hjemmfolket", "25.03.19", 300, "kr");
+
+        Literature Døden_Søt = new Book("Døden søt", "egnes", "25.03.19", 400, "$");
+        Literature Blomsteng = new Book("Blomstereng", "egnes", "25.03.19", 400, "$");
+
+        addLiterature(VG);
+        addLiterature(VG2);
+        addLiterature(Aftenposten);
+        addLiterature(NRK);
+
+        addLiterature(Vi_menn);
+        addLiterature(KK);
+        addLiterature(Donald_duck);
+        addLiterature(Hjemmet);
+
+        addLiterature(Døden_Søt);
+        addLiterature(Blomsteng);
     }
 
 
