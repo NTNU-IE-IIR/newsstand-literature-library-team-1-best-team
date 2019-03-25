@@ -323,10 +323,10 @@ public class ApplicationUI
         validInput = false;
         while (!validInput){
             System.out.print("input username: ");
-            lastName = sc.nextLine();
-            if (this.userLoggin.isValidUsername(lastName) && InputtValidator.isValidStingInp(lastName)){
+            userName = sc.nextLine();
+            if (this.userLoggin.isValidUsername(userName) && InputtValidator.isValidStingInp(userName)){
                 validInput = true;
-            } else if (InputtValidator.isValidStingInp(lastName)){
+            } else if (InputtValidator.isValidStingInp(userName)){
                 System.out.println("Username alredy in use");
             }
 

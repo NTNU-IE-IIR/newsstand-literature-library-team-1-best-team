@@ -111,6 +111,8 @@ public class LiteratureSaver {
                         } else if (serializedType.equals("Magazine")){
                             Magazine m = new Magazine(title, publisher, stock, price, yearlyDist, genere);
                             returnArray.add(m);
+                        } else {
+                            throw new NullPointerException("cant Find Cat");
                         }
 
 
@@ -127,12 +129,15 @@ public class LiteratureSaver {
                         returnArray.add(newBook);
                         books.add(newBook);
                         break;
+
                     case "BookSeries":
                         String seriesAuthor = loadObj.getString("SeriesAuthor");
                         String[] seriesStrList = loadObj.getString("BooksInSeriesFullTiles").split("%@%");
 
                         BookSeries newSeries = new BookSeries(title, publisher, stock, price, seriesAuthor, Arrays.asList(seriesStrList));
                         bookSeries.add(newSeries);
+
+                        break;
                 }
             });
             bookSeries.forEach(s -> {
@@ -141,7 +146,6 @@ public class LiteratureSaver {
             });
         }
         catch (JSONException e) {System.out.println("Json Problem  "); e.printStackTrace();}
-
 
         return returnArray;
     }

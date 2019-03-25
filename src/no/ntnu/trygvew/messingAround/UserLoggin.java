@@ -52,11 +52,15 @@ public class UserLoggin {
     private void saveStringHashMap(String fp, HashMap<String, String> hm){
         File saveFile = new File(fp);
         if (!saveFile.exists()){
-            try{saveFile.createNewFile();} catch (Exception e) {};
+            try{saveFile.createNewFile();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         try {
             JSONObject j = new JSONObject(hm);
+
             DataSaver.saveString(j.toString(2) ,fp);
         } catch (Exception e) {
             e.printStackTrace();

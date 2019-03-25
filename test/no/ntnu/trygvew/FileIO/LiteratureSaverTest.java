@@ -37,7 +37,9 @@ public class LiteratureSaverTest {
             LiteratureSaver.saveLiteratureStock(this.testList, this.fp);
             File file = new File(this.fp);
             loadedList = LiteratureSaver.loadLiteratureStock(this.fp);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 

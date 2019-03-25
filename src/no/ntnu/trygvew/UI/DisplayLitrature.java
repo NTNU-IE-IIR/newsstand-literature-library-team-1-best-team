@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class DisplayLitrature {
 
-    private static final String[] serializedHead = {"Title", "publisher", "yearly dist", "type", "genre", "Price", "Stock"};
+    private static final String[] serializedHead = {"Title", "publisher", "yearly dist", "genre", "Price", "Stock"};
     private static final String[] standaloneHead = {"Title", "Publisher", "Edition", "Author", "PublicationDate", "Price", "Stock"};
     private static final String[] litratureHead = {"Title", "Publisher", "Price", "Stock", "type"};
 
@@ -18,19 +18,15 @@ public class DisplayLitrature {
             System.out.print(String.format("|  %-17s", hed));
         }
 
-
-
         literatureList.forEach(itm -> {
             System.out.println();
 
-            System.out.println(itm);
 
             System.out.print(String.format("|  %-17s", itm.getTitle()));
             System.out.print(String.format("|  %-17s", itm.getPublisher()));
             System.out.print(String.format("|  %-17s", itm.getPrice()));
             System.out.print(String.format("|  %-17s", itm.getNumberInStock()));
             String itmType = "none";
-            System.out.println(itm.getClass());
             if (itm instanceof Book){itmType = "Book";}
             if (itm instanceof Paper){itmType = "Paper";}
             if (itm instanceof Magazine){itmType = "Magazine";}
