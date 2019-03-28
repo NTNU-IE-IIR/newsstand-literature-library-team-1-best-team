@@ -8,10 +8,7 @@ import org.json.JSONObject;
 import java.awt.geom.NoninvertibleTransformException;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -78,76 +75,71 @@ public class LiteratureSaver {
 
     public static ArrayList<Literature> loadLiteratureStock(String fp) throws IOException{
 
-        ArrayList<Literature> returnArray = new ArrayList<>();
+        ArrayList<Literature> returnArray = null;
         ArrayList<BookSeries> bookSeries = new ArrayList<>();
 
         // needed to add books to series
         ArrayList<Book> books = new ArrayList<>();
+
+        //TODO: for og kunn implm bok seria må du ha en pass hvor du plukke dem ut først og lage serian etterpå
         try {
             String JsonObjStr = DataSaver.loadString(fp);
             JSONArray jsonArr = new JSONArray(JsonObjStr);
-            jsonArr.toList().stream().parallel().forEach(JS ->{
-                JSONObject loadObj = new JSONObject((HashMap) JS);
-
-
-
-                String type = loadObj.getString("Type");
-                String title = loadObj.getString("Title");
-                String publisher = loadObj.getString("Publisher");
-                float price = loadObj.getFloat("Price");
-                int stock = loadObj.getInt("Stock");
-
-                switch (type){
-                    case "Serialized":
-
-                        int yearlyDist = loadObj.getInt("YearlyDistributions");
-                        String genere = loadObj.getString("Genre");
-                        String serializedType = loadObj.getString("SerializedType");
-
-                        if (serializedType.equals("Paper")){
-                            Paper p = new Paper(title, publisher, stock, price, yearlyDist, genere);
-                            returnArray.add(p);
-
-                        } else if (serializedType.equals("Magazine")){
-                            Magazine m = new Magazine(title, publisher, stock, price, yearlyDist, genere);
-                            returnArray.add(m);
-                        } else {
-                            throw new NullPointerException("cant Find Cat");
-                        }
-
-
-                        break;
-
-                    case "Standalone":
-
-                        int edition = loadObj.getInt("Edition");
-                        String author = loadObj.getString("Author");
-                        String publicationDate = loadObj.getString("PublicationDate");
-
-                        Book newBook = new Book(
-                                title, publisher, stock, price, edition,  author, publicationDate);
-                        returnArray.add(newBook);
-                        books.add(newBook);
-                        break;
-
-                    case "BookSeries":
-                        String seriesAuthor = loadObj.getString("SeriesAuthor");
-                        String[] seriesStrList = loadObj.getString("BooksInSeriesFullTiles").split("%@%");
-
-                        BookSeries newSeries = new BookSeries(title, publisher, stock, price, seriesAuthor, Arrays.asList(seriesStrList));
-                        bookSeries.add(newSeries);
-
-                        break;
-                }
-            });
-            bookSeries.forEach(s -> {
-                s.linkSeriesBooks(books);
-                returnArray.add(s);
-            });
+            returnArray = jsonArr.toList()
+                    .parallelStream()
+                    .map(itm -> LiteratureSaver.makeLitratureFromJsonStr((HashMap) itm))
+                    .collect(Collectors.toCollection(ArrayList::new));
         }
         catch (JSONException e) {System.out.println("Json Problem  "); e.printStackTrace();}
 
         return returnArray;
+    }
+
+    private static Literature makeLitratureFromJsonStr(HashMap jsonObjMap){
+
+        JSONObject loadObj = new JSONObject(jsonObjMap);
+
+        String type = loadObj.getString("Type");
+        String title = loadObj.getString("Title");
+        String publisher = loadObj.getString("Publisher");
+        float price = loadObj.getFloat("Price");
+        int stock = loadObj.getInt("Stock");
+
+        if (type.equals("Serialized")) {
+
+            int yearlyDist = loadObj.getInt("YearlyDistributions");
+            String genere = loadObj.getString("Genre");
+            String serializedType = loadObj.getString("SerializedType");
+
+            if (serializedType.equals("Paper")) {
+                Paper p = new Paper(title, publisher, stock, price, yearlyDist, genere);
+                return p;
+
+            } else if (serializedType.equals("Magazine")) {
+                Magazine m = new Magazine(title, publisher, stock, price, yearlyDist, genere);
+                return m;
+            }
+        } else if(type.equals("Standalone")) {
+            int edition = loadObj.getInt("Edition");
+            String author = loadObj.getString("Author");
+            String publicationDate = loadObj.getString("PublicationDate");
+
+            Book newBook = new Book(
+                    title, publisher, stock, price, edition, author, publicationDate);
+            return newBook;
+        }
+
+        /**
+        case "BookSeries":
+            String seriesAuthor = loadObj.getString("SeriesAuthor");
+            String[] seriesStrList = loadObj.getString("BooksInSeriesFullTiles").split("%@%");
+
+            BookSeries newSeries = new BookSeries(title, publisher, stock, price, seriesAuthor, Arrays.asList(seriesStrList));
+            //bookSeries.add(newSeries);
+
+            break;
+        **/
+        return null;
     }
 
 
