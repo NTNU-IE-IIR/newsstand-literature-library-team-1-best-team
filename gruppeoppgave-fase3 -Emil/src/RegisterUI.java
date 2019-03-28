@@ -131,7 +131,7 @@ public class RegisterUI {
     public void printLiteratureByTitle(Command command) {
         if (!command.hasSecondWord()) {
             //if there is no second word, we dont know what to search for
-            System.out.println("After 'search' write in the newspaper you want to search for");
+            System.out.println("After 'search' write in the literature you want to search for");
         }
 
         String searchWord = command.getSecondWord();
@@ -146,7 +146,19 @@ public class RegisterUI {
     }
 
     public void printLiteratureByType(Command command) {
+        if (!command.hasSecondWord()) {
+            //if there is no second word, we dont know what to search for
+            System.out.println("After 'type' write in the literature you want to search for");
+        }
 
+        String searchWord = command.getSecondWord();
+        if (literatureRegister.getLiteratureByTypeAsString(searchWord) == null) {
+            System.out.println("The type of literature you searched for is not in our store...");
+        }
+        else {
+            System.out.println(literatureRegister.getLiteratureByTypeAsString(searchWord));
+            literatureRegister.removeLiteratureFromLiteratureByTypeList();
+        }
     }
 
     /**

@@ -92,4 +92,9 @@ public abstract class Literature {
     public String getTypeOfLiterature() {
         return this.typeOfLiterature;
     }
+
+    public String getDescriptionOfLiteratureAsString() {
+        return getTitle() + ", " + getPublisher() + ", " + getPublishedDate() + ", " +
+                getPrice() + getCurrency() + "\n";
+    }
 }

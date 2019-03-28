@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Register keeps a list of all the newspapers that are in stock, which
@@ -15,12 +16,14 @@ import java.util.ArrayList;
 public class Register {
 
     private ArrayList<Literature> literatureList;
+    private ArrayList<Literature> literatureByTypeList;
 
     /**
      * Create a new ArrayList that stores all of our added newspapers in a list
      */
     public Register () {
         this.literatureList = new ArrayList<Literature>();
+        this.literatureByTypeList = new ArrayList<Literature>();
         addLiteratureToList();
     }
 
@@ -35,11 +38,9 @@ public class Register {
     }
 
     public String getLiteratureListAsString() {
-
         String literatureListed = "";
         for (Literature literature : literatureList) {
-            literatureListed += literature.getTitle() + ", " + literature.getPublisher() + ", " + literature.getPublishedDate() + ", " +
-                                literature.getPrice() + literature.getCurrency() + "\n";
+            literatureListed += literature.getDescriptionOfLiteratureAsString();
         }
         return literatureListed;
     }
@@ -59,9 +60,27 @@ public class Register {
         return literatureTitle;
     }
 
+    public void findLiterautreByType(String typeOfLiterature) {
+        for (Literature literature : literatureList) {
+            if (literature.getTypeOfLiterature().equals(typeOfLiterature)) {
+                literatureByTypeList.add(literature);
+            }
+        }
+    }
+
     public String getLiteratureByTypeAsString(String typeOfLiterature) {
-        //TODO on flight tommorow
-        return null;
+        findLiterautreByType(typeOfLiterature);
+        //TODO: this soluting is not kinda good, needs to be fixed tomorrow
+        literatureByTypeList.remove(literatureByTypeList.size() / 2);
+        String literatureType = "";
+        for (Literature literature : literatureByTypeList) {
+            literatureType += literature.getDescriptionOfLiteratureAsString();
+        }
+        return literatureType;
+    }
+
+    public void removeLiteratureFromLiteratureByTypeList() {
+        literatureByTypeList.removeAll(literatureByTypeList);
     }
 
     public void addLiteratureToList() {
