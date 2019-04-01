@@ -65,6 +65,7 @@ public class RegisterUI {
 
         if (command.isUnknown()) {
             System.out.println("I dont know what you mean...");
+            return false;
         }
 
         String commandWord = command.getCommandWord();
@@ -79,6 +80,15 @@ public class RegisterUI {
         }
         else if (commandWord.equals("search")) {
             printLiteratureByTitle(command);
+        }
+        else if (commandWord.equals("ListNewspaper")) {
+            ListNewspaper();
+        }
+        else if (commandWord.equals("ListBook")) {
+            ListBook();
+        }
+        else if (commandWord.equals("ListMagazine")) {
+            ListMagazine();
         }
         return wantToExit;
     }
@@ -115,6 +125,7 @@ public class RegisterUI {
 
     }
 
+
     /**
      * Lets the user search for a newspaper just by entering the title.
      * If there is a newspaper connected to the title, the UI will list all
@@ -140,6 +151,20 @@ public class RegisterUI {
             System.out.println(literature.getTitle() + ", " + literature.getPublisher() + ", " + literature.getPublishedDate() + ", " +
                                literature.getPrice() + literature.getCurrency() + "\n");
         }
+
+        /**
+         * fetches the params created in printLiteratureList and creates a method that can call Lists.
+         */
+    }
+    public void ListNewspaper()
+    {
+        PrintLiteratureList.listNewspaper(this.literatureRegister.getLiterature());
+    }
+    public void ListBook(){
+        PrintLiteratureList.listBook(this.literatureRegister.getLiterature());
+    }
+    public void ListMagazine(){
+        PrintLiteratureList.listMagazine(this.literatureRegister.getLiterature());
     }
 
     /**

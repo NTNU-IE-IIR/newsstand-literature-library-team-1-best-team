@@ -16,8 +16,9 @@ public class Register {
 
     private ArrayList<Literature> literatureList;
 
+
     /**
-     * Create a new ArrayList that stores all of our added newspapers in a list
+     * Create a new ArrayList that stores all of our added Literature in a list
      */
     public Register () {
         this.literatureList = new ArrayList<Literature>();
@@ -25,10 +26,10 @@ public class Register {
     }
 
     /**
-     * Add a created newspaper for the Newspaper class to our
-     * list of newspapers.
+     * Add a created object for the subclasses class to our
+     * list of Literature's.
      *
-     * @param Literature A newspaper object created from the Newspaper class
+     * @param Literature A Literature object created from the subclasses
      */
     public void addLiterature(Literature Literature) {
         this.literatureList.add(Literature);
@@ -43,6 +44,10 @@ public class Register {
         }
         return literatureListed;
     }
+    public ArrayList<Literature> getLiterature(){
+        return this.literatureList;
+    }
+
 
     /**
      * Search the newspaper list for a newspaper with the name given.
