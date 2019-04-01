@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Register keeps a list of all the newspapers that are in stock, which
@@ -33,8 +32,9 @@ public class Register {
      *
      * @param literature A newspaper object created from the Newspaper class
      */
-    public void addLiterature(Literature literature) {
-        this.literatureList.add(literature);
+    public boolean addLiterature(Literature literature) {
+        boolean result = this.literatureList.add(literature);
+        return result;
     }
 
     public String getLiteratureListAsString() {
@@ -60,6 +60,12 @@ public class Register {
         return literatureTitle;
     }
 
+    /**
+    *Checks if there is a literature in our list with a specific literature type,
+     * then adds it to a list
+    *
+    * @param typeOfLiterature the type of literature you want to find
+    */
     public void findLiterautreByType(String typeOfLiterature) {
         for (Literature literature : literatureList) {
             if (literature.getTypeOfLiterature().equals(typeOfLiterature)) {
@@ -68,13 +74,22 @@ public class Register {
         }
     }
 
+    /**
+     *
+     * @param typeOfLiterature
+     * @return literatureType
+     */
     public String getLiteratureByTypeAsString(String typeOfLiterature) {
-        findLiterautreByType(typeOfLiterature);
-        //TODO: this soluting is not kinda good, needs to be fixed tomorrow
-        literatureByTypeList.remove(literatureByTypeList.size() / 2);
+        literatureByTypeList.removeAll(literatureByTypeList);
         String literatureType = "";
+        findLiterautreByType(typeOfLiterature);
         for (Literature literature : literatureByTypeList) {
-            literatureType += literature.getDescriptionOfLiteratureAsString();
+            if (literatureByTypeList.isEmpty()) {
+                return null;
+            }
+            else {
+                literatureType += literature.getDescriptionOfLiteratureAsString();
+            }
         }
         return literatureType;
     }
@@ -117,7 +132,6 @@ public class Register {
         addLiterature(Krim_og_mord);
         addLiterature(Tull_og_tøys);
     }
-
 
 }
 
