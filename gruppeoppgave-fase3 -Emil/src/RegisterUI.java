@@ -49,7 +49,7 @@ public class RegisterUI {
      */
     private void printWelcome() {
         System.out.println("Welcome!");
-        System.out.println("This is my new super awesome newspaper store!");
+        System.out.println("This is my new super awesome kiosk!");
         System.out.println("if you need help type 'help'");
         System.out.println();
     }
@@ -161,12 +161,27 @@ public class RegisterUI {
         }
     }
 
+    public void addNewLiterature() {
+        try {
+            //HELE BLOKKEN MED KODE
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage()); //ikke vise end user
+            System.out.println("Add literature was cancelled");
+        }
+    }
+
     /**
      * Where we run our store from
      */
     public static void main(String[] args) {
-        RegisterUI registerUI = new RegisterUI();
-        registerUI.start();
+        try {
+            RegisterUI registerUI = new RegisterUI();
+            registerUI.start();
+        }
+        catch (Exception e) {
+            System.out.println("Something went wrong, please restart the application or visit: 'Dumb-it-service'");
+        }
 
     }
 

@@ -66,12 +66,18 @@ public class Register {
     *
     * @param typeOfLiterature the type of literature you want to find
     */
-    public void findLiterautreByType(String typeOfLiterature) {
+    public boolean findLiterautreByType(String typeOfLiterature) {
+        boolean found = false;
         for (Literature literature : literatureList) {
             if (literature.getTypeOfLiterature().equals(typeOfLiterature)) {
                 literatureByTypeList.add(literature);
+                found = true;
+            }
+            else {
+                found = false;
             }
         }
+        return found;
     }
 
     /**
@@ -94,8 +100,8 @@ public class Register {
         return literatureType;
     }
 
-    public void removeLiteratureFromLiteratureByTypeList() {
-        literatureByTypeList.removeAll(literatureByTypeList);
+    public boolean removeLiteratureFromLiteratureByTypeList() {
+           return literatureByTypeList.removeAll(literatureByTypeList);
     }
 
     public void addLiteratureToList() {

@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fef0f5dc-a10a-414d-b0dc-c4ddb0336cdb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/LiteratureTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/RegisterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/RegisterUITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/RegisterUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/RegisterUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/gruppeoppgave-fase3 -Emil/RegisterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/gruppeoppgave-fase3 -Emil/RegisterTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegisterUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/RegisterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/RegisterUITest.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,91 +19,53 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4752714">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Register.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1058">
-                  <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-                  <folding>
-                    <element signature="e#3010#3011#0" expanded="true" />
-                    <element signature="e#3078#3079#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Literature.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="69">
-                  <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#2181#2182#0" expanded="true" />
-                    <element signature="e#2225#2226#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/test/LiteratureTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-435">
-                  <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-                  <folding>
-                    <element signature="e#412#413#0" expanded="true" />
-                    <element signature="e#489#490#0" expanded="true" />
-                    <element signature="e#537#538#0" expanded="true" />
-                    <element signature="e#620#621#0" expanded="true" />
-                    <element signature="e#924#925#0" expanded="true" />
-                    <element signature="e#996#997#0" expanded="true" />
-                    <element signature="e#1047#1048#0" expanded="true" />
-                    <element signature="e#1129#1130#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/RegisterTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="115">
-                  <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/RegisterUI.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1104">
-                  <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/RegisterUITest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="506">
-                  <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Register.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2823">
+              <caret line="125" column="26" lean-forward="true" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Literature.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="74" column="27" lean-forward="true" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+              <folding>
+                <element signature="e#1801#1802#0" expanded="true" />
+                <element signature="e#1841#1842#0" expanded="true" />
+                <element signature="e#2015#2016#0" expanded="true" />
+                <element signature="e#2225#2226#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RegisterUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/RegisterTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="652">
+              <caret line="36" column="82" selection-start-line="36" selection-start-column="82" selection-end-line="36" selection-end-column="82" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -122,21 +87,21 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/EmptyLiterature.java" />
-        <option value="$PROJECT_DIR$/src/Literature.java" />
-        <option value="$PROJECT_DIR$/src/RegisterUI.java" />
         <option value="$PROJECT_DIR$/test/CommandTest.java" />
         <option value="$PROJECT_DIR$/test/LiteratureTest.java" />
-        <option value="$PROJECT_DIR$/test/RegisterUITest.java" />
+        <option value="$PROJECT_DIR$/src/Literature.java" />
         <option value="$PROJECT_DIR$/src/Register.java" />
         <option value="$PROJECT_DIR$/test/RegisterTest.java" />
+        <option value="$PROJECT_DIR$/test/RegisterUITest.java" />
+        <option value="$PROJECT_DIR$/src/RegisterUI.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1943" />
-    <option name="height" value="1103" />
+    <option name="x" value="2834" />
+    <option name="y" value="175" />
+    <option name="width" value="158" />
+    <option name="height" value="107" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -177,7 +142,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554117770425" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554281134931" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -207,7 +172,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RegisterUI">
+  <component name="RunManager" selected="JUnit.RegisterTest.getLiteratureByTypeAsString">
     <configuration name="RegisterUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RegisterUI" />
       <module name="gruppeoppgave-fase3 -Emil" />
@@ -223,16 +188,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest.addLiterature" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gruppeoppgave-fase3 -Emil" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RegisterTest" />
-      <option name="METHOD_NAME" value="addLiterature" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RegisterTest.findLiteratureByTitle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gruppeoppgave-fase3 -Emil" />
       <option name="PACKAGE_NAME" value="" />
@@ -243,11 +198,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest.getLiteratureListAsString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterTest.findLiterautreByType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gruppeoppgave-fase3 -Emil" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RegisterTest" />
-      <option name="METHOD_NAME" value="getLiteratureListAsString" />
+      <option name="METHOD_NAME" value="findLiterautreByType" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterTest.getLiteratureByTypeAsString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gruppeoppgave-fase3 -Emil" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RegisterTest" />
+      <option name="METHOD_NAME" value="getLiteratureByTypeAsString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -255,11 +220,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterTest.getLiteratureByTypeAsString" />
+        <item itemvalue="JUnit.RegisterTest.findLiterautreByType" />
         <item itemvalue="Application.RegisterUI" />
         <item itemvalue="JUnit.RegisterTest.findLiteratureByTitle" />
         <item itemvalue="JUnit.RegisterTest" />
-        <item itemvalue="JUnit.RegisterTest.getLiteratureListAsString" />
-        <item itemvalue="JUnit.RegisterTest.addLiterature" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +238,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553694692644</updated>
-      <workItem from="1553694695679" duration="34044000" />
+      <workItem from="1553694695679" duration="39198000" />
     </task>
     <task id="LOCAL-00001" summary="Added list literature by type as a method, NOTE TODO in getliteratureByTypeAsString">
       <created>1553806327491</created>
@@ -286,24 +251,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 32m 11s.xml">
-      <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 32m 34s.xml">
-      <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 34m 49s.xml">
-      <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 35m 44s.xml">
-      <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 36m 12s.xml">
-      <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 36m 42s.xml">
-      <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 37m 24s.xml">
       <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
     </history-entry>
@@ -316,19 +263,37 @@
     <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 51m 25s.xml">
       <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RegisterTest_findLiterautreByType - 2019.04.03 at 10h 21m 45s.xml">
+      <configuration name="RegisterTest.findLiterautreByType" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RegisterTest_findLiterautreByType - 2019.04.03 at 10h 22m 25s.xml">
+      <configuration name="RegisterTest.findLiterautreByType" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RegisterTest_getLiteratureByTypeAsString - 2019.04.03 at 10h 29m 23s.xml">
+      <configuration name="RegisterTest.getLiteratureByTypeAsString" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RegisterTest_getLiteratureByTypeAsString - 2019.04.03 at 10h 29m 46s.xml">
+      <configuration name="RegisterTest.getLiteratureByTypeAsString" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RegisterTest_getLiteratureByTypeAsString - 2019.04.03 at 10h 30m 00s.xml">
+      <configuration name="RegisterTest.getLiteratureByTypeAsString" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RegisterTest_getLiteratureByTypeAsString - 2019.04.03 at 10h 37m 04s.xml">
+      <configuration name="RegisterTest.getLiteratureByTypeAsString" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34044000" />
+    <option name="totallyTimeSpent" value="39198000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
       <window_info id="UI Designer" />
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17651822" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.116204694" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="CheckStyle" />
@@ -336,12 +301,12 @@
       <window_info anchor="bottom" id="Messages" weight="0.32887402" />
       <window_info anchor="bottom" id="SonarLint" />
       <window_info anchor="bottom" id="Database Changes" />
-      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.32960895" />
+      <window_info anchor="bottom" id="Version Control" weight="0.32960895" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="SonarQube" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6863085" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.68561876" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3979933" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -379,53 +344,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Magazine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Literature.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding>
-            <element signature="e#2181#2182#0" expanded="true" />
-            <element signature="e#2225#2226#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-          <folding>
-            <element signature="e#3010#3011#0" expanded="true" />
-            <element signature="e#3078#3079#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/LiteratureTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
-          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        <state relative-caret-position="-245">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
           <folding>
             <element signature="e#412#413#0" expanded="true" />
             <element signature="e#489#490#0" expanded="true" />
@@ -439,27 +361,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/RegisterTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Literature.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
+        <state relative-caret-position="100">
+          <caret line="74" column="27" lean-forward="true" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1801#1802#0" expanded="true" />
+            <element signature="e#1841#1842#0" expanded="true" />
+            <element signature="e#2015#2016#0" expanded="true" />
+            <element signature="e#2225#2226#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2823">
+          <caret line="125" column="26" lean-forward="true" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/RegisterUITest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        <state relative-caret-position="253">
+          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Magazine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Newspaper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RegisterUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1104">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="169">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/RegisterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="36" column="82" selection-start-line="36" selection-start-column="82" selection-end-line="36" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

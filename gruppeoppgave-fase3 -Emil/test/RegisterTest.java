@@ -26,17 +26,14 @@ public class RegisterTest {
 
     @Test
     public void findLiterautreByType() {
+        Literature l1 = new Book("Halla", "pdfjdfgpo", "29.10.20", 30, "kr", "Book");
+        this.register.addLiterature(l1);
+        Assert.assertNotEquals(null, this.register.findLiterautreByType("Book"));
     }
 
     @Test
     public void getLiteratureByTypeAsString() {
-    }
-
-    @Test
-    public void removeLiteratureFromLiteratureByTypeList() {
-    }
-
-    @Test
-    public void addLiteratureToList() {
+        Assert.assertEquals(this.register.getLiteratureByTypeAsString("dfoigdfoi"), "");
+        Assert.assertNotEquals("", this.register.getLiteratureByTypeAsString("Book"));
     }
 }
