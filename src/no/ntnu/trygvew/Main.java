@@ -1,5 +1,6 @@
 package no.ntnu.trygvew;
 
+import no.ntnu.trygvew.GUI.TestGUI;
 import no.ntnu.trygvew.UI.ApplicationUI;
 
 /**
@@ -18,7 +19,8 @@ public class Main
     public static void main(String[] args)
     {
 
-        ApplicationUI appUI = new ApplicationUI();
-        appUI.start();
+        //ApplicationUI appUI = new ApplicationUI();
+        //appUI.start();
+        TestGUI guiTest = new TestGUI();
     }
 }

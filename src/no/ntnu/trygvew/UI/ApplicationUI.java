@@ -1,7 +1,7 @@
 package no.ntnu.trygvew.UI;
 
 import no.ntnu.trygvew.BookFilter;
-import no.ntnu.trygvew.InputtValidator;
+import no.ntnu.trygvew.InputValidator;
 import no.ntnu.trygvew.LiteratureStockRegister;
 import no.ntnu.trygvew.litratureTypes.*;
 import no.ntnu.trygvew.messingAround.Transaction;
@@ -309,7 +309,7 @@ public class ApplicationUI
         while (!validInput){
             System.out.print("input first name: ");
             firstName = sc.nextLine();
-            validInput = InputtValidator.isValidStingInp(firstName);
+            validInput = InputValidator.isValidStingInp(firstName);
         }
 
 
@@ -317,46 +317,26 @@ public class ApplicationUI
         while (!validInput){
             System.out.print("input last name: ");
             lastName = sc.nextLine();
-            validInput = InputtValidator.isValidStingInp(lastName);
+            validInput = InputValidator.isValidStingInp(lastName);
         }
 
         validInput = false;
         while (!validInput){
             System.out.print("input username: ");
             userName = sc.nextLine();
-            if (this.userLoggin.isValidUsername(userName) && InputtValidator.isValidStingInp(userName)){
+            if (this.userLoggin.isValidUsername(userName) && InputValidator.isValidStingInp(userName)){
                 validInput = true;
-            } else if (InputtValidator.isValidStingInp(userName)){
+            } else if (InputValidator.isValidStingInp(userName)){
                 System.out.println("Username alredy in use");
             }
 
         }
 
-        /*
-
-        fjern hvis den over virke
-        validInput = false;
-        while (!validInput){
-            System.out.print("input username: ");
-            String inpUn = sc.nextLine();
-            if(inpUn.length() > 0) {
-                if (this.userLoggin.isValidUsername(inpUn)){
-                    validInput = true;
-                    userName = inpUn;
-                } else {
-                    System.out.println("Username alredy in use");
-                }
-            } else {
-                System.out.println("No inputt provided");
-            }
-        }
-        */
-
         validInput = false;
         while (!validInput) {
             System.out.print("input user funds: ");
             String inpFunds = sc.nextLine();
-            validInput = InputtValidator.isValidFloatInp(inpFunds);
+            validInput = InputValidator.isValidFloatInp(inpFunds);
             if (validInput){
                 userFunds = Float.valueOf(inpFunds);
             }
@@ -450,21 +430,21 @@ public class ApplicationUI
             while (!validInput) {
                 System.out.print("input Title: ");
                 title = sc.nextLine();
-                validInput = InputtValidator.isValidStingInp(title);
+                validInput = InputValidator.isValidStingInp(title);
             }
 
             validInput = false;
             while (!validInput) {
                 System.out.print("input Publisher: ");
                 publisher = sc.nextLine();
-                validInput = InputtValidator.isValidStingInp(publisher);
+                validInput = InputValidator.isValidStingInp(publisher);
             }
 
             validInput = false;
             while (!validInput) {
                 System.out.print("input Price: ");
                 String inpPrice = sc.nextLine();
-                validInput = InputtValidator.isValidFloatInp(inpPrice);
+                validInput = InputValidator.isValidFloatInp(inpPrice);
                 if (validInput) {
                     price = Float.valueOf(inpPrice);
                 }
@@ -475,7 +455,7 @@ public class ApplicationUI
             while (!validInput) {
                 System.out.print("input Stock: ");
                 String inpStock = sc.nextLine();
-                validInput = InputtValidator.isValidIntInp(inpStock);
+                validInput = InputValidator.isValidIntInp(inpStock);
                 if (validInput) {
                     stock = Integer.valueOf(inpStock);
                 }
@@ -500,7 +480,7 @@ public class ApplicationUI
                     while (!validInput) {
                         System.out.print("input Edition: ");
                         String inpEdition = sc.nextLine();
-                        validInput = InputtValidator.isValidIntInp(inpEdition);
+                        validInput = InputValidator.isValidIntInp(inpEdition);
                         if (validInput) {
                             edition = Integer.valueOf(inpEdition);
                         }
@@ -510,7 +490,7 @@ public class ApplicationUI
                     while (!validInput) {
                         System.out.print("input Author: ");
                         author = sc.nextLine();
-                        validInput = InputtValidator.isValidStingInp(author);
+                        validInput = InputValidator.isValidStingInp(author);
                     }
 
 
@@ -521,7 +501,7 @@ public class ApplicationUI
                         // removes the - if the user inputs them.
                         inpPublicationDate = inpPublicationDate.replaceAll("-", "");
 
-                        if (InputtValidator.isValidDate(inpPublicationDate)) {
+                        if (InputValidator.isValidDate(inpPublicationDate)) {
                             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
                             try {
                                 if (dateFormat.parse(inpPublicationDate).before(new Date())) {
@@ -549,7 +529,7 @@ public class ApplicationUI
                     while (!validInput) {
                         System.out.print("input Edition: ");
                         String inpEdition = sc.nextLine();
-                        validInput = InputtValidator.isValidIntInp(inpEdition);
+                        validInput = InputValidator.isValidIntInp(inpEdition);
                         if (validInput) {
                             edition = Integer.valueOf(inpEdition);
                         }
@@ -559,7 +539,7 @@ public class ApplicationUI
                     while (!validInput) {
                         System.out.print("input Author: ");
                         author = sc.nextLine();
-                        validInput = InputtValidator.isValidStingInp(author);
+                        validInput = InputValidator.isValidStingInp(author);
                     }
 
 
@@ -570,7 +550,7 @@ public class ApplicationUI
                         // removes the - if the user inputs them.
                         inpPublicationDate = inpPublicationDate.replaceAll("-", "");
 
-                        if (InputtValidator.isValidDate(inpPublicationDate)) {
+                        if (InputValidator.isValidDate(inpPublicationDate)) {
                             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
                             try {
                                 if (dateFormat.parse(inpPublicationDate).before(new Date())) {
@@ -601,7 +581,7 @@ public class ApplicationUI
                     while (!validInput) {
                         System.out.print("num Yearly distrebutions: ");
                         String inpNumY = sc.nextLine();
-                        validInput = InputtValidator.isValidIntInp(inpNumY);
+                        validInput = InputValidator.isValidIntInp(inpNumY);
                         if (validInput) {
                             yearlyDist = Integer.valueOf(inpNumY);
                         }
@@ -612,7 +592,7 @@ public class ApplicationUI
                     while (!validInput) {
                         System.out.print("input genere: ");
                         genere = sc.nextLine();
-                        validInput = InputtValidator.isValidStingInp(genere);
+                        validInput = InputValidator.isValidStingInp(genere);
                     }
 
 
