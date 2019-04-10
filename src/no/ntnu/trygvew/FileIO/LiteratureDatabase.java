@@ -41,17 +41,17 @@ public class LiteratureDatabase {
             //String sql = "SELECT * FROM Literature where id = 1;";
             //dbCon.createStatement().execute("DROP TABLE TEST");
 
-            String sql = "SHOW TABLES ";
-            ResultSet rs = dbCon.createStatement().executeQuery(sql);
-            int columnsNumber = rs.getMetaData().getColumnCount();
+            String sql1 = "SHOW TABLES ";
+            ResultSet rs1 = dbCon.createStatement().executeQuery(sql1);
+            int columnsNumber = rs1.getMetaData().getColumnCount();
             //System.out.println(columnsNumber);
 
-            while (rs.next()) {
+            while (rs1.next()) {
                 //System.out.println();
                 for (int i = 1; i <= columnsNumber; i++) {
                     if (i > 1) System.out.print(",  ");
-                    String columnValue = rs.getString(i);
-                    System.out.print(columnValue + " " + rs.getMetaData().getColumnName(i));
+                    String columnValue = rs1.getString(i);
+                    System.out.print(columnValue + " " + rs1.getMetaData().getColumnName(i));
                 }
                 System.out.println("");
             }
@@ -59,16 +59,16 @@ public class LiteratureDatabase {
 
 
 
-            //System.exit(1);
+            System.exit(1);
             Scanner sc = new Scanner(System.in);
             System.out.println("MAKING TEST ITEMS IN DB DO YO WHISH TO PROCEED Y/N");
             String ans = sc.nextLine();
             if (ans.equals("y")){
-                String addItemsSql = "INSERT INTO Literature (literatureType, title, publisher, price, stock, yearlyDistributions, genre)" +
-                        " VALUES (%s, %s, %s, %f, %d, %d, %s)";
+                String addSerialSql = "INSERT INTO Literature (literatureType, title, publisher, price, stock, yearlyDistributions, genre)" +
+                        " VALUES ('%s', '%s', '%s', %f, %d, %d, '%s')";
 
                 String addBooksql = "INSERT INTO Literature (literatureType, title, publisher, price, stock, author, edition, publicationDate, series)" +
-                        " VALUES (%s, %s, %s, %f, %d, %s, %d, %s, %s)";
+                        " VALUES ('%s', '%s', '%s', %f, %d, '%s', %d, '%s', '%s')";
 
 
                 Random r = new Random();
@@ -83,20 +83,58 @@ public class LiteratureDatabase {
                 };
 
                 Function<Integer, String> getSqlBookStr = integer -> {
-                    String returnS =
+                    String returnS = String.format(addBooksql, "book",randomString.apply(5),randomString.apply(5), r.nextFloat(), r.nextInt(), randomString.apply(5), r.nextInt(), randomString.apply(5) ,randomString.apply(5));
                     return returnS;
                 };
 
-                s
+                Function<Integer, String> getSqlSerialStr = integer -> {
+                    String returnS;
+                    if (r.nextFloat() > 0.5){
+                        returnS = String.format(addSerialSql, "paper",randomString.apply(5),randomString.apply(5), r.nextFloat(), r.nextInt(), r.nextInt(), randomString.apply(5));
+                    } else {
+                        returnS = String.format(addSerialSql, "magazine",randomString.apply(5),randomString.apply(5), r.nextFloat(), r.nextInt(), r.nextInt(), randomString.apply(5));
+                    }
 
-                System.out.println(randomString.apply(5));
 
-                //char c = (char)(r.nextInt(26) + 'a');
+                    return returnS;
+                };
+
+
+
+                //System.out.println(getSqlSerialStr.apply(5));
+
+                for (int p=0; p <= 100; p++){
+                    String callSqlStr = "";
+                    if (r.nextFloat() > 0.5){
+                        System.out.println("a");
+                        callSqlStr = getSqlBookStr.apply(5);
+                    } else {
+                        System.out.println("b");
+                        callSqlStr = getSqlSerialStr.apply(5);
+                    }
+
+
+                    dbCon.createStatement().execute(callSqlStr);
+                }
             }
-            System.exit(1);
-            dbCon.createStatement().execute(addItemsSql);
+            String sql = "SELECT * FROM Literature";
+            ResultSet rs = dbCon.createStatement().executeQuery(sql);
+            int columnsNumber1 = rs.getMetaData().getColumnCount();
+            //System.out.println(columnsNumber);
 
-            dbCon.createStatement().execute(addItemsSql);
+            while (rs.next()) {
+                //System.out.println();
+                for (int i = 1; i <= columnsNumber1; i++) {
+                    if (i > 1) System.out.print(",  ");
+                    String columnValue = rs.getString(i);
+                    System.out.print(columnValue + " " + rs.getMetaData().getColumnName(i));
+                }
+                System.out.println("");
+            }
+            //
+
+            //y
+            // dbCon.createStatement().execute(addItemsSql);
         } catch (Exception e) {e.printStackTrace();}
 
     }
@@ -133,28 +171,28 @@ public class LiteratureDatabase {
             } else {
                 // the value is new and have to be added
                 String cols = "literatureType, title, publisher, price, stock, ";
-                String vals = String.format("%s, %s, %s, %f, %d, ", saveL.getLiteratureType(), saveL.getTitle(), saveL.getPublisher(), saveL.getPrice(), saveL.getNumberInStock());
+                String vals = String.format("'%s', '%s', '%s', %f, %d, ", saveL.getLiteratureType(), saveL.getTitle(), saveL.getPublisher(), saveL.getPrice(), saveL.getNumberInStock());
 
                 if (saveL instanceof Book){
                     Book saveObj = (Book) saveL;
                     cols += " author, edition, publicationDate, series";
-                    vals += String.format("%s, %d, %s, %s", saveObj.getAuthor(), saveObj.getEdition(), saveObj.getPublicationDate(),saveObj.getSeries());
+                    vals += String.format("'%s', %d, '%s', '%s'", saveObj.getAuthor(), saveObj.getEdition(), saveObj.getPublicationDate(),saveObj.getSeries());
 
                 } else if (saveL instanceof BookSeries){
                     BookSeries saveObj = (BookSeries) saveL;
                     cols += " author, seriesBooksId";
                     String booksId = String.join(",", saveObj.getBooksInSeries().stream().map(Book::getSaveID).toArray(String[]::new));
-                    vals += String.format("%s, %d, %s, %s", saveObj.getSeriesAuthor(), booksId);
+                    vals += String.format("'%s', %d, '%s', '%s'", saveObj.getSeriesAuthor(), booksId);
 
                 } else if (saveL instanceof Magazine){
                     Magazine saveObj = (Magazine) saveL;
                     cols += " yearlyDistributions, genre";
-                    vals += String.format("%d, %s", saveObj.getYearlyDistributions(), saveObj.getGenre());
+                    vals += String.format("%d, '%s'", saveObj.getYearlyDistributions(), saveObj.getGenre());
 
                 } else if (saveL instanceof Paper){
                     Paper saveObj = (Paper) saveL;
                     cols += " yearlyDistributions, genre";
-                    vals += String.format("%d, %s", saveObj.getYearlyDistributions(), saveObj.getGenre());
+                    vals += String.format("%d, '%s'", saveObj.getYearlyDistributions(), saveObj.getGenre());
                 }
                 String sql = String.format("INSERT INTO Literature (%s) VALUES (%s)", cols, vals);
                 st.execute(sql);
@@ -176,7 +214,7 @@ public class LiteratureDatabase {
 
             while (rs.next()) {
                 Integer id = rs.getInt("id");
-                String type = rs.getString("litratureType");
+                String type = rs.getString("literatureType");
                 String title = rs.getString("title");
                 String publisher = rs.getString("publisher");
                 Float price = rs.getFloat("price");
@@ -208,7 +246,7 @@ public class LiteratureDatabase {
                     Integer yearlyD = rs.getInt("yearlyDistributions");
                     String genre = rs.getString("genre");
 
-                    Literature obj = new Magazine(id, title, publisher, stock, price, yearlyD, genre);
+                    Literature obj = new Paper(id, title, publisher, stock, price, yearlyD, genre);
                     litratureList.add(obj);
                 }
             }
@@ -241,7 +279,6 @@ public class LiteratureDatabase {
 
     /**
      * cheks if the tables are made if makes them
-     * @param dbCon the connection to the h2 db
      * @throws Exception
      */
     public static void makeTables(){

@@ -109,3 +109,83 @@ SELECT * FROM Literature [42102-199]
 2019-04-10 08:30:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LITERATURE" not found; SQL statement:
 SELECT * FROM Literature where id = 1; [42102-199]
+2019-04-10 09:59:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "BOOK" not found; SQL statement:
+INSERT INTO Literature (literatureType, title, publisher, price, stock, author, edition, publicationDate, series) VALUES (book, pwbsae, dxfthw, 0.598525, 1447343624, lfktgx, 307334609, ohqqou, iptjwm) [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:176)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:158)
+	at org.h2.command.dml.Insert.prepare(Insert.java:322)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at no.ntnu.trygvew.FileIO.LiteratureDatabase.main(LiteratureDatabase.java:113)
+2019-04-10 10:12:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "BOOK" not found; SQL statement:
+INSERT INTO Literature (literatureType, title, publisher, price, stock, author, edition, publicationDate, series) VALUES (book, eceusd, cofpcz, 0.074061, -977320283, zngyqd, 951867047, ybrqbx, nxtjcn) [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:176)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:158)
+	at org.h2.command.dml.Insert.prepare(Insert.java:322)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at no.ntnu.trygvew.FileIO.LiteratureDatabase.main(LiteratureDatabase.java:113)
+2019-04-10 10:14:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "ETDIEC" not found; SQL statement:
+INSERT INTO Literature (literatureType, title, publisher, price, stock, author, edition, publicationDate, series) VALUES ('book', etdiec, beylio, 0.373421, -809397137, audmwy, 1790020126, otekjw, qkkpbi) [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:176)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:158)
+	at org.h2.command.dml.Insert.prepare(Insert.java:322)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at no.ntnu.trygvew.FileIO.LiteratureDatabase.main(LiteratureDatabase.java:113)
+2019-04-10 10:17:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LITRATURE" not found; SQL statement:
+SELECT * FROM Litrature [42102-199]
+2019-04-10 10:19:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LITRATURE" not found; SQL statement:
+SELECT * FROM Litrature [42102-199]
+2019-04-10 10:20:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "litratureType" not found [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3188)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3287)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:314)
+	at no.ntnu.trygvew.FileIO.LiteratureDatabase.loadAllLitrature(LiteratureDatabase.java:213)
+	at no.ntnu.trygvew.LiteratureStockRegister.loadStock(LiteratureStockRegister.java:46)
+	at no.ntnu.trygvew.LiteratureStockRegister.<init>(LiteratureStockRegister.java:35)
+	at no.ntnu.trygvew.Main.makeTable(Main.java:93)
+	at no.ntnu.trygvew.Main.start(Main.java:74)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)

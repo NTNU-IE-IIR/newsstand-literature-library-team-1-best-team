@@ -193,17 +193,17 @@ public class Main extends Application {
                         } else if (id.equals("stock")) {
                             suc = Integer.toString(literature.getNumberInStock()).equals(qVal);
                         } else if (id.equals("edition")) {
-                            suc = Integer.toString(((Book)literature).getEdition()).equals(qVal);
+                            suc = Integer.toString(((Book)literature).getEdition()).contains(qVal);
                         } else if (id.equals("author")) {
-                            suc = ((Book)literature).getAuthor().equals(qVal);
+                            suc = ((Book)literature).getAuthor().contains(qVal);
                         } else if (id.equals("pubD")) {
-                            suc = ((Book)literature).getPublicationDate().equals(qVal);
+                            suc = ((Book)literature).getPublicationDate().contains(qVal);
                         } else if (id.equals("series")) {
-                            suc = ((Book)literature).getSeries().equals(qVal);
+                            suc = ((Book)literature).getSeries().contains(qVal);
                         } else if (id.equals("YD")) {
-                            suc = Integer.toString(((SerializedLiterature)literature).getYearlyDistributions()).equals(qVal);
+                            suc = Integer.toString(((SerializedLiterature)literature).getYearlyDistributions()).contains(qVal);
                         } else if (id.equals("genre")) {
-                            suc = ((SerializedLiterature)literature).getGenre().equals(qVal);
+                            suc = ((SerializedLiterature)literature).getGenre().contains(qVal);
                         }
 
 
@@ -232,29 +232,38 @@ public class Main extends Application {
 
 
                     literatureTableView.getColumns().removeAll(yDColumn, genreColumn);
-                    literatureTableView.getColumns().addAll(authorColumn, editionColumn, pubDColumn, seriesColumn);
+
                     manList.setAll(literatureStockRegister.getStock());
                     manList.removeAll(manList.stream().filter(l -> !(l instanceof StandaloneLiterature)).collect(Collectors.toCollection(ArrayList::new)));
+
+                    literatureTableView.getColumns().addAll(authorColumn, editionColumn, pubDColumn, seriesColumn);
+
                     break;
                 case "magazines":
 
 
-                    literatureTableView.getColumns().removeAll(authorColumn, editionColumn, pubDColumn, seriesColumn);
-                    if (!literatureTableView.getColumns().contains(genreColumn)){
-                        literatureTableView.getColumns().addAll(yDColumn, genreColumn);
-                    }
+                    literatureTableView.getColumns().removeAll(authorColumn, editionColumn, pubDColumn, seriesColumn, yDColumn, genreColumn);
+
                     manList.setAll(literatureStockRegister.getStock());
                     manList.removeAll(manList.stream().filter(l -> !(l instanceof Magazine)).collect(Collectors.toCollection(ArrayList::new)));
+
+                    //if (!literatureTableView.getColumns().contains(genreColumn)){
+                        literatureTableView.getColumns().addAll(yDColumn, genreColumn);
+
+
                     break;
                 case "papers":
 
 
-                    literatureTableView.getColumns().removeAll(authorColumn, editionColumn, pubDColumn, seriesColumn);
-                    if (!literatureTableView.getColumns().contains(genreColumn)){
-                        literatureTableView.getColumns().addAll(yDColumn, genreColumn);
-                    }
+                    literatureTableView.getColumns().removeAll(authorColumn, editionColumn, pubDColumn, seriesColumn, yDColumn, genreColumn);
+
                     manList.setAll(literatureStockRegister.getStock());
                     manList.removeAll(manList.stream().filter(l -> !(l instanceof Paper)).collect(Collectors.toCollection(ArrayList::new)));
+
+
+                    literatureTableView.getColumns().addAll(yDColumn, genreColumn);
+
+
                     break;
             }
         };
@@ -274,6 +283,7 @@ public class Main extends Application {
                 } else if (newValue.intValue() == 3){
                     currentShownTable = "papers";
                 }
+
 
                 updateShownCols.exe();
             }
