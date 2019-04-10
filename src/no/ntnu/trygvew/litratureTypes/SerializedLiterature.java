@@ -1,9 +1,12 @@
 package no.ntnu.trygvew.litratureTypes;
 
+import java.util.ArrayList;
+
 public class SerializedLiterature extends Literature {
 
     private int yearlyDistributions;
     private String genre;
+
 
     /**
      * 
@@ -14,8 +17,8 @@ public class SerializedLiterature extends Literature {
      * @param yearlyDistributions   the number of yearly distrebutions
      * @param genre                 the genere of the reading serilized litrature
      */
-    public SerializedLiterature(String title, String publisher, int numberInStock, float price, int yearlyDistributions, String genre) {
-        super(title, publisher, "Serialized", numberInStock, price);
+    public SerializedLiterature(int saveID, String type, String title, String publisher, int numberInStock, float price, int yearlyDistributions, String genre) {
+        super(saveID ,title, publisher, type, numberInStock, price);
         this.yearlyDistributions = yearlyDistributions;
         this.genre = genre;
     }
@@ -35,4 +38,6 @@ public class SerializedLiterature extends Literature {
     public String getGenre() {
         return genre;
     }
+
+
 }

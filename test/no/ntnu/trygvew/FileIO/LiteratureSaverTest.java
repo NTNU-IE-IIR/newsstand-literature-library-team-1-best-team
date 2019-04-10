@@ -19,10 +19,10 @@ public class LiteratureSaverTest {
     public void setUp() throws Exception {
         this.fp = "test/storageTest.json";
 
-        Literature a = new Book("aaa", "hhh",  3, 4, 3, "dd", "1999-09-06");
-        Literature b = new Book("aaa", "ill", 3, 5, 2, "ss", "1999-09-06");
-        Literature c = new Paper("bbb", "lme", 3, 8, 5, "ee");
-        Literature d = new Magazine("bbc", "ppp", 3, 2, 6, "gg");
+        Literature a = new Book(0,"aaa", "hhh",  3, 4, 3, "dd", "1999-09-06");
+        Literature b = new Book(1,"aaa", "ill", 3, 5, 2, "ss", "1999-09-06");
+        Literature c = new Paper(2,"bbb", "lme", 3, 8, 5, "ee");
+        Literature d = new Magazine(3,"bbc", "ppp", 3, 2, 6, "gg");
 
         testList.add(a);
         testList.add(b);

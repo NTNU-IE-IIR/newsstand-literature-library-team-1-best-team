@@ -112,11 +112,11 @@ public class LiteratureSaver {
             String serializedType = loadObj.getString("SerializedType");
 
             if (serializedType.equals("Paper")) {
-                Paper p = new Paper(title, publisher, stock, price, yearlyDist, genere);
+                Paper p = new Paper(0, title, publisher, stock, price, yearlyDist, genere);
                 return p;
 
             } else if (serializedType.equals("Magazine")) {
-                Magazine m = new Magazine(title, publisher, stock, price, yearlyDist, genere);
+                Magazine m = new Magazine(0,title, publisher, stock, price, yearlyDist, genere);
                 return m;
             }
         } else if(type.equals("Standalone")) {
@@ -124,8 +124,7 @@ public class LiteratureSaver {
             String author = loadObj.getString("Author");
             String publicationDate = loadObj.getString("PublicationDate");
 
-            Book newBook = new Book(
-                    title, publisher, stock, price, edition, author, publicationDate);
+            Book newBook = new Book(0,title, publisher, stock, price, edition, author, publicationDate);
             return newBook;
         }
 

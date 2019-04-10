@@ -10,7 +10,7 @@ public class Magazine extends SerializedLiterature {
      * @param yearlyDistributions the number of yearly distrebutions
      * @param genre               the genere of the reading serilized litrature
      */
-    public Magazine(String title, String publisher, int numberInStock, float price, int yearlyDistributions, String genre) {
-        super(title, publisher, numberInStock, price, yearlyDistributions, genre);
+    public Magazine(int saveID, String title, String publisher, int numberInStock, float price, int yearlyDistributions, String genre) {
+        super(saveID, "magazine", title, publisher, numberInStock, price, yearlyDistributions, genre);
     }
 }

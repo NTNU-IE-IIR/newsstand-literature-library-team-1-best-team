@@ -16,9 +16,9 @@ public class ObjectActionsTest {
 
     @Test
     public void hasSameGetters() {
-        Literature test1 = new Paper("bbb", "lme", 3, 8, 5, "ee");
-        Literature test2 = new Paper("bbb", "lme", 3, 8, 5, "ee");
-        Literature test3 = new Paper("lll", "lme", 3, 8, 5, "ee");
+        Literature test1 = new Paper(0,"bbb", "lme", 3, 8, 5, "ee");
+        Literature test2 = new Paper(1,"bbb", "lme", 3, 8, 5, "ee");
+        Literature test3 = new Paper(2,"lll", "lme", 3, 8, 5, "ee");
 
         assertTrue(ObjectActions.hasSameGetters(test1, test2));
         assertFalse(ObjectActions.hasSameGetters(test1,test3));

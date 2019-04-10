@@ -7,41 +7,28 @@ import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class BookSeries extends Literature {
+public class BookSeries extends StandaloneLiterature {
 
-    private String seriesAuthor;
-    private java.util.List<String> seriesTitleList;
+    private ArrayList<Integer> seriesBooksIdList;
     private ArrayList<Book> booksInSeries;
 
-    /**
-     * @param title          the title of the Literature
-     * @param publisher      the book publisher
-     * @param numberInStock  number of units in stok
-     * @param price          the price of the book
-     * @param booksInSeries  the litrature in this series
-     */
-    public BookSeries(String title, String publisher, int numberInStock, float price,String seriesAuthor, ArrayList<Book> booksInSeries) {
-        super(title, publisher, "BookSeries", numberInStock, price);
-        this.booksInSeries = booksInSeries;
-        this.seriesAuthor = seriesAuthor;
-        this.seriesTitleList = booksInSeries.stream().map(Book::getFullTitle).collect(Collectors.toList());
-    }
-
-    /**
-     * @param title          the title of the Literature
-     * @param publisher      the book publisher
-     * @param numberInStock  number of units in stok
-     * @param price          the price of the book
-     */
-    public BookSeries(String title, String publisher, int numberInStock, float price,String seriesAuthor, java.util.List<String> seriesTitleList) {
-        super(title, publisher, "BookSeries", numberInStock, price);
-        this.booksInSeries = new ArrayList<Book>();
-        this.seriesAuthor = seriesAuthor;
-        this.seriesTitleList = seriesTitleList;
+    public BookSeries(int saveID, String title, String publisher, int numberInStock, float price, String author, ArrayList<Integer> seriesBooksIdList) {
+        super(saveID, "bookSeries", title, publisher, numberInStock, price, 1, author, " ");
+        this.seriesBooksIdList = seriesBooksIdList;
     }
 
     public String getSeriesAuthor(){
-        return seriesAuthor;
+        return this.getAuthor();
+    }
+
+    @Override
+    public String getSeries() {
+        return this.getTitle();
+    }
+
+    @Override
+    public void setSeries(String series) {
+        this.getTitle();
     }
 
     public ArrayList<Book> getBooksInSeries() {
@@ -53,10 +40,11 @@ public class BookSeries extends Literature {
         return booksInSeries.stream().map(StandaloneLiterature::getPublicationDate).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public void linkSeriesBooks(ArrayList<Book> bookList){
-        bookList.forEach(b -> {
-            if (seriesTitleList.contains(b.getFullTitle())){
-                booksInSeries.add(b);
+    public void linkSeriesBooks(ArrayList<Literature> literatureList){
+        literatureList.forEach(b -> {
+            if (seriesBooksIdList.contains(b.getSaveID())){
+                booksInSeries.add((Book)b);
+                ((Book) b).setSeries(this.getTitle());
             }
         });
     }

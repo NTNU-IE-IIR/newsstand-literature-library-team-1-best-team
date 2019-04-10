@@ -14,8 +14,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * TODO: lag fungsjona for og endre brukernavn passord osv
- * TODO: se om du ska oppdater krypterings nøkkelen ved hver kryptering så man kunn hold en midlertidig nøkkel i minne. alsa man dekryptere krypterings nøkkelen og hold den i minne så man kan krypter å discarde den etterpå
  * A class who is managing the user loggins
  */
 public class UserLoggin {

@@ -1,0 +1,42 @@
+[
+   {
+      "Type": "Standalone",
+      "PublicationDate": "11111111",
+      "Price": 3,
+      "Title": "a",
+      "Author": "s",
+      "Publisher": "e",
+      "Stock": 2,
+      "Edition": 4
+   },
+   {
+      "Type": "Standalone",
+      "PublicationDate": "11111111",
+      "Price": 3,
+      "Title": "ff",
+      "Author": "3",
+      "Publisher": "d",
+      "Stock": 4,
+      "Edition": 2
+   },
+   {
+      "Type": "Serialized",
+      "YearlyDistributions": 44,
+      "Price": 22,
+      "SerializedType": "Magazine",
+      "Title": "dd",
+      "Publisher": "g",
+      "Genre": "dd",
+      "Stock": 33
+   },
+   {
+      "Type": "Serialized",
+      "YearlyDistributions": 44,
+      "Price": 44,
+      "SerializedType": "Paper",
+      "Title": "dd",
+      "Publisher": "2d",
+      "Genre": "s",
+      "Stock": 2
+   }
+]

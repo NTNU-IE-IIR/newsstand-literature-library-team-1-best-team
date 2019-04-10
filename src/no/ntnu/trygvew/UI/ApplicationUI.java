@@ -518,7 +518,7 @@ public class ApplicationUI
                     }
 
                     Literature standalone = new Book(
-                            title, publisher, stock, price, edition,  author, publicationDate);
+                            0, title, publisher, stock, price, edition,  author, publicationDate);
                     this.booRegister.addLiterature(standalone);
                     break;
                 case "bs": // book series
@@ -599,10 +599,10 @@ public class ApplicationUI
                     Literature serialized = null;
                     if (inp_type.equals("m")){
                         serialized = new Magazine(
-                                title, publisher,  stock, price, yearlyDist, genere);
+                                0, title, publisher,  stock, price, yearlyDist, genere);
                     } else if (inp_type.equals("p")){
                         serialized = new Paper(
-                                title, publisher, stock, price, yearlyDist, genere);
+                                0, title, publisher, stock, price, yearlyDist, genere);
                     }
 
                     this.booRegister.addLiterature(serialized);

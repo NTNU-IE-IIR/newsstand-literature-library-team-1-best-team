@@ -1,5 +1,6 @@
 package no.ntnu.trygvew;
 
+import no.ntnu.trygvew.FileIO.LiteratureDatabase;
 import no.ntnu.trygvew.FileIO.LiteratureSaver;
 import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
 import no.ntnu.trygvew.litratureTypes.Literature;
@@ -28,6 +29,9 @@ public class LiteratureStockRegister {
     public LiteratureStockRegister(String savePath) {
         this.saveFilePath = savePath;
 
+        // init the database to chek it the tables exsist
+        LiteratureDatabase.makeTables();
+        // TODO: cleenup the save too file system
         this.literatureInStock = this.loadStock();
     }
 
@@ -39,7 +43,7 @@ public class LiteratureStockRegister {
 
         ArrayList<Literature> returnArray = null;
         try {
-            returnArray = LiteratureSaver.loadLiteratureStock(this.saveFilePath);
+            returnArray = LiteratureDatabase.loadAllLitrature();
         } catch (Exception e) {
             returnArray = new ArrayList<Literature>();
             System.out.println("load error");
@@ -52,74 +56,24 @@ public class LiteratureStockRegister {
 
 
     /**
-     * saves an
-     * @param arrToSave
-     */
-    private void saveStock(ArrayList<Literature> arrToSave){
-        try {
-            File f = new File(this.saveFilePath);
-            if (!f.exists()){
-                f.createNewFile();
-            }
-            LiteratureSaver.saveLiteratureStock(this.literatureInStock, this.saveFilePath);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    /**
      * adds a new Literature to the Literature stock register
      * @param newLiterature the Literature to add to the register
      */
     public void addLiterature(Literature newLiterature){
         this.literatureInStock.add(newLiterature);
-
-        this.saveStock(this.literatureInStock);
+        LiteratureDatabase.SaveLiterature(newLiterature);
     }
 
-    /**
-     * removes books whom contain the sting key
-     * @param fullTitleKey the title to the book to remove
-     */
-    public void removeLiteratureByTitle(String fullTitleKey){
-        ArrayList<Integer> indexToRemove = new ArrayList<>();
-        literatureInStock.forEach(b -> {
-
-            if (b.getTitle().contains(fullTitleKey)){
-                indexToRemove.add(literatureInStock.indexOf(b));
-            }
-        });
-        // reverse the list to avoid wrong indexing
-        Collections.reverse(indexToRemove);
-
-        indexToRemove.forEach(i -> this.literatureInStock.remove(literatureInStock.get(i)));
-
-
-        this.saveStock(this.literatureInStock);
-    }
 
     /**
      * Removes all instanses of the given objet in the register
      * @param literatureToRemove the objet to remove
      */
     public void removeLiterature(Literature literatureToRemove){
-        boolean containBook = this.literatureInStock.contains(literatureToRemove);
-        if (containBook){
-            ArrayList<Integer> indexToRemove= new ArrayList<>();
-            this.literatureInStock.forEach(l -> {
-                if (l.equals(literatureToRemove)){
-                    indexToRemove.add(literatureInStock.indexOf(l));
-                }
-            });
-            Collections.reverse(indexToRemove);
-            indexToRemove.forEach(i -> literatureInStock.remove(i));
+        if (literatureInStock.contains(literatureToRemove)){
+            literatureInStock.remove(literatureToRemove);
+            LiteratureDatabase.removeLiterature(literatureToRemove);
         }
-
-        this.saveStock(this.literatureInStock);
-
     }
 
     /**
@@ -127,7 +81,7 @@ public class LiteratureStockRegister {
      * @return a iterator for all books
      */
     public ArrayList<Literature> getStock(){
-        return this.literatureInStock;
+        return (ArrayList<Literature>) this.literatureInStock.clone();
     }
 
     public void makePurchase(StandaloneLiterature b, User u){

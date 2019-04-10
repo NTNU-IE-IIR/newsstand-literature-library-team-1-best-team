@@ -1,6 +1,8 @@
 package no.ntnu.trygvew.litratureTypes;
 
 public class Book extends StandaloneLiterature {
+
+
     /**
      * Constructs book object with the parameters given
      *
@@ -12,7 +14,9 @@ public class Book extends StandaloneLiterature {
      * @param autor           the autor of the book
      * @param publicationDate the date of this books publishing
      */
-    public Book(String title, String publisher, int numberInStock, float price, int edition, String autor, String publicationDate) {
-        super(title, publisher, numberInStock, price, edition, autor, publicationDate);
+    public Book(int saveID, String title, String publisher, int numberInStock, float price, int edition, String autor, String publicationDate) {
+        super(saveID , "book", title, publisher, numberInStock, price, edition, autor, publicationDate);
     }
+
+
 }

@@ -14,7 +14,8 @@ public class StandaloneLiterature extends Literature {
     private int edition;
     private  String publicationDate;
 
-    private boolean isInSeries;
+    private String series = " ";
+
 
 
     /**
@@ -29,15 +30,14 @@ public class StandaloneLiterature extends Literature {
      * @param edition           teh edition of the book
      * @param publicationDate   the date of this books publishing
      */
-    public StandaloneLiterature(String title, String publisher, int numberInStock, float price, int edition, String author, String publicationDate){
-        super(title, publisher, "Standalone", numberInStock, price);
+    public StandaloneLiterature(int saveID, String type, String title, String publisher, int numberInStock, float price, int edition, String author, String publicationDate){
+        super(saveID, title, publisher, type, numberInStock, price);
 
 
 
         this.author = author;
         this.edition = edition;
         this.publicationDate = publicationDate;
-        this.isInSeries = false;
 
     }
 
@@ -78,21 +78,14 @@ public class StandaloneLiterature extends Literature {
         return this.getTitle() + " " + this.edition + ".ed";
     }
 
-    /**
-     * Set if the book is in a series
-     * @param newState true if the book is in a series false if not
-     */
-    public void setIsInSeries(boolean newState){
-        this.isInSeries = newState;
+    public String getSeries() {
+        return series;
     }
 
-    /**
-     * Retruns true if the book is in a series
-     * @return Retruns true if the book is in a series
-     */
-    public boolean isInSeries(){
-        return isInSeries;
+    public void setSeries(String series) {
+        this.series = series;
     }
+
 
 
 

@@ -1,0 +1,111 @@
+2019-04-09 08:15:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Invalid value "0" for parameter "columnIndex" [90008-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:587)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:280)
+	at org.h2.jdbc.JdbcResultSet.checkColumnIndex(JdbcResultSet.java:3231)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3270)
+	at org.h2.jdbc.JdbcResultSet.getArray(JdbcResultSet.java:1193)
+	at no.ntnu.trygvew.FileIO.LiteratureDatabase.main(Database.java:51)
+2019-04-09 08:15:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-199]
+2019-04-09 08:29:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "FROM REGISTRATION GET *[*] "; expected "(, USE, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+from REGISTRATION GET * [42001-199]
+2019-04-09 08:33:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table REGISTRATION; [90002-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.query(Prepared.java:229)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:145)
+	at org.h2.command.Command.executeQuery(Command.java:202)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:85)
+	at no.ntnu.trygvew.FileIO.LiteratureDatabase.main(Database.java:47)
+2019-04-09 08:34:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+drop table REGISTRATION; [90002-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.query(Prepared.java:229)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:145)
+	at org.h2.command.Command.executeQuery(Command.java:202)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:85)
+	at no.ntnu.trygvew.FileIO.LiteratureDatabase.main(Database.java:48)
+2019-04-09 09:42:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS STANDALONELITERATURE( ID INT AUTO_INCREMENT PRIMARY KEY, LITRATURETYPE VARCHAR(255), TITLE VARCHAR(255), PUBLISHER VARCHAR(255), PRICE FLOAT()[*], STOCK INTEGER, TITLE VARCHAR(255), EDITION INTEGER, PUBLICATIONDATE DATE(), SERIES VARCHAR(255)) "; expected "integer"; SQL statement:
+CREATE TABLE IF NOT EXISTS StandaloneLiterature( id INT auto_increment PRIMARY KEY, litratureType VARCHAR(255), title VARCHAR(255), publisher VARCHAR(255), price FLOAT(), stock INTEGER, title VARCHAR(255), edition INTEGER, publicationDate DATE(), series VARCHAR(255)) [42001-199]
+2019-04-09 09:46:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS STANDALONELITERATURE( ID INT AUTO_INCREMENT PRIMARY KEY, LITRATURETYPE VARCHAR(255), TITLE VARCHAR(255), PUBLISHER VARCHAR(255), PRICE FLOAT()[*], STOCK INTEGER, TITLE VARCHAR(255), EDITION INTEGER, PUBLICATIONDATE DATE(), SERIES VARCHAR(255)) "; expected "integer"; SQL statement:
+CREATE TABLE IF NOT EXISTS StandaloneLiterature( id INT auto_increment PRIMARY KEY, litratureType VARCHAR(255), title VARCHAR(255), publisher VARCHAR(255), price FLOAT(), stock INTEGER, title VARCHAR(255), edition INTEGER, publicationDate DATE(), series VARCHAR(255)) [42001-199]
+2019-04-09 09:48:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS STANDALONELITERATURE( ID INTEGER AUTO_INCREMENT PRIMARY KEY, LITRATURETYPE VARCHAR(255), TITLE VARCHAR(255), PUBLISHER VARCHAR(255), PRICE FLOAT()[*], STOCK INTEGER, TITLE VARCHAR(255), EDITION INTEGER, PUBLICATIONDATE DATE(), SERIES VARCHAR(255)) "; expected "integer"; SQL statement:
+CREATE TABLE IF NOT EXISTS StandaloneLiterature( id INTEGER auto_increment PRIMARY KEY, litratureType VARCHAR(255), title VARCHAR(255), publisher VARCHAR(255), price FLOAT(), stock INTEGER, title VARCHAR(255), edition INTEGER, publicationDate DATE(), series VARCHAR(255)) [42001-199]
+2019-04-09 09:50:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS STANDALONELITERATURE( ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, LITRATURETYPE VARCHAR(255), TITLE VARCHAR(255), PUBLISHER VARCHAR(255), PRICE FLOAT()[*], STOCK INTEGER, TITLE VARCHAR(255), EDITION INTEGER, PUBLICATIONDATE DATE(), SERIES VARCHAR(255)) "; expected "integer"; SQL statement:
+CREATE TABLE IF NOT EXISTS StandaloneLiterature( id INTEGER NOT NULL auto_increment PRIMARY KEY, litratureType VARCHAR(255), title VARCHAR(255), publisher VARCHAR(255), price FLOAT(), stock INTEGER, title VARCHAR(255), edition INTEGER, publicationDate DATE(), series VARCHAR(255)) [42001-199]
+2019-04-09 09:51:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS STANDALONELITERATURE( ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, LITRATURETYPE VARCHAR(255), TITLE VARCHAR(255), PUBLISHER VARCHAR(255), PRICE FLOAT()[*], STOCK INTEGER, TITLE VARCHAR(255), EDITION INTEGER, PUBLICATIONDATE DATE, SERIES VARCHAR(255)) "; expected "integer"; SQL statement:
+CREATE TABLE IF NOT EXISTS StandaloneLiterature( id INTEGER NOT NULL auto_increment PRIMARY KEY, litratureType VARCHAR(255), title VARCHAR(255), publisher VARCHAR(255), price FLOAT(), stock INTEGER, title VARCHAR(255), edition INTEGER, publicationDate DATE, series VARCHAR(255)) [42001-199]
+2019-04-09 09:52:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Duplicate column name "TITLE"; SQL statement:
+CREATE TABLE IF NOT EXISTS StandaloneLiterature( id INTEGER NOT NULL auto_increment PRIMARY KEY, litratureType VARCHAR(255), title VARCHAR(255), publisher VARCHAR(255), price FLOAT, stock INTEGER, title VARCHAR(255), edition INTEGER, publicationDate DATE, series VARCHAR(255)) [42121-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.table.Table.setColumns(Table.java:447)
+	at org.h2.table.TableBase.<init>(TableBase.java:75)
+	at org.h2.table.RegularTable.<init>(RegularTable.java:126)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:113)
+	at org.h2.mvstore.db.MVTableEngine$Store.createTable(MVTableEngine.java:236)
+	at org.h2.mvstore.db.MVTableEngine.createTable(MVTableEngine.java:119)
+	at org.h2.mvstore.db.MVTableEngine.createTable(MVTableEngine.java:42)
+	at org.h2.schema.Schema.createTable(Schema.java:706)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at no.ntnu.trygvew.FileIO.LiteratureDatabase.makeTables(Database.java:106)
+	at no.ntnu.trygvew.FileIO.LiteratureDatabase.main(Database.java:37)
+2019-04-09 09:53:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SERIALIZEDLITTBLSQL" not found; SQL statement:
+INSERT INTO serializedLitTBLSql (litratureType, title, publisher, price, stock, yearlyDistributions, genre) VALUE ('paper', 'VG', 'VG', 20, 50, 365, null) [42102-199]
+2019-04-09 09:54:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO SERIALIZEDLITERATURE (LITRATURETYPE, TITLE, PUBLISHER, PRICE, STOCK, YEARLYDISTRIBUTIONS, GENRE) VALUE[*] ('paper', 'VG', 'VG', 20, 50, 365, NULL) "; expected "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, FROM, TABLE, VALUES"; SQL statement:
+INSERT INTO SerializedLiterature (litratureType, title, publisher, price, stock, yearlyDistributions, genre) VALUE ('paper', 'VG', 'VG', 20, 50, 365, null) [42001-199]
+2019-04-09 10:19:07 database: wrong user or password; user: "ABC"
+org.h2.message.DbException: Wrong user name or password [28000-199]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:126)
+	at org.h2.engine.Engine.openSession(Engine.java:201)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:178)
+	at org.h2.engine.Engine.createSession(Engine.java:161)
+	at org.h2.engine.Engine.createSession(Engine.java:31)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:336)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:169)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:148)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at no.ntnu.trygvew.FileIO.LiteratureDatabase.main(LiteratureDatabase.java:29)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:459)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	... 15 more
+2019-04-10 08:27:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LITERATURE" not found; SQL statement:
+SELECT * FROM Literature [42102-199]
+2019-04-10 08:30:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LITERATURE" not found; SQL statement:
+SELECT * FROM Literature where id = 1; [42102-199]

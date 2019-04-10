@@ -10,7 +10,7 @@ public class Paper extends SerializedLiterature {
      * @param yearlyDistributions the number of yearly distrebutions
      * @param genre               the genere of the reading serilized litrature
      */
-    public Paper(String title, String publisher, int numberInStock, float price, int yearlyDistributions, String genre) {
-        super(title, publisher, numberInStock, price, yearlyDistributions, genre);
+    public Paper(int saveID ,String title, String publisher, int numberInStock, float price, int yearlyDistributions, String genre) {
+        super(saveID, "title",title, publisher, numberInStock, price, yearlyDistributions, genre);
     }
 }

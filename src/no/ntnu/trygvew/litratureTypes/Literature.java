@@ -2,6 +2,7 @@ package no.ntnu.trygvew.litratureTypes;
 
 public class Literature {
 
+    private Integer saveID;
     private String title;
     private String publisher;
     private String literatureType;
@@ -10,14 +11,15 @@ public class Literature {
     private float price;
 
     /**
-     *
-     * @param title the title of the Literature
-     * @param publisher the book publisher
+     * @param saveID         the unique id for this shop item
+     * @param title          the title of the Literature
+     * @param publisher      the book publisher
      * @param literatureType The type of litrature
-     * @param numberInStock number of units in stok
-     * @param price the price of the book
+     * @param numberInStock  number of units in stok
+     * @param price          the price of the book
      */
-    public Literature(String title, String publisher, String literatureType, int numberInStock, float price) {
+    public Literature(int saveID, String title, String publisher, String literatureType, int numberInStock, float price) {
+        this.saveID = saveID;
         this.title = title;
         this.publisher = publisher;
         this.literatureType = literatureType;
@@ -26,7 +28,16 @@ public class Literature {
     }
 
     /**
+     * returns the save id
+     * @return save id
+     */
+    public Integer getSaveID() {
+        return saveID;
+    }
+
+    /**
      * Returns the title from book
+     *
      * @return book title
      */
     public String getTitle() {
@@ -35,6 +46,7 @@ public class Literature {
 
     /**
      * Returns the publisher from book
+     *
      * @return book publisher
      */
     public String getPublisher() {
@@ -47,6 +59,7 @@ public class Literature {
 
     /**
      * Returns the number of books in stock
+     *
      * @return number of books in stock
      */
     public int getNumberInStock() {
@@ -55,6 +68,7 @@ public class Literature {
 
     /**
      * Returns the book price
+     *
      * @return book price
      */
     public float getPrice() {
@@ -63,6 +77,7 @@ public class Literature {
 
     /**
      * Set the new number of this item in the stock
+     *
      * @param numberInStock the new numer of this item in stock
      */
     public void setNumberInStock(int numberInStock) {
