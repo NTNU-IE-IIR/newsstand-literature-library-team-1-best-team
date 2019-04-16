@@ -38,6 +38,11 @@ public class Parser
         String inputLine;   // will hold the full input line
         String word1 = null;
         String word2 = null;
+        String word3 = null;
+        String word4 = null;
+        String word5 = null;
+        String word6 = null;
+        String word7 = null;
 
         System.out.print("> ");     // print prompt
 
@@ -49,17 +54,31 @@ public class Parser
             word1 = tokenizer.next();      // get first word
             if(tokenizer.hasNext()) {
                 word2 = tokenizer.next();      // get second word
-                // note: we just ignore the rest of the input line.
+                if (tokenizer.hasNext()) {
+                    word3 = tokenizer.next();
+                    if (tokenizer.hasNext()) {
+                        word4 = tokenizer.next();
+                        if (tokenizer.hasNext()) {
+                            word5 = tokenizer.next();
+                            if (tokenizer.hasNext()) {
+                                word6 = tokenizer.next();
+                                if (tokenizer.hasNext()) {
+                                    word7 = tokenizer.next();
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
         // Now check whether this word is known. If so, create a command
         // with it. If not, create a "null" command (for unknown command).
         if(commands.isCommand(word1)) {
-            return new Command(word1, word2);
+            return new Command(word1, word2, word3, word4, word5, word6, word7);
         }
         else {
-            return new Command(null, word2);
+            return new Command(null, word2, null, null, null, null, null);
         }
     }
 

@@ -2,6 +2,11 @@ public class Command {
 
     private String commandWord;
     private String secondWord;
+    private String thirdWord;
+    private String fourthWord;
+    private String fifthWord;
+    private String sixthWord;
+    private String seventhWord;
 
     /**
      * Create a command object. First and second word must be supplied, but
@@ -10,10 +15,15 @@ public class Command {
      *                  was not recognised.
      * @param secondWord The second word of the command.
      */
-    public Command(String firstWord, String secondWord)
+    public Command(String firstWord, String secondWord, String thirdWord, String fourthWord, String fifthWord, String sixthWord, String seventhWord)
     {
         commandWord = firstWord;
         this.secondWord = secondWord;
+        this.thirdWord = thirdWord;
+        this.fourthWord = fourthWord;
+        this.fifthWord = fifthWord;
+        this.sixthWord = sixthWord;
+        this.seventhWord = seventhWord;
     }
 
     /**
@@ -35,6 +45,26 @@ public class Command {
         return secondWord;
     }
 
+    public String getThirdWord() {
+        return thirdWord;
+    }
+
+    public String getFourthWord() {
+        return fourthWord;
+    }
+
+    public String getFifthWord() {
+        return fifthWord;
+    }
+
+    public String getSixthWord() {
+        return sixthWord;
+    }
+
+    public String getSeventhWord() {
+        return seventhWord;
+    }
+
     /**
      * @return true if this command was not understood.
      */
@@ -49,5 +79,24 @@ public class Command {
     public boolean hasSecondWord()
     {
         return (secondWord != null);
+    }
+    public boolean hasThirdWord() {
+        return (thirdWord != null);
+    }
+
+    public boolean hasFourthWord() {
+        return (fourthWord != null);
+    }
+
+    public boolean hasFifthWord() {
+        return (fifthWord != null);
+    }
+
+    public boolean hasSixthWord() {
+        return (sixthWord != null);
+    }
+
+    public boolean hasSeventhWord() {
+        return (sixthWord != null);
     }
 }

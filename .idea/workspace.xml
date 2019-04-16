@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="54b6f417-c860-4674-9487-5d9934dc9c5e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/.idea/sonarIssues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/.idea/sonarIssues.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/gruppeoppgave-fase3 -Emil.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/gruppeoppgave-fase3 -Emil.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/CommandWords.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/CommandWords.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Literature.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Literature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Magazine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Newspaper.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Newspaper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/RegisterUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/production/gruppeoppgave-fase3 -Emil/RegisterUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/test/gruppeoppgave-fase3 -Emil/LiteratureTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/test/gruppeoppgave-fase3 -Emil/LiteratureTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/test/gruppeoppgave-fase3 -Emil/RegisterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/test/gruppeoppgave-fase3 -Emil/RegisterTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/out/test/gruppeoppgave-fase3 -Emil/RegisterUITest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/CommandWords.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/CommandWords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Literature.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Literature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Newspaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Newspaper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/RegisterUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/src/RegisterUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/test/LiteratureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/test/LiteratureTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil/test/RegisterTest.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1943" />
+    <option name="height" value="1103" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54b6f417-c860-4674-9487-5d9934dc9c5e" name="Default Changelist" comment="" />
+      <created>1555432198676</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555432198676</updated>
+      <workItem from="1555432203028" duration="60000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="60000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="CheckStyle" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="SonarLint" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="SonarQube" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fef0f5dc-a10a-414d-b0dc-c4ddb0336cdb" name="Default Changelist" comment="">
+    <list default="true" id="80e765fb-f9b0-46f8-a551-03512480b620" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/gruppeoppgave fase4-javafx.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MainWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../newsstand-literature-library-team-1-best-team.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarIssues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarIssues.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gruppeoppgave-fase3 -Emil.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/CommandWords.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/CommandWords.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Literature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Literature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Magazine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Newspaper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Newspaper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/Register.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/RegisterUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gruppeoppgave-fase3 -Emil/RegisterUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/gruppeoppgave-fase3 -Emil/LiteratureTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/gruppeoppgave-fase3 -Emil/LiteratureTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/gruppeoppgave-fase3 -Emil/RegisterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/gruppeoppgave-fase3 -Emil/RegisterTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/gruppeoppgave-fase3 -Emil/RegisterUITest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandWords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandWords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Literature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Literature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Newspaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Newspaper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RegisterUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/LiteratureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/LiteratureTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/RegisterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/RegisterUITest.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,26 +51,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Register.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2823">
-              <caret line="125" column="26" lean-forward="true" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Literature.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="74" column="27" lean-forward="true" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+            <state>
+              <caret column="38" selection-start-column="38" selection-end-column="38" />
               <folding>
-                <element signature="e#1801#1802#0" expanded="true" />
-                <element signature="e#1841#1842#0" expanded="true" />
-                <element signature="e#2015#2016#0" expanded="true" />
-                <element signature="e#2225#2226#0" expanded="true" />
+                <element signature="e#922#923#0" expanded="true" />
+                <element signature="e#950#951#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,20 +68,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RegisterUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+            <state relative-caret-position="92">
+              <caret line="174" column="54" selection-start-line="174" selection-start-column="54" selection-end-line="174" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/RegisterTest.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Register.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="652">
-              <caret line="36" column="82" selection-start-line="36" selection-start-column="82" selection-end-line="36" selection-end-column="82" />
+            <state relative-caret-position="697">
+              <caret line="150" column="4" selection-start-line="150" selection-start-column="4" selection-end-line="150" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5964#5965#0" expanded="true" />
+                <element signature="e#6072#6073#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CommandWords.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="76" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -71,14 +103,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="JUnit4 Test Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>org.junit.</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -86,22 +112,40 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/EmptyLiterature.java" />
-        <option value="$PROJECT_DIR$/test/CommandTest.java" />
-        <option value="$PROJECT_DIR$/test/LiteratureTest.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/ovning.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/question1.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/Questions.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/LiquidDensity.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/coinQuestion.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/TirePressure.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/radiusSphere.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/FluidDensity.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/OilPiston.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/Barge.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/ItemInWaterMass.java" />
+        <option value="$PROJECT_DIR$/src/fysikk/SphereTension.java" />
         <option value="$PROJECT_DIR$/src/Literature.java" />
-        <option value="$PROJECT_DIR$/src/Register.java" />
+        <option value="$PROJECT_DIR$/src/Parser.java" />
+        <option value="$PROJECT_DIR$/src/Book.java" />
+        <option value="$PROJECT_DIR$/src/Magazine.java" />
+        <option value="$PROJECT_DIR$/src/Newspaper.java" />
         <option value="$PROJECT_DIR$/test/RegisterTest.java" />
-        <option value="$PROJECT_DIR$/test/RegisterUITest.java" />
+        <option value="$PROJECT_DIR$/test/LiteratureTest.java" />
+        <option value="$PROJECT_DIR$/src/Command.java" />
+        <option value="$PROJECT_DIR$/src/BookSeries.java" />
+        <option value="$PROJECT_DIR$/src/LiteratureSeries.java" />
+        <option value="$PROJECT_DIR$/src/CommandWords.java" />
         <option value="$PROJECT_DIR$/src/RegisterUI.java" />
+        <option value="$PROJECT_DIR$/src/Register.java" />
+        <option value="$PROJECT_DIR$/src/MainWindow.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2834" />
-    <option name="y" value="175" />
-    <option name="width" value="158" />
-    <option name="height" value="107" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1943" />
+    <option name="height" value="1103" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -109,6 +153,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -131,34 +176,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="true" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="true" />
-    <property name="Repository.Attach.Sources" value="true" />
-    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554281134931" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/test" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555432430795" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -172,7 +198,40 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterTest.getLiteratureByTypeAsString">
+  <component name="RunManager" selected="Application.MainWindow">
+    <configuration name="FluidDensity" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fysikk.FluidDensity" />
+      <module name="gruppeoppgave-fase3 -Emil" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fysikk.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemInWaterMass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fysikk.ItemInWaterMass" />
+      <module name="gruppeoppgave-fase3 -Emil" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fysikk.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainWindow" />
+      <module name="gruppeoppgave-fase3 -Emil" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RegisterUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RegisterUI" />
       <module name="gruppeoppgave-fase3 -Emil" />
@@ -180,51 +239,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SphereTension" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fysikk.SphereTension" />
       <module name="gruppeoppgave-fase3 -Emil" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RegisterTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegisterTest.findLiteratureByTitle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gruppeoppgave-fase3 -Emil" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RegisterTest" />
-      <option name="METHOD_NAME" value="findLiteratureByTitle" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegisterTest.findLiterautreByType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gruppeoppgave-fase3 -Emil" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RegisterTest" />
-      <option name="METHOD_NAME" value="findLiterautreByType" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegisterTest.getLiteratureByTypeAsString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gruppeoppgave-fase3 -Emil" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RegisterTest" />
-      <option name="METHOD_NAME" value="getLiteratureByTypeAsString" />
-      <option name="TEST_OBJECT" value="method" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fysikk.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisterTest.getLiteratureByTypeAsString" />
-        <item itemvalue="JUnit.RegisterTest.findLiterautreByType" />
+        <item itemvalue="Application.MainWindow" />
         <item itemvalue="Application.RegisterUI" />
-        <item itemvalue="JUnit.RegisterTest.findLiteratureByTitle" />
-        <item itemvalue="JUnit.RegisterTest" />
+        <item itemvalue="Application.FluidDensity" />
+        <item itemvalue="Application.SphereTension" />
+        <item itemvalue="Application.ItemInWaterMass" />
       </list>
     </recent_temporary>
   </component>
@@ -233,209 +267,236 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fef0f5dc-a10a-414d-b0dc-c4ddb0336cdb" name="Default Changelist" comment="" />
-      <created>1553694692644</created>
+      <changelist id="80e765fb-f9b0-46f8-a551-03512480b620" name="Default Changelist" comment="" />
+      <created>1554793815222</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1553694692644</updated>
-      <workItem from="1553694695679" duration="39198000" />
+      <updated>1554793815222</updated>
+      <workItem from="1554793817951" duration="10779000" />
+      <workItem from="1554877126392" duration="3491000" />
+      <workItem from="1554883814496" duration="20000" />
+      <workItem from="1555256974251" duration="23863000" />
     </task>
-    <task id="LOCAL-00001" summary="Added list literature by type as a method, NOTE TODO in getliteratureByTypeAsString">
-      <created>1553806327491</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1553806327491</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 37m 24s.xml">
-      <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 40m 34s.xml">
-      <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 40m 59s.xml">
-      <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_findLiteratureByTitle - 2019.04.01 at 12h 51m 25s.xml">
-      <configuration name="RegisterTest.findLiteratureByTitle" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_findLiterautreByType - 2019.04.03 at 10h 21m 45s.xml">
-      <configuration name="RegisterTest.findLiterautreByType" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_findLiterautreByType - 2019.04.03 at 10h 22m 25s.xml">
-      <configuration name="RegisterTest.findLiterautreByType" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_getLiteratureByTypeAsString - 2019.04.03 at 10h 29m 23s.xml">
-      <configuration name="RegisterTest.getLiteratureByTypeAsString" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_getLiteratureByTypeAsString - 2019.04.03 at 10h 29m 46s.xml">
-      <configuration name="RegisterTest.getLiteratureByTypeAsString" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_getLiteratureByTypeAsString - 2019.04.03 at 10h 30m 00s.xml">
-      <configuration name="RegisterTest.getLiteratureByTypeAsString" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RegisterTest_getLiteratureByTypeAsString - 2019.04.03 at 10h 37m 04s.xml">
-      <configuration name="RegisterTest.getLiteratureByTypeAsString" configurationId="JUnit" />
-    </history-entry>
-  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39198000" />
+    <option name="totallyTimeSpent" value="38153000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.116204694" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14251012" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="CheckStyle" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32887402" />
-      <window_info anchor="bottom" id="SonarLint" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" weight="0.32960895" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="SonarQube" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.68561876" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3979933" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32774675" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39664805" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32960895" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CheckStyle" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32998884" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32960895" />
+      <window_info anchor="bottom" id="SonarLint" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="SonarQube" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="0" />
+      <window_info id="Image Layers" order="1" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.24939272" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="0" />
+      <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CheckStyle" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="SonarLint" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="5" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="SonarQube" order="7" />
+      <window_info anchor="bottom" id="Message" order="8" />
+      <window_info anchor="bottom" id="Find" order="9" />
+      <window_info anchor="bottom" id="Run" order="10" />
+      <window_info anchor="bottom" id="Debug" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="14" />
+      <window_info anchor="right" id="Maven" order="0" />
+      <window_info anchor="right" id="Palette" order="1" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added list literature by type as a method, NOTE TODO in getliteratureByTypeAsString" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added list literature by type as a method, NOTE TODO in getliteratureByTypeAsString" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/EmptyLiterature.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="82" selection-start-line="3" selection-start-column="82" selection-end-line="3" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/CommandTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/LiteratureTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-245">
-          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding>
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#489#490#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#924#925#0" expanded="true" />
-            <element signature="e#996#997#0" expanded="true" />
-            <element signature="e#1047#1048#0" expanded="true" />
-            <element signature="e#1129#1130#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fysikk/ovning.java" />
+    <entry file="file://$PROJECT_DIR$/src/fysikk/LiquidDensity.java" />
+    <entry file="file://$PROJECT_DIR$/src/fysikk/Questions.java" />
+    <entry file="file://$PROJECT_DIR$/src/fysikk/coinQuestion.java" />
+    <entry file="file://$PROJECT_DIR$/src/fysikk/TirePressure.java" />
+    <entry file="file://$PROJECT_DIR$/src/fysikk/radiusSphere.java" />
+    <entry file="file://$PROJECT_DIR$/src/fysikk/OilPiston.java" />
+    <entry file="file://$PROJECT_DIR$/src/fysikk/ItemInWaterMass.java" />
+    <entry file="file://$PROJECT_DIR$/src/fysikk/SphereTension.java" />
+    <entry file="file://$PROJECT_DIR$/src/fysikk/Barge.java" />
+    <entry file="file://$PROJECT_DIR$/src/fysikk/FluidDensity.java" />
     <entry file="file://$PROJECT_DIR$/src/Literature.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="74" column="27" lean-forward="true" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
-          <folding>
-            <element signature="e#1801#1802#0" expanded="true" />
-            <element signature="e#1841#1842#0" expanded="true" />
-            <element signature="e#2015#2016#0" expanded="true" />
-            <element signature="e#2225#2226#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2823">
-          <caret line="125" column="26" lean-forward="true" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/RegisterUITest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        <state relative-caret-position="224">
+          <caret line="67" column="4" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="250">
+          <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Magazine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        <state relative-caret-position="296">
+          <caret line="20" column="80" selection-start-line="20" selection-start-column="80" selection-end-line="20" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Newspaper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="35" column="18" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RegisterUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        <state relative-caret-position="322">
+          <caret line="20" column="82" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/RegisterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="36" column="82" selection-start-line="36" selection-start-column="82" selection-end-line="36" selection-end-column="82" />
+        <state relative-caret-position="184">
+          <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/LiteratureTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1788">
+          <caret line="99" column="35" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
+          <folding>
+            <element signature="e#1446#1447#0" expanded="true" />
+            <element signature="e#1478#1479#0" expanded="true" />
+            <element signature="e#1515#1516#0" expanded="true" />
+            <element signature="e#1548#1549#0" expanded="true" />
+            <element signature="e#1584#1585#0" expanded="true" />
+            <element signature="e#1616#1617#0" expanded="true" />
+            <element signature="e#1652#1653#0" expanded="true" />
+            <element signature="e#1684#1685#0" expanded="true" />
+            <element signature="e#1722#1723#0" expanded="true" />
+            <element signature="e#1756#1757#0" expanded="true" />
+            <element signature="e#1239#1240#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+            <element signature="e#2096#2097#0" expanded="true" />
+            <element signature="e#2132#2133#0" expanded="true" />
+            <element signature="e#2180#2181#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2256#2257#0" expanded="true" />
+            <element signature="e#2292#2293#0" expanded="true" />
+            <element signature="e#2339#2340#0" expanded="true" />
+            <element signature="e#2375#2376#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
+            <element signature="e#2460#2461#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="80" column="57" selection-start-line="80" selection-start-column="57" selection-end-line="80" selection-end-column="57" />
+          <folding>
+            <element signature="e#2973#2974#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BookSeries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LiteratureSeries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CommandWords.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="76" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RegisterUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="174" column="54" selection-start-line="174" selection-start-column="54" selection-end-line="174" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="150" column="4" selection-start-line="150" selection-start-column="4" selection-end-line="150" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5964#5965#0" expanded="true" />
+            <element signature="e#6072#6073#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+          <folding>
+            <element signature="e#922#923#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,7 +1,8 @@
 public class CommandWords {
     // a constant array that holds all valid command words
     private static final String[] validCommands = {
-            "help", "exit", "literature", "search", "type"
+            "help", "exit", "literature", "titlesearch", "publishersearch", "type", "publisher", "add",
+            "series"
     };
 
     /**
@@ -31,9 +32,10 @@ public class CommandWords {
      * Return a string of all the valid command-words
      */
     public String getCommandList() {
+        int i = 1;
         String commandWords = "";
         for (String command : validCommands) {
-            commandWords += command + " ";
+            commandWords += i++ + ". " +command + "\n";
         }
         return commandWords;
     }

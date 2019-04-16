@@ -19,7 +19,7 @@ public class Book extends Literature{
      * @param currency gives the chosen currency of our price
      * @param typeOfLiterature gives the
      */
-    public Book(String title, String publisher, String publishedDate, double price, String currency, String typeOfLiterature) {
+    public Book(String title, String publisher, String publishedDate, String price, String currency, String typeOfLiterature) {
         super(title, publisher, publishedDate, price, currency, typeOfLiterature);
 
     }

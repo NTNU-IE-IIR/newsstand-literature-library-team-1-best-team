@@ -12,21 +12,21 @@ public class RegisterTest {
 
     @Test
     public void addLiterature() {
-        Literature literature = new Book("Mord og mysterier", "Egmond", "03.04.18",130, "kr", "book");
+        Literature literature = new Book("Mord og mysterier", "Egmond", "03.04.18","130", "kr", "book");
         boolean result = register.addLiterature(literature);
         Assert.assertEquals(result, true);
     }
 
     @Test
     public void findLiteratureByTitle() {
-        Newspaper n1 = new Newspaper("VG", "Emil Nilsen", "21.03.18", 40, "kr", "Newspaper");
+        Newspaper n1 = new Newspaper("VG", "Emil Nilsen", "21.03.18", "40", "kr", "Newspaper");
         this.register.addLiterature(n1);
         Assert.assertNotEquals(null, this.register.findLiteratureByTitle("VG"));
     }
 
     @Test
     public void findLiterautreByType() {
-        Literature l1 = new Book("Halla", "pdfjdfgpo", "29.10.20", 30, "kr", "Book");
+        Literature l1 = new Book("Halla", "pdfjdfgpo", "29.10.20", "30", "kr", "Book");
         this.register.addLiterature(l1);
         Assert.assertNotEquals(null, this.register.findLiterautreByType("Book"));
     }

@@ -1,6 +1,7 @@
+import java.util.InputMismatchException;
 
 /**
- * This class of my newspaper register with UI!
+ * This class of my literature register with UI!
  *
  * This class handles all the UI text which will
  * be displayed to the user.
@@ -63,12 +64,11 @@ public class RegisterUI {
     private boolean processCommand (Command command) {
         boolean wantToExit = false;
 
+        String commandWord = command.getCommandWord();
         if (command.isUnknown()) {
             System.out.println("I dont know what you mean...");
         }
-
-        String commandWord = command.getCommandWord();
-        if (commandWord.equals("help")) {
+        else if (commandWord.equals("help")) {
             printHelp();
         }
         else if (commandWord.equals("exit")) {
@@ -77,11 +77,23 @@ public class RegisterUI {
         else if (commandWord.equals("literature")) {
             printLiteratureList();
         }
-        else if (commandWord.equals("search")) {
+        else if (commandWord.equals("titlesearch")) {
             printLiteratureByTitle(command);
+        }
+        else if (commandWord.equals("publishersearch")) {
+            printLiteratureByPublisher(command);
         }
         else if (commandWord.equals("type")) {
             printLiteratureByType(command);
+        }
+        else if (commandWord.equals("publisher")) {
+            printLiteratureByPublisherAsList(command);
+        }
+        else if (commandWord.equals("add")) {
+            addNewLiterature(command);
+        }
+        else if (commandWord.equals("series")) {
+            addLiteratureToSeries(command);
         }
         return wantToExit;
     }
@@ -131,17 +143,32 @@ public class RegisterUI {
     public void printLiteratureByTitle(Command command) {
         if (!command.hasSecondWord()) {
             //if there is no second word, we dont know what to search for
-            System.out.println("After 'search' write in the literature you want to search for");
+            System.out.println("After 'search' write in the literature by title that you want to search for");
         }
 
         String searchWord = command.getSecondWord();
         if (literatureRegister.findLiteratureByTitle(searchWord) == null) {
-            System.out.println("The newspaper you searched for is not in our store...");
+            System.out.println("The literature you searched for is not in our store...");
         }
         else {
             Literature literature = literatureRegister.findLiteratureByTitle(searchWord);
-            System.out.println(literature.getTitle() + ", " + literature.getPublisher() + ", " + literature.getPublishedDate() + ", " +
-                               literature.getPrice() + literature.getCurrency() + "\n");
+            System.out.println(literature.getDescriptionOfLiteratureAsString());
+        }
+    }
+
+    public void printLiteratureByPublisher(Command command) {
+        if (!command.hasSecondWord()) {
+            //if there is no second word, we dont know what to search for
+            System.out.println("After 'search' write in the literature by publisher that you want to search for");
+        }
+
+        String searchWord = command.getSecondWord();
+        if (literatureRegister.findLiteratureByPublisher(searchWord) == null) {
+            System.out.println("The literature that you searched for is not in our store...");
+        }
+        else {
+            Literature literature = literatureRegister.findLiteratureByPublisher(searchWord);
+            System.out.println(literature.getDescriptionOfLiteratureAsString());
         }
     }
 
@@ -157,17 +184,63 @@ public class RegisterUI {
         }
         else {
             System.out.println(literatureRegister.getLiteratureByTypeAsString(searchWord));
+            System.out.println("Do you want to make any of these into a series?");
+            System.out.println("give the command 'series + the title of the specified literature'");
             literatureRegister.removeLiteratureFromLiteratureByTypeList();
         }
     }
 
-    public void addNewLiterature() {
+    public void addLiteratureToSeries(Command command) {
+        if (!command.hasSecondWord()) {
+            System.out.println("after 'series' type in the title of the literature that you want to add to a series");
+        }
+
+        String searchWord = command.getSecondWord();
+        if (literatureRegister.findLiteratureByTitle(searchWord) == null) {
+            System.out.println("The type of literature you want to add to a series is not in our store");
+        }
+        else {
+            literatureRegister.addLiteratureToSeries(literatureRegister.findLiteratureByTitle(searchWord));
+            literatureRegister.removeLiterature(literatureRegister.findLiteratureByTitle(searchWord));
+            System.out.println("The literature was added to the series!");
+        }
+    }
+
+    public void printLiteratureByPublisherAsList(Command command) {
+        if (!command.hasSecondWord()) {
+            //if there is no second word, we dont know what to search for
+            System.out.println("After 'publisher' write in the publisher that you want to search for");
+        }
+
+        String searchWord = command.getSecondWord();
+        if (literatureRegister.getLiteratureByPublisherAsString(searchWord) == null) {
+            System.out.println("We dont have anything from that publisher in our store");
+        }
+        else {
+            System.out.println(literatureRegister.getLiteratureByPublisherAsString(searchWord));
+            literatureRegister.removeLiteratureFromLiteratureByPublisherList();
+        }
+    }
+
+    public void addNewLiterature(Command command) {
         try {
-            //HELE BLOKKEN MED KODE
+            String title = command.getSecondWord();
+            String publisher = command.getThirdWord();
+            String publishedDate = command.getFourthWord();
+            String price = command.getFifthWord();
+            String currency = command.getSixthWord();
+            String typeOfLiterature = command.getSeventhWord();
+            if (!command.hasSecondWord() || !command.hasThirdWord() || !command.hasFourthWord() || !command.hasFifthWord() || !command.hasSixthWord() || !command.hasSeventhWord()) {
+                System.out.println("Please write the command on this form: add Javafordummies javaexperts 12.03.17 400 kr book");
+            } else {
+                /*Here the type of literature is made lowercase as this makes searching by type
+                more user friendly*/
+                literatureRegister.addLiteratureToRegister(title, publisher, publishedDate, price, currency, typeOfLiterature.toLowerCase());
+                System.out.println("The literature was added to the register");
+            }
         }
         catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage()); //ikke vise end user
-            System.out.println("Add literature was cancelled");
+            System.out.println("Add literature was cancelled, please restart the register");
         }
     }
 
@@ -180,7 +253,7 @@ public class RegisterUI {
             registerUI.start();
         }
         catch (Exception e) {
-            System.out.println("Something went wrong, please restart the application or visit: 'Dumb-it-service'");
+            System.out.println("Something went wrong, please restart the application or visit: 'Dumb-it-service' to get no help");
         }
 
     }

@@ -5,7 +5,7 @@ public class LiteratureTest {
 
     @Before
     public void setUp() throws  Exception{
-         this.literature = new Book("Mord og mysterier", "Egmond", "03.04.18",130, "kr", "book");
+         this.literature = new Book("Mord og mysterier", "Egmond", "03.04.18","130", "kr", "book");
     }
 
     @Test
@@ -21,17 +21,6 @@ public class LiteratureTest {
     @Test
     public void getPublishedDate() {
         Assert.assertEquals(this.literature.getPublishedDate(), "03.04.18");
-    }
-
-    @Test
-    public void getPrice() {
-        Assert.assertEquals(this.literature.getPrice(), 130, 0);
-    }
-
-    @Test
-    public void setPrice() {
-        this.literature.setPrice(120);
-        Assert.assertEquals(this.literature.getPrice(), 120, 0);
     }
 
     @Test

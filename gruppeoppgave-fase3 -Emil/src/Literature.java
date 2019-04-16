@@ -16,11 +16,11 @@ public abstract class Literature {
     private String title;
     private String publisher;
     private String publishedDate;
-    private double price;
+    private String price;
     private String currency;
     private String typeOfLiterature;
 
-    public Literature(String title, String publisher, String publishedDate, double price, String currency, String typeOfLiterature) {
+    public Literature(String title, String publisher, String publishedDate, String price, String currency, String typeOfLiterature) {
         this.title = title;
         this.publisher = publisher;
         this.publishedDate = publishedDate;
@@ -62,17 +62,8 @@ public abstract class Literature {
      *
      * @return price of our chosen literature
      */
-    public double getPrice() {
+    public String getPrice() {
         return price;
-    }
-
-    /**
-     * sets a desired price of a literature
-     *
-     * @param price the desired price of our literature
-     */
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     /**
