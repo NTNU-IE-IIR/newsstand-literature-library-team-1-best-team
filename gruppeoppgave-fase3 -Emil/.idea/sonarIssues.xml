@@ -3,7 +3,27 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/src/HandlerController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/src/MainWindow.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/src/TextHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/src/master.css">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gruppeoppgave fase4-javafx/src/master.fxml">
           <value>
             <set />
           </value>
