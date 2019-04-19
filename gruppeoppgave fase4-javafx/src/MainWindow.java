@@ -1,10 +1,11 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -14,15 +15,19 @@ import javafx.stage.Stage;
 public class MainWindow extends Application {
 
     private TextHandler textHandler;
+    private TableHandler tableHandler;
+
+    private BorderPane root;
 
     public MainWindow() {
         textHandler = new TextHandler();
+        tableHandler = new TableHandler();
+        root = new BorderPane();
     }
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        BorderPane root = new BorderPane();
         VBox topContainer = new VBox();
         MenuBar mainMenu = createMenues();
         createWelcomeText();
@@ -32,7 +37,7 @@ public class MainWindow extends Application {
         root.setTop(topContainer);
         root.setCenter(createWelcomeText());
 
-        Scene scene = new Scene(root, 500, 450);
+        Scene scene = new Scene(root, 1000, 800);
 
         primaryStage.setTitle("Elton & Schei Kiosk");
         primaryStage.setScene(scene);
@@ -57,6 +62,17 @@ public class MainWindow extends Application {
 
         Menu menuList = new Menu("List");
         MenuItem listAll = new MenuItem("All");
+
+        //When the "all" menu gets pressed, the whole literature list will be displayed
+        listAll.setOnAction(
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        root.setCenter(tableHandler.listAllLiteratureAsTable());
+                    }
+                }
+        );
+
         MenuItem listByType = new MenuItem("By type");
         MenuItem listByPublisher = new MenuItem("By publisher");
         menuList.getItems().addAll(listAll, listByType, listByPublisher);
@@ -86,4 +102,5 @@ public class MainWindow extends Application {
 
         return welcomeText;
     }
+
 }
