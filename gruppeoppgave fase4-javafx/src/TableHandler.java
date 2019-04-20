@@ -1,5 +1,3 @@
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -8,8 +6,6 @@ import javafx.scene.layout.VBox;
 
 
 public class TableHandler extends Handler {
-
-    private ObservableList<Literature> literatures;
 
     public TableHandler() {
         super();
@@ -45,16 +41,13 @@ public class TableHandler extends Handler {
         typeOfLiteratureColumn.setCellValueFactory(new PropertyValueFactory<>("typeOfLiterature"));
 
         tableView = new TableView();
-        tableView.setItems(getLiteraturesListAsObservarbleList());
+        tableView.setItems(getRegister().getLiteraturesListAsObservarbleList());
         tableView.getColumns().addAll(titleColumn, publisherColumn, publishedDateColumn, priceColumn, typeOfLiteratureColumn);
+
+        getRegister().getLiteraturesListAsObservarbleList().setAll(getRegister().getLiteratureList());
 
         vbox.getChildren().add(tableView);
 
         return vbox;
-    }
-
-    private ObservableList<Literature> getLiteraturesListAsObservarbleList() {
-        literatures = FXCollections.observableArrayList(getRegister().getLiteratureList());
-        return literatures;
     }
 }

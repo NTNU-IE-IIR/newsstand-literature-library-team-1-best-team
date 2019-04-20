@@ -16,13 +16,18 @@ public class MainWindow extends Application {
 
     private TextHandler textHandler;
     private TableHandler tableHandler;
+    private FormHandler formHandler;
 
     private BorderPane root;
+
+    private Register register;
 
     public MainWindow() {
         textHandler = new TextHandler();
         tableHandler = new TableHandler();
         root = new BorderPane();
+        formHandler = new FormHandler();
+        register = new Register();
     }
 
 
@@ -62,13 +67,13 @@ public class MainWindow extends Application {
 
         Menu menuList = new Menu("List");
         MenuItem listAll = new MenuItem("All");
-
         //When the "all" menu gets pressed, the whole literature list will be displayed
         listAll.setOnAction(
                 new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
                         root.setCenter(tableHandler.listAllLiteratureAsTable());
+                        register.getLiteraturesListAsObservarbleList();
                     }
                 }
         );
@@ -87,6 +92,16 @@ public class MainWindow extends Application {
         menuConvert.getItems().add(bookToSeries);
 
         Menu menuAdd = new Menu("Add");
+        MenuItem addLiterature = new MenuItem("Add literature");
+        menuAdd.getItems().add(addLiterature);
+        addLiterature.setOnAction(
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        root.setCenter(formHandler.createAddLiteratureForm());
+                    }
+                }
+        );
 
         menuBar.getMenus().addAll(menuFile, menuEdit, menuView, menuList, menuSearch, menuConvert, menuAdd);
 
@@ -102,5 +117,4 @@ public class MainWindow extends Application {
 
         return welcomeText;
     }
-
 }

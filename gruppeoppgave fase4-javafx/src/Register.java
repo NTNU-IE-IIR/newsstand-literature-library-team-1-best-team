@@ -1,3 +1,6 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +23,7 @@ public class Register {
     private ArrayList<Literature> literatureByPublisherList;
     private ArrayList<Literature> litereatureSeriesList;
 
+    private ObservableList<Literature> literatures;
     /**
      * Create a new ArrayList that stores all of our added newspapers in a list
      */
@@ -51,16 +55,20 @@ public class Register {
      * @param publisher of the literature
      * @param publishedDate of the literature
      * @param price of the literature
-     * @param currency of the literature
      * @param typeOfLiterature of the literature
      */
-    public void addLiteratureToRegister(String title, String publisher, String publishedDate, String price, String currency, String typeOfLiterature) {
+    public void addLiteratureToRegister(String title, String publisher, String publishedDate, String price, String typeOfLiterature) {
         addLiterature(new Literature(title, publisher, publishedDate, price, typeOfLiterature) {
         });
     }
 
     public List<Literature> getLiteratureList() {
         return this.literatureList;
+    }
+
+    public ObservableList<Literature> getLiteraturesListAsObservarbleList() {
+        literatures = FXCollections.observableArrayList(getLiteratureList());
+        return literatures;
     }
 
     public String getLiteratureListAsString() {
