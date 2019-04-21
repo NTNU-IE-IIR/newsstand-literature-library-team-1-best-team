@@ -24,16 +24,16 @@ public class SerializedLiterature extends Literature {
     }
 
     /**
-     *
-     * @return
+     * Returns the number of yearly distrebutions
+     * @return the number of yarly distrebutions
      */
     public int getYearlyDistributions() {
         return yearlyDistributions;
     }
 
     /**
-     *
-     * @return
+     * gets the series genre
+     * @return the genre of the series
      */
     public String getGenre() {
         return genre;

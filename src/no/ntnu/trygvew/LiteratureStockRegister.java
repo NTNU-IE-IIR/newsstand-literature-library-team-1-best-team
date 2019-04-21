@@ -2,6 +2,7 @@ package no.ntnu.trygvew;
 
 import no.ntnu.trygvew.FileIO.LiteratureDatabase;
 import no.ntnu.trygvew.FileIO.LiteratureSaver;
+import no.ntnu.trygvew.litratureTypes.Book;
 import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
 import no.ntnu.trygvew.litratureTypes.Literature;
 import no.ntnu.trygvew.messingAround.Transaction;
@@ -86,6 +87,13 @@ public class LiteratureStockRegister {
 
     public void makePurchase(StandaloneLiterature b, User u){
         // TODO: 04.03.19
+    }
+
+    public void setBookSeries(Book selBook, String series){
+        literatureInStock.stream().filter(l -> l instanceof Book).filter(b -> b.getSaveID() == selBook.getSaveID()).forEach(b -> {
+            ((Book) b).setSeries(series);
+            LiteratureDatabase.SaveLiterature(b);
+        });
     }
 
 }

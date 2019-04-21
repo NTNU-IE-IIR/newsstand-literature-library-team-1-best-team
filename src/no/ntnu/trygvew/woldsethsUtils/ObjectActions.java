@@ -1,15 +1,8 @@
 package no.ntnu.trygvew.woldsethsUtils;
 
-import org.json.JSONObject;
-
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.logging.Filter;
 
 public class ObjectActions {
-
-
 
     public static boolean hasSameGetters(Object ob1, Object ob2){
 

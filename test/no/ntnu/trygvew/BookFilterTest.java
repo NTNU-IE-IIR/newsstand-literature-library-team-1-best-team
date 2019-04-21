@@ -17,7 +17,6 @@ import static org.junit.Assert.*;
  * @version 1.0
  */
 
-/*
 public class BookFilterTest {
 
     private ArrayList<Literature> testList = new ArrayList();
@@ -25,10 +24,10 @@ public class BookFilterTest {
 
     @Before
     public void setUp() throws Exception {
-        Literature a = new StandaloneLiterature("aaa", "hhh", "Standalone", 3, 4, 3, "dd", "1999-09-06");
-        Literature b = new StandaloneLiterature("eee", "ill", "Standalone",3, 5, 2, "ss", "1999-09-06");
-        Literature c = new StandaloneLiterature("aaa", "nnn", "Standalone", 3, 4, 3, "dd", "1999-09-06");
-        Literature d = new StandaloneLiterature("lll", "ppp", "Standalone",3, 5, 2, "ss", "1999-09-06");
+        Literature a = new StandaloneLiterature(0,"aaa", "hhh", "Standalone", 3, 4, 3, "dd", "1999-09-06");
+        Literature b = new StandaloneLiterature(0,"eee", "ill", "Standalone",3, 5, 2, "ss", "1999-09-06");
+        Literature c = new StandaloneLiterature(0,"aaa", "nnn", "Standalone", 3, 4, 3, "dd", "1999-09-06");
+        Literature d = new StandaloneLiterature(0,"lll", "ppp", "Standalone",3, 5, 2, "ss", "1999-09-06");
 
 
         testList.add(a);
@@ -41,32 +40,22 @@ public class BookFilterTest {
     public void filterBookByTitle() {
         String filter = "aaa";
 
-        ArrayList<StandaloneLiterature> filtered = BookFilter.filterBookByTitle(filter, this.testList);
+        ArrayList<Literature> filtered = BookFilter.filterLiteratureByTitle(filter, this.testList);
         filtered.forEach(b -> {
             System.out.println(b.getTitle());
             assertTrue(b.getTitle().contains(filter))
         ;});
     }
 
-    @Test
-    public void filterBookByAuthor() {
-        String filter = "r";
 
-        ArrayList<StandaloneLiterature> filtered = BookFilter.filterBookByAuthor(filter, this.testList);
-        filtered.forEach(b -> {
-            System.out.println(b.getAuthor());
-            assertTrue(b.getAuthor().contains(filter));
-        });
-    }
 
     @Test
     public void filterBookyBPublisher() {
         String filter = "hhh";
 
-        ArrayList<StandaloneLiterature> filtered = BookFilter.filterBookByPublisher(filter, this.testList);
+        ArrayList<Literature> filtered = BookFilter.filterLiteratureByPublisher(filter, this.testList);
         filtered.forEach(b -> {
             assertTrue(b.getPublisher().contains(filter));
         });
     }
 }
-*/

@@ -11,12 +11,13 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * hvis æ blir og legg inn den her som æ tenke e lurt siden det blir veldig mye mere ryddig så kan æ bruk
- * linken her til og finnut det æ treng og kunn https://www.tutorialspoint.com/h2_database/h2_database_jdbc_connection.htm
+ * saves and loads the litreature to a database
  */
 public class LiteratureDatabase {
     static final String JDBC_DRIVER = "org.h2.Driver";
     static final String DB_URL = "jdbc:h2:./Data/TestDB";
+
+
 
     static final String USER = "sa";
     static final String PASS = "";
@@ -27,7 +28,7 @@ public class LiteratureDatabase {
     }
 
 
-
+    /*
     public static void main(String[] args)  {
 
         try {
@@ -55,7 +56,7 @@ public class LiteratureDatabase {
                 }
                 System.out.println("");
             }
-            //*/
+
 
 
 
@@ -138,7 +139,14 @@ public class LiteratureDatabase {
         } catch (Exception e) {e.printStackTrace();}
 
     }
+    */
 
+
+    /**
+     * Makes a connection to the database and returns the connection
+     * @return a connection object
+     * @throws Exception
+     */
     static Connection makeDbConnection() throws Exception{
         Class.forName(JDBC_DRIVER);
 
@@ -146,6 +154,10 @@ public class LiteratureDatabase {
         return c;
     }
 
+    /**
+     * Saves a litrature objet to the db
+     * @param saveL the litrature to save to the db
+     */
     public static void SaveLiterature(Literature saveL){
         try {
             // makes connection
@@ -157,12 +169,12 @@ public class LiteratureDatabase {
             Statement st = conn.createStatement();
 
 
-            ResultSet rs = st.executeQuery("SELECT literatureType FROM Literature where id = " + saveL);
+            ResultSet rs = st.executeQuery("SELECT literatureType FROM Literature where id = " + saveL.getSaveID());
             litInDb = rs.next();
 
             if (litInDb){
                 // the item alredy exsists update price and stock sins those are the only one changable
-                String litType = rs.getString("litratureType");
+                String litType = rs.getString("literatureType");
                 String sql = "UPDATE Literature SET" +
                         " price= " + saveL.getPrice() +
                         ",stock= " + saveL.getNumberInStock() +
@@ -201,6 +213,10 @@ public class LiteratureDatabase {
         } catch (Exception e) {e.printStackTrace();}
     }
 
+    /**
+     * Returns all litrature in the database
+     * @return an arraylist with all litrature in the databases
+     */
     public static ArrayList<Literature> loadAllLitrature(){
         ArrayList<Literature> litratureList = new ArrayList<>();
         ArrayList<BookSeries> bookSeriesList = new ArrayList<>();
@@ -211,7 +227,6 @@ public class LiteratureDatabase {
             // tests if the value exsists
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM Literature");
-
             while (rs.next()) {
                 Integer id = rs.getInt("id");
                 String type = rs.getString("literatureType");
@@ -226,6 +241,7 @@ public class LiteratureDatabase {
                     String pubD = rs.getString("publicationDate");
                     String series = rs.getString("series");
                     Literature obj = new Book(id, title, publisher, stock, price, edition, author, pubD);
+                    ((Book) obj).setSeries(series);
                     litratureList.add(obj);
 
                 } else if (type.equals("bookSeries")){
@@ -263,7 +279,10 @@ public class LiteratureDatabase {
         return litratureList;
     }
 
-
+    /**
+     * removes a litrature obj from the database
+     * @param deleatL the objet to remove from the database
+     */
     public static void removeLiterature(Literature deleatL){
         try {
             // makes connection
@@ -307,12 +326,5 @@ public class LiteratureDatabase {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-
-
     }
-
-
 }

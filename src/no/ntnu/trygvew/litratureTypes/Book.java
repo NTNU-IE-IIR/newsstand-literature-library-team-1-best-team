@@ -1,8 +1,10 @@
 package no.ntnu.trygvew.litratureTypes;
 
+
+/**
+ * A object representing a book litrature type
+ */
 public class Book extends StandaloneLiterature {
-
-
     /**
      * Constructs book object with the parameters given
      *

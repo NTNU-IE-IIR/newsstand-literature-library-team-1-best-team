@@ -11,6 +11,6 @@ public class Paper extends SerializedLiterature {
      * @param genre               the genere of the reading serilized litrature
      */
     public Paper(int saveID ,String title, String publisher, int numberInStock, float price, int yearlyDistributions, String genre) {
-        super(saveID, "title",title, publisher, numberInStock, price, yearlyDistributions, genre);
+        super(saveID, "paper",title, publisher, numberInStock, price, yearlyDistributions, genre);
     }
 }

@@ -12,8 +12,18 @@ import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+
+/**
+ * interface to save and lode litrature objets to json
+ */
 public class LiteratureSaver {
 
+    /**
+     * Saves all litrature in stock to a json file at fp
+     * @param stock th lit to save
+     * @param fp the filpath to the savvefile
+     * @throws IOException
+     */
     public static void saveLiteratureStock(ArrayList<Literature> stock, String fp) throws  IOException{
 
 
@@ -73,6 +83,12 @@ public class LiteratureSaver {
 
     }
 
+    /**
+     * Loads all litrature objects saved at fp to a returned arraylist
+     * @param fp the path to the load file
+     * @return an arraylist with the litrature objects
+     * @throws IOException
+     */
     public static ArrayList<Literature> loadLiteratureStock(String fp) throws IOException{
 
         ArrayList<Literature> returnArray = null;
@@ -95,6 +111,11 @@ public class LiteratureSaver {
         return returnArray;
     }
 
+    /**
+     * Decodes the jasonstrings int to litrature objects
+     * @param jsonObjMap the hashmap to decode
+     * @return a litrature obj
+     */
     private static Literature makeLitratureFromJsonStr(HashMap jsonObjMap){
 
         JSONObject loadObj = new JSONObject(jsonObjMap);
@@ -140,6 +161,5 @@ public class LiteratureSaver {
         **/
         return null;
     }
-
 
 }

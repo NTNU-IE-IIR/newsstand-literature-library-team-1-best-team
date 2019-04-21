@@ -1,6 +1,6 @@
 package no.ntnu.trygvew;
 
-import no.ntnu.trygvew.litratureTypes.StandaloneLiterature;
+import no.ntnu.trygvew.litratureTypes.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,55 +16,45 @@ import static org.junit.Assert.*;
  * @version 1.0
  */
 
-/*
+
 public class BookStokRegisterTest {
     private LiteratureStockRegister bsr;
     private String fp;
+    Literature a;
+    Literature b;
+    Literature c;
+    Literature d;
+
+
 
     @Before
     public void setUp() throws Exception {
-        this.fp = "test/registerTest.json";
         bsr = new LiteratureStockRegister(this.fp);
-        StandaloneLiterature a = new StandaloneLiterature("tit", "pub", 3, "aut", "1999-09-06", 2, 12);
-        StandaloneLiterature b = new StandaloneLiterature("tit1", "pub1", 3, "aut1", "1999-09-06", 2, 12);
-        StandaloneLiterature c = new StandaloneLiterature("tit2", "pub2", 3, "aut2", "1999-09-06", 2, 12);
-        bsr.addBook(a);
-        bsr.addBook(b);
-        bsr.addBook(c);
+        a = new Book(0,"aaa", "hhh",  3, 4, 3, "dd", "1999-09-06");
+        b = new Book(1,"aaa", "ill", 3, 5, 2, "ss", "1999-09-06");
+        c = new Paper(2,"bbb", "lme", 3, 8, 5, "ee");
+        d = new Magazine(3,"bbc", "ppp", 3, 2, 6, "gg");
+        bsr.addLiterature(a);
+        bsr.addLiterature(b);
+        bsr.addLiterature(c);
+        bsr.addLiterature(d);
     }
 
-
-    @Test
-    public void addBook() {
-        StandaloneLiterature d = new StandaloneLiterature("tit3", "pub2", 3, "aut2", "1999-09-06", 2, 12);
-        bsr.addBook(d);
-    }
-
-    @Test
-    public void removeBooksByTitle() {
-        bsr.removeBooksByTitle("tit2");
-        bsr.getStock().forEach(book -> {assertFalse(book.getTitle().equals("tit2"));});
-    }
 
     @Test
     public void removeBook() {
-        StandaloneLiterature c = new StandaloneLiterature("tit1", "pub2", 3, "aut2", "1999-09-06", 2, 12);
-        bsr.removeBook(c);
+
+        bsr.removeLiterature(c);
         bsr.getStock().forEach(book -> {
             assertFalse(book.equals(c));});
 
     }
 
-    @Test
-    public void getBookIterator() {
-    }
-
     @After
     public void tearDown() throws Exception {
-        File file = new File(this.fp);
-        if (file.exists()){
-            file.delete();
-        }
+        bsr.removeLiterature(a);
+        bsr.removeLiterature(b);
+        bsr.removeLiterature(c);
+        bsr.removeLiterature(d);
     }
 }
-*/
