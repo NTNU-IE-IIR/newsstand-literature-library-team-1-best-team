@@ -1,0 +1,25 @@
+
+usquid:S2293""YReplace the type specification in this constructor call with the diamond operator ("<>").(Øë°©ÿÿÿÿÿ
+asquid:S1192Ó"IDefine a constant instead of duplicating this literal "magazine" 4 times.(³·õ¦
+osquid:S00117Õ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çñ§ùÿÿÿÿ
+isquid:S00117Î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡É²,
+psquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ëğõš
+Esquid:S2114‰"(Remove or correct this "removeAll" call.(‘–±áüÿÿÿÿ
+jsquid:S00117Ô"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó·
+osquid:S00117Ù"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­‘şÿÿÿÿ
+@squid:S2114°"(Remove or correct this "removeAll" call.(Ÿıâ¬
+osquid:S00117Í"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™—·Ìÿÿÿÿÿ
+gsquid:S1192Í"JDefine a constant instead of duplicating this literal "newspaper" 4 times.(™—·Ìÿÿÿÿÿ
+psquid:S2293!"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÊÜã
+psquid:S2293 "YReplace the type specification in this constructor call with the diamond operator ("<>").(±¬ø
+9squid:S1643·"Use a StringBuilder instead.(Ã…ÕÓøÿÿÿÿ
+_squid:S1192Ó"GDefine a constant instead of duplicating this literal "Egmont" 3 times.(³·õ¦
+osquid:S00117Ö"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ô’Œûÿÿÿÿ
+osquid:S00117Ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãøÃûÿÿÿÿ
+jsquid:S00117Ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³·õ¦
+4squid:S1643’"Use a StringBuilder instead.(›‚İ¤
+isquid:S00117Ğ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÖ¸0
+zsquid:S1488-"^Immediately return this expression instead of assigning it to the temporary variable "result".(–¹åµùÿÿÿÿ
+@squid:S2114™"(Remove or correct this "removeAll" call.(Ãàºˆ
+3squid:S1643Q"Use a StringBuilder instead.(ÙÂ¼Ó
+osquid:S00117Ú"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©ƒŒƒûÿÿÿÿ

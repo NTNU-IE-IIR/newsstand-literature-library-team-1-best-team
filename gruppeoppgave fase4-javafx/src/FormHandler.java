@@ -12,13 +12,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-public class FormHandler extends Handler {
+public class FormHandler  {
 
     public FormHandler() {
-        super();
+
     }
 
-    public GridPane createAddLiteratureForm() {
+    public GridPane createAddLiteratureForm(Register register) {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
@@ -81,20 +81,25 @@ public class FormHandler extends Handler {
                             literaturePublishedDateTextField.getText().isEmpty() ||
                             literaturePriceTextField.getText().isEmpty() ||
                             literatureTypeTextField.getText().isEmpty()) {
+
                             actionTarget.setFill(Color.FIREBRICK);
                             actionTarget.setText("You have to fill all the form's");
                         }
                         //If the form field's are not empty, the literature will be added to the list
                         else {
-                            getRegister().addLiteratureToRegister(
+                            register.addLiteratureToRegister(
                                     literatureTitleTextField.getText(),
                                     literaturePublisherTextField.getText(),
                                     literaturePublishedDateTextField.getText(),
                                     literaturePriceTextField.getText(),
-                                    literatureTypeTextField.getText()
-                                    );
+                                    literatureTypeTextField.getText().toLowerCase()
+                            );
+
                             actionTarget.setFill(Color.GREEN);
                             actionTarget.setText("The literature was added");
+                            //Update the register's observable list
+                            register.updateObservableList();
+                            //Clear the text fields for better re-usability
                         }
                     }
                 }
@@ -102,4 +107,5 @@ public class FormHandler extends Handler {
 
         return grid;
     }
+
 }

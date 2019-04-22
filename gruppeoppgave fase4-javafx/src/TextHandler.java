@@ -2,10 +2,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-public class TextHandler extends Handler {
+public class TextHandler  {
 
     public TextHandler() {
-        super();
+
     }
 
     public Text welcomeText() {

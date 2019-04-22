@@ -23,7 +23,8 @@ public class Register {
     private ArrayList<Literature> literatureByPublisherList;
     private ArrayList<Literature> litereatureSeriesList;
 
-    private ObservableList<Literature> literatures;
+    private ObservableList<Literature> literatureListObservable;
+    private ObservableList<Literature> literatureByTypeListObservable;
     /**
      * Create a new ArrayList that stores all of our added newspapers in a list
      */
@@ -66,9 +67,22 @@ public class Register {
         return this.literatureList;
     }
 
+    public List<Literature> getLiteratureByTypeList() {
+        return this.literatureByTypeList;
+    }
+
     public ObservableList<Literature> getLiteraturesListAsObservarbleList() {
-        literatures = FXCollections.observableArrayList(getLiteratureList());
-        return literatures;
+        literatureListObservable = FXCollections.observableArrayList(getLiteratureList());
+        return literatureListObservable;
+    }
+
+    public ObservableList<Literature> getLiteratureByTypeListAsObservableList() {
+        literatureByTypeListObservable = FXCollections.observableArrayList(getLiteratureByTypeList());
+        return literatureByTypeListObservable;
+    }
+
+    public void updateObservableList() {
+        literatureListObservable.setAll(getLiteratureList());
     }
 
     public String getLiteratureListAsString() {
@@ -183,7 +197,7 @@ public class Register {
     }
 
     public boolean removeLiteratureFromLiteratureByPublisherList() {
-        return literatureByPublisherList.removeAll(literatureByTypeList);
+        return literatureByTypeList.removeAll(literatureByTypeList);
     }
 
     public void addLiteratureToSeries(Literature literature) {

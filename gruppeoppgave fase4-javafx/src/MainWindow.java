@@ -17,17 +17,19 @@ public class MainWindow extends Application {
     private TextHandler textHandler;
     private TableHandler tableHandler;
     private FormHandler formHandler;
+    private ButtonHandler buttonHandler;
 
     private BorderPane root;
 
-    private Register register;
+    private Register displayRegister;
 
     public MainWindow() {
         textHandler = new TextHandler();
         tableHandler = new TableHandler();
         root = new BorderPane();
         formHandler = new FormHandler();
-        register = new Register();
+        buttonHandler = new ButtonHandler();
+        displayRegister = new Register();
     }
 
 
@@ -72,13 +74,19 @@ public class MainWindow extends Application {
                 new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-                        root.setCenter(tableHandler.listAllLiteratureAsTable());
-                        register.getLiteraturesListAsObservarbleList();
+                        root.setCenter(tableHandler.listAllLiteratureAsTable(displayRegister));
                     }
                 }
         );
 
         MenuItem listByType = new MenuItem("By type");
+        listByType.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                root.setCenter(buttonHandler.createListByTypeForm(displayRegister, root));
+            }
+        });
+
         MenuItem listByPublisher = new MenuItem("By publisher");
         menuList.getItems().addAll(listAll, listByType, listByPublisher);
 
@@ -98,7 +106,7 @@ public class MainWindow extends Application {
                 new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-                        root.setCenter(formHandler.createAddLiteratureForm());
+                        root.setCenter(formHandler.createAddLiteratureForm(displayRegister));
                     }
                 }
         );
@@ -117,4 +125,5 @@ public class MainWindow extends Application {
 
         return welcomeText;
     }
+
 }
