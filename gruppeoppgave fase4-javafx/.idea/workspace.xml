@@ -195,7 +195,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555948132798" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555948987424" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -239,7 +239,7 @@
       <updated>1555432261163</updated>
       <workItem from="1555432271159" duration="12583000" />
       <workItem from="1555691952056" duration="57249000" />
-      <workItem from="1555924782462" duration="14549000" />
+      <workItem from="1555924782462" duration="15115000" />
     </task>
     <task id="LOCAL-00001" summary="Some additions">
       <created>1555781398307</created>
@@ -252,7 +252,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84381000" />
+    <option name="totallyTimeSpent" value="84947000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
